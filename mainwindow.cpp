@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,13 +15,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_17_clicked()
+void MainWindow::on_pushButtonClear_clicked()
 {
     ui->orderDisplay->clear();
 }
 
 
-void MainWindow::on_pushButton_11_clicked()
+void MainWindow::on_pushButtonNum1_clicked()
 {
-    ui->orderDisplay->setText("1");
+    std::cout << "Button #1 cliecked" << std::endl;
+    ui->orderDisplay->setText(ui->orderDisplay->text() + "1");
 }
