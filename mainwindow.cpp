@@ -17,3 +17,9 @@ void MainWindow::on_pushButton_17_clicked()
 {
     ui->orderDisplay->clear();
 }
+
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    ui->orderDisplay->setText("1");
+}
