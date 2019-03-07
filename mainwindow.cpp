@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,6 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_pushButtonComida_clicked()
+{
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " comida\n");
 }
 
 void MainWindow::on_pushButtonClear_clicked()

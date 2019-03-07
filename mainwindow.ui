@@ -27,7 +27,7 @@
      <string>ORDERS...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButtonComida">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -40,7 +40,7 @@
      <string>COMIDA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButtonQuesadilla">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -53,7 +53,7 @@
      <string>QUESADILLA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButtonAgua">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -66,7 +66,7 @@
      <string>AGUA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButtonRefresco">
     <property name="geometry">
      <rect>
       <x>380</x>
