@@ -29,6 +29,9 @@ private slots:
     void on_pushButtonNum9_clicked();
 
     void on_pushButtonComida_clicked();
+    void on_pushButtonQuesadilla_clicked();
+    void on_pushButtonAgua_clicked();
+    void on_pushButtonRefresco_clicked();
 
 private:
     Ui::MainWindow *ui;

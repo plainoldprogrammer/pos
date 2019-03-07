@@ -13,11 +13,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButtonComida_clicked()
-{
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " comida\n");
-}
-
 void MainWindow::on_pushButtonClear_clicked()
 {
     ui->orderDisplay->clear();
@@ -71,4 +66,24 @@ void MainWindow::on_pushButtonNum8_clicked()
 void MainWindow::on_pushButtonNum9_clicked()
 {
     ui->orderDisplay->setText(ui->orderDisplay->text() + "9");
+}
+
+void MainWindow::on_pushButtonComida_clicked()
+{
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " COMIDA\n");
+}
+
+void MainWindow::on_pushButtonQuesadilla_clicked()
+{
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " QUESADILLA\n");
+}
+
+void MainWindow::on_pushButtonAgua_clicked()
+{
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA\n");
+}
+
+void MainWindow::on_pushButtonRefresco_clicked()
+{
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " REFRESCO\n");
 }
