@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->orderDisplay->clear();
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 }
 
