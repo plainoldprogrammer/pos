@@ -9,6 +9,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum2->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum3->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum4->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum5->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum6->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum7->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum8->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNum9->setCursor(Qt::PointingHandCursor);
     ui->pushButtonComida->setCursor(Qt::PointingHandCursor);
     ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
     ui->pushButtonAgua->setCursor(Qt::PointingHandCursor);
