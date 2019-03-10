@@ -35,6 +35,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    int calculateAmount(int, QString);
+    QString singleFoodEntry;
+    int selectedQuantity;
+    int totalAmount;
 };
 
 #endif // MAINWINDOW_H
