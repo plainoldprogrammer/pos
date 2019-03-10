@@ -125,17 +125,56 @@ void MainWindow::on_pushButtonComida_clicked()
 
 void MainWindow::on_pushButtonQuesadilla_clicked()
 {
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " QUESADILLA";
     ui->orderDisplay->setText(ui->orderDisplay->text() + " QUESADILLA\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
 }
 
 void MainWindow::on_pushButtonAgua_clicked()
 {
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " AGUA";
     ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "AGUA");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
 }
 
 void MainWindow::on_pushButtonRefresco_clicked()
 {
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " REFRESCO";
     ui->orderDisplay->setText(ui->orderDisplay->text() + " REFRESCO\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "REFRESCO");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
 }
 
 int MainWindow::calculateAmount(int quantity, QString food)
