@@ -1,4 +1,5 @@
 #include <QTimer>
+#include <QCursor>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -8,7 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->pushButtonComida->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonAgua->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
     ui->orderDisplay->clear();
+
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 }
 
