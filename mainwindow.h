@@ -29,6 +29,7 @@ private slots:
     void on_pushButtonNum9_clicked();
 
     void on_pushButtonPechuga_clicked();
+    void on_pushButtonBistec_clicked();
     void on_pushButtonQuesadilla_clicked();
     void on_pushButtonAguaFresca_clicked();
     void on_pushButtonRefresco_clicked();

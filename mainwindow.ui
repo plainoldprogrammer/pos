@@ -364,7 +364,7 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>TOTAL $ 0</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

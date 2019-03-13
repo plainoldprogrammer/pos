@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNum8->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum9->setCursor(Qt::PointingHandCursor);
     ui->pushButtonPechuga->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonBistec->setCursor(Qt::PointingHandCursor);
     ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
     ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
     ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
@@ -139,6 +140,24 @@ void MainWindow::on_pushButtonPechuga_clicked()
     singleFoodEntry = "";
 }
 
+void MainWindow::on_pushButtonBistec_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " BISTEC";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " BISTEC\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "BISTEC");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
 void MainWindow::on_pushButtonQuesadilla_clicked()
 {
     std::cout << std::endl;
@@ -206,6 +225,11 @@ int MainWindow::calculateAmount(int quantity, QString food)
     {
         std::cout << "compare(quesadilla)";
         return quantity *20;
+    }
+    else if ((QString::compare(food, "BISTEC", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(bistec)";
+        return quantity * 45;
     }
     else if ((QString::compare(food, "AGUA_FRESCA", Qt::CaseSensitive)) == 0)
     {
