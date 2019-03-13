@@ -25,11 +25,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNum7->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum8->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum9->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonComida->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonPechuga->setCursor(Qt::PointingHandCursor);
     ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonAgua->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
     ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
 
+    ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
+    ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
+    ui->pushButtonPreviousTicket->setIconSize(QSize(85, 85));
+
+    ui->pushButtonNextTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
+    ui->pushButtonNextTicket->setIcon(QIcon("icons/rightarrow.ico"));
+    ui->pushButtonNextTicket->setIconSize(QSize(80, 80));
+
+    ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
+    ui->pushButtonClear->setIconSize(QSize(145, 145));
 
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
@@ -46,6 +56,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButtonClear_clicked()
 {
     ui->orderDisplay->clear();
+    ui->totalAmountDisplay->clear();
+    ui->totalAmountDisplay->setText("TOTAL $ 0");
+    totalAmount = 0;
 }
 
 void MainWindow::on_pushButtonNum0_clicked()
@@ -108,15 +121,15 @@ void MainWindow::on_pushButtonNum9_clicked()
     ui->orderDisplay->setText(ui->orderDisplay->text() + "9");
 }
 
-void MainWindow::on_pushButtonComida_clicked()
+void MainWindow::on_pushButtonPechuga_clicked()
 {
     std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " COMIDA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " COMIDA\n");
+    singleFoodEntry = singleFoodEntry + " PECHUGA";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " PECHUGA\n");
 
     QStringList pieces = singleFoodEntry.split(" ");
     int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "COMIDA");
+    int singleFoodEntryAmount = calculateAmount(quantity, "PECHUGA");
     std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
 
     totalAmount += singleFoodEntryAmount;
@@ -144,15 +157,15 @@ void MainWindow::on_pushButtonQuesadilla_clicked()
     singleFoodEntry = "";
 }
 
-void MainWindow::on_pushButtonAgua_clicked()
+void MainWindow::on_pushButtonAguaFresca_clicked()
 {
     std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " AGUA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA\n");
+    singleFoodEntry = singleFoodEntry + " AGUA_FRESCA";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA FRESCA\n");
 
     QStringList pieces = singleFoodEntry.split(" ");
     int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "AGUA");
+    int singleFoodEntryAmount = calculateAmount(quantity, "AGUA_FRESCA");
     std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
 
     totalAmount += singleFoodEntryAmount;
@@ -184,17 +197,17 @@ int MainWindow::calculateAmount(int quantity, QString food)
 {
     std::cout << "calculateAmount(" << quantity << ", " << food.toStdString().c_str() << ") " << std::endl;
 
-    if ((QString::compare(food, "COMIDA", Qt::CaseSensitive)) == 0)
+    if ((QString::compare(food, "PECHUGA", Qt::CaseSensitive)) == 0)
     {
-        std::cout << "compare(comida)";
-        return quantity * 45;
+        std::cout << "compare(pechuga)";
+        return quantity * 50;
     }
     else if ((QString::compare(food, "QUESADILLA", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(quesadilla)";
         return quantity *20;
     }
-    else if ((QString::compare(food, "AGUA", Qt::CaseSensitive)) == 0)
+    else if ((QString::compare(food, "AGUA_FRESCA", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(agua)";
         return quantity * 12;
