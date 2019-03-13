@@ -30,8 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonAgua->setCursor(Qt::PointingHandCursor);
     ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
 
+
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
+    ui->totalAmountDisplay->setStyleSheet("QLabel { background-color: white }");
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 }
