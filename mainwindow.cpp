@@ -158,6 +158,186 @@ void MainWindow::on_pushButtonBistec_clicked()
     singleFoodEntry = "";
 }
 
+void MainWindow::on_pushButtonPollo_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " POLLO";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " POLLO\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "POLLO");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonChicharron_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " CHICHARRON";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHICHARRON\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "CHICHARRON");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonMole_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " CHICHARRON";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHICHARRON\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "CHICHARRON");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonMilanesa_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " MILANESA";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " MILANESA\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "MILANESA");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonAlbondigas_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " ALBONDIGAS";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " ALBONDIGAS\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "ALBONDIGAS");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonCarneDeshebrada_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " CARNE_DESHEBRADA";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " CARNE_DESHEBRADA\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "CARNE_DESHEBRADA");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonHuevos_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " HUEVOS";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " HUEVOS\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "HUEVOS");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonChilaquiles_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " CHILAQUILES";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHILAQUILES\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "CHILAQUILES");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonSincronizada_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " SINCRONIZADA";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " SINCRONIZADA\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "SINCRONIZADA");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
+void MainWindow::on_pushButtonBurritos_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " BURRITOS";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " BURRITOS\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "BURRITOS");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+}
+
 void MainWindow::on_pushButtonQuesadilla_clicked()
 {
     std::cout << std::endl;
@@ -221,15 +401,65 @@ int MainWindow::calculateAmount(int quantity, QString food)
         std::cout << "compare(pechuga)";
         return quantity * 50;
     }
-    else if ((QString::compare(food, "QUESADILLA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(quesadilla)";
-        return quantity *20;
-    }
     else if ((QString::compare(food, "BISTEC", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(bistec)";
         return quantity * 45;
+    }
+    else if ((QString::compare(food, "POLLO", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(pollo)";
+        return quantity * 45;
+    }
+    else if((QString::compare(food, "CHICHARRON", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(chicharron)";
+        return quantity * 45;
+    }
+    else if ((QString::compare(food, "MOLE", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(mole)";
+        return quantity * 45;
+    }
+    else if ((QString::compare(food, "MILANESA", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(milanesa)";
+        return quantity * 45;
+    }
+    else if ((QString::compare(food, "ALBONDIGAS", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(albondigas)";
+        return quantity * 45;
+    }
+    else if ((QString::compare(food, "CARNE_DESHEBRADA", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(carne_deshebrada)";
+        return quantity * 45;
+    }
+    else if ((QString::compare(food, "HUEVOS", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(huevos)";
+        return quantity * 35;
+    }
+    else if ((QString::compare(food, "CHILAQUILES", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(chilaquiles)";
+        return quantity * 35;
+    }
+    else if ((QString::compare(food, "SINCRONIZADA", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(sincronizada)";
+        return quantity * 35;
+    }
+    else if ((QString::compare(food, "BURRITOS", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(burritos)";
+        return quantity * 35;
+    }
+    else if ((QString::compare(food, "QUESADILLA", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(quesadilla)";
+        return quantity *20;
     }
     else if ((QString::compare(food, "AGUA_FRESCA", Qt::CaseSensitive)) == 0)
     {

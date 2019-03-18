@@ -30,6 +30,16 @@ private slots:
 
     void on_pushButtonPechuga_clicked();
     void on_pushButtonBistec_clicked();
+    void on_pushButtonPollo_clicked();
+    void on_pushButtonChicharron_clicked();
+    void on_pushButtonMole_clicked();
+    void on_pushButtonMilanesa_clicked();
+    void on_pushButtonAlbondigas_clicked();
+    void on_pushButtonCarneDeshebrada_clicked();
+    void on_pushButtonHuevos_clicked();
+    void on_pushButtonChilaquiles_clicked();
+    void on_pushButtonSincronizada_clicked();
+    void on_pushButtonBurritos_clicked();
     void on_pushButtonQuesadilla_clicked();
     void on_pushButtonAguaFresca_clicked();
     void on_pushButtonRefresco_clicked();
