@@ -40,9 +40,17 @@ private slots:
     void on_pushButtonChilaquiles_clicked();
     void on_pushButtonSincronizada_clicked();
     void on_pushButtonBurritos_clicked();
-    void on_pushButtonQuesadilla_clicked();
-    void on_pushButtonAguaFresca_clicked();
+    void on_pushButtonQuesadillaCombinada_clicked();
+    void on_pushButtonQuesadillaChica_clicked();
     void on_pushButtonRefresco_clicked();
+    void on_pushButtonJugo_clicked();
+    void on_pushButtonQuesadilla_clicked();
+    void on_pushButtonTacoChico_clicked();
+    void on_pushButtonAguaFresca_clicked();
+    void on_pushButtonLicuado_clicked();
+    void on_pushButtonAguaDeBotella_clicked();
+    void on_pushButtonCafe_clicked();
+    void on_pushButtonTe_clicked();
 
 private:
     Ui::MainWindow *ui;
