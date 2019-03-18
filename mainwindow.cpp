@@ -31,6 +31,30 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
     ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
 
+    ui->pushButtonPechuga->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonBistec->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonPollo->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonChicharron->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonMole->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonMilanesa->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonAlbondigas->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonCarneDeshebrada->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonHuevos->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonChilaquiles->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonSincronizada->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonBurritos->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonQuesadillaCombinada->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonQuesadillaChica->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonRefresco->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonJugo->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonQuesadilla->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonTacoChico->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonAguaFresca->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonLicuado->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonAguaDeBotella->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonCafe->setStyleSheet("QPushButton { background-color: #0099ff } ");
+    ui->pushButtonTe->setStyleSheet("QPushButton { background-color: #0099ff } ");
+
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
     ui->pushButtonPreviousTicket->setIconSize(QSize(85, 85));
