@@ -104,6 +104,9 @@ BOTELLA</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1280</x>
@@ -324,6 +327,9 @@ BOTELLA</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_16">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1730</x>
@@ -333,7 +339,7 @@ BOTELLA</string>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonClear">

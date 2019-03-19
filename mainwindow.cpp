@@ -16,6 +16,10 @@ MainWindow::MainWindow(QWidget *parent) :
     singleFoodEntry = "";
 
     ui->setupUi(this);
+
+    /*
+     * Setup hand cursor fot the ui buttons
+     */
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
@@ -29,9 +33,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNum9->setCursor(Qt::PointingHandCursor);
     ui->pushButtonPechuga->setCursor(Qt::PointingHandCursor);
     ui->pushButtonBistec->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonPollo->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonChicharron->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMole->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMilanesa->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonAlbondigas->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonCarneDeshebrada->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonHuevos->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonChilaquiles->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonSincronizada->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonBurritos->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonQuesadillaCombinada->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonQuesadillaChica->setCursor(Qt::PointingHandCursor);
     ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonJugo->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonTacoChico->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonLicuado->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonAguaDeBotella->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonCafe->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonTe->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonPreviousTicket->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonNextTicket->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonDeleteCurrentTicket->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonCreateNewTicket->setCursor(Qt::PointingHandCursor);
+
 
     ui->pushButtonPechuga->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonBistec->setStyleSheet("QPushButton { background-color: #99d6ff } ");
