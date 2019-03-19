@@ -425,7 +425,7 @@ void MainWindow::on_pushButtonQuesadillaChica_clicked()
 
     QStringList pieces = singleFoodEntry.split(" ");
     int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA_CHICHA");
+    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA_CHICA");
     std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
 
     totalAmount += singleFoodEntryAmount;
@@ -670,7 +670,7 @@ int MainWindow::calculateAmount(int quantity, QString food)
     else if ((QString::compare(food, "QUESADILLA_CHICA", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(quesadilla_chica)";
-        return quantity * 22;
+        return quantity * 11;
     }
     else if ((QString::compare(food, "QUESADILLA", Qt::CaseSensitive)) == 0)
     {
