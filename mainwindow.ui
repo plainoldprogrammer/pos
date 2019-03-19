@@ -370,7 +370,7 @@ BOTELLA</string>
       <x>20</x>
       <y>740</y>
       <width>461</width>
-      <height>181</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -852,6 +852,27 @@ CHICO</string>
       <y>22</y>
       <width>461</width>
       <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ticketFooter">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>872</y>
+      <width>461</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">

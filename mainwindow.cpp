@@ -108,14 +108,18 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     QString restaurantName = "Demo Restaurant";
     QString restaurantAddress = "Principal #000 Col. Centro Morelia, Morelia C.P. 58000";
-    QString titleSeparator = "=============================================";
+    QString ticketSectionSeparator = "=============================================";
     ui->ticketHeader->setStyleSheet("QLabel {background-color: white; color: blue} ");
     ui->ticketHeader->clear();
-    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + titleSeparator);
+    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + ticketSectionSeparator);
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->setStyleSheet("QLabel { background-color: white }");
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+    ui->ticketFooter->setStyleSheet("QLabel { background-color: white; color: blue } ");
+    QString footer = "Thank you!";
+    ui->ticketFooter->setText(ticketSectionSeparator + "\n" + footer);
+
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 }
 

@@ -6,6 +6,7 @@ class ticket
 {
 public:
     ticket();
+private:
 };
 
 #endif // TICKET_H
