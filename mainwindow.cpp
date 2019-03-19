@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     /*
-     * Setup hand cursor fot the ui buttons
+     * Setup hand cursor for the ui buttons
      */
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
@@ -59,7 +59,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonDeleteCurrentTicket->setCursor(Qt::PointingHandCursor);
     ui->pushButtonCreateNewTicket->setCursor(Qt::PointingHandCursor);
 
-
+    /*
+     * Setup  the push buttons style
+     */
     ui->pushButtonPechuga->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonBistec->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonPollo->setStyleSheet("QPushButton { background-color: #99d6ff } ");

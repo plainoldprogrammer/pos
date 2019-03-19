@@ -849,9 +849,9 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>22</y>
+      <y>12</y>
       <width>461</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="font">
