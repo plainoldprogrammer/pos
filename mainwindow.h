@@ -54,10 +54,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    int calculateAmount(int, QString);
     QString singleFoodEntry;
     int selectedQuantity;
     int totalAmount;
+    int calculateAmount(int, QString);
+    void keyPressEvent(QKeyEvent *);
 };
 
 #endif // MAINWINDOW_H

@@ -1,5 +1,6 @@
 #include <QTimer>
 #include <QCursor>
+#include <QKeyEvent>
 
 #include <iostream>
 
@@ -682,4 +683,48 @@ int MainWindow::calculateAmount(int quantity, QString food)
     }
     else
         return -1;
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_0)
+    {
+        on_pushButtonNum0_clicked();
+    }
+    if (event->key() == Qt::Key_1)
+    {
+        on_pushButtonNum1_clicked();
+    }
+    else if (event->key() == Qt::Key_2)
+    {
+        on_pushButtonNum2_clicked();
+    }
+    else if (event->key() == Qt::Key_3)
+    {
+        on_pushButtonNum3_clicked();
+    }
+    else if (event->key() == Qt::Key_4)
+    {
+        on_pushButtonNum4_clicked();
+    }
+    else if (event->key() == Qt::Key_5)
+    {
+        on_pushButtonNum5_clicked();
+    }
+    else if (event->key() == Qt::Key_6)
+    {
+        on_pushButtonNum6_clicked();
+    }
+    else if (event->key() == Qt::Key_7)
+    {
+        on_pushButtonNum7_clicked();
+    }
+    else if (event->key() == Qt::Key_8)
+    {
+        on_pushButtonNum8_clicked();
+    }
+    else if (event->key() == Qt::Key_9)
+    {
+        on_pushButtonNum9_clicked();
+    }
 }
