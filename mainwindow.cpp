@@ -2,11 +2,13 @@
 #include <QCursor>
 #include <QKeyEvent>
 #include <QDebug>
+#include <QList>
 
 #include <iostream>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "Ticket.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -123,6 +125,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ticketFooter->setText(ticketSectionSeparator + "\n" + footer);
 
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
+
+    currentTicketIndex = 0;
 }
 
 MainWindow::~MainWindow()
@@ -783,6 +787,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 void MainWindow::on_pushButtonPreviousTicket_clicked()
 {
     qDebug() << "pushButtonPreviousTicket clicked";
+    currentTicketIndex--;
+    Ticket *ticket = tickets.at(currentTicketIndex);
+    ui->orderDisplay->setText(ticket->getBody());
+    ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
 }
 
 void MainWindow::on_pushButtonNextTicket_clicked()
@@ -797,5 +805,16 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
 {
-    qDebug("pushButtonCreateNewTicket clicket") ;
+    qDebug() << "pushButtonCreateNewTicket clicket" ;
+    Ticket *ticket = new Ticket();
+    ticket->setHeader(ui->ticketHeader->text());
+    ticket->setBody(ui->orderDisplay->text());
+    ticket->setTicketTotalAmount(totalAmount);
+    ticket->setFooter(ui->ticketFooter->text());
+
+    tickets.append(ticket);
+    qDebug() << "Total number of tickets: " << QString::number(tickets.size());
+    currentTicketIndex++;
+    ui->orderDisplay->clear();
+    ui->totalAmountDisplay->clear();
 }

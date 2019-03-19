@@ -7,11 +7,6 @@ class Ticket
 {
 public:
     Ticket();
-private:
-    QString header;
-    QString body;
-    QString footer;
-    int ticketTotalAmount;
 
     void setHeader(QString);
     void setBody(QString);
@@ -21,6 +16,11 @@ private:
     QString getBody();
     QString getFooter();
     int getTicketTotalAmount();
+private:
+    QString header;
+    QString body;
+    QString footer;
+    int ticketTotalAmount;
 };
 
 #endif // TICKET_H

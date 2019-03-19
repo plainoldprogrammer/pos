@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QList>
+
+#include "Ticket.h"
 
 namespace Ui {
 class MainWindow;
@@ -73,6 +76,8 @@ private:
     QString singleFoodEntry;
     int selectedQuantity;
     int totalAmount;
+    int currentTicketIndex;
+    QList<Ticket *> tickets;
     int calculateAmount(int, QString);
     void keyPressEvent(QKeyEvent *);
 };
