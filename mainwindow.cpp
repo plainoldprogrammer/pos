@@ -103,6 +103,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
 
+    /*
+     * Setup the ticket ui
+     */
+    QString restaurantName = "Demo Restaurant";
+    QString restaurantAddress = "Principal #000 Col. Centro Morelia, Morelia C.P. 58000";
+    QString titleSeparator = "=============================================";
+    ui->ticketHeader->setStyleSheet("QLabel {background-color: white; color: blue} ");
+    ui->ticketHeader->clear();
+    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + titleSeparator);
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->setStyleSheet("QLabel { background-color: white }");
