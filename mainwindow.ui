@@ -373,7 +373,7 @@ BOTELLA</string>
    <widget class="QPushButton" name="pushButtonPreviousTicket">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>130</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -386,7 +386,7 @@ BOTELLA</string>
    <widget class="QPushButton" name="pushButtonNextTicket">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>220</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -799,6 +799,32 @@ CHICO</string>
     </property>
     <property name="text">
      <string>BURRITOS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonNewTicket">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>930</y>
+      <width>85</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonDeleteTicket">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>930</y>
+      <width>85</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

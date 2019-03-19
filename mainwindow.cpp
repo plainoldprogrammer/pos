@@ -64,6 +64,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNextTicket->setIcon(QIcon("icons/rightarrow.ico"));
     ui->pushButtonNextTicket->setIconSize(QSize(80, 80));
 
+    ui->pushButtonDeleteTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
+    ui->pushButtonDeleteTicket->setIcon(QIcon("icons/delete.png"));
+    ui->pushButtonDeleteTicket->setIconSize(QSize(80, 80));
+
+    ui->pushButtonNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
+    ui->pushButtonNewTicket->setIcon(QIcon("icons/new-ticket.png"));
+    ui->pushButtonNewTicket->setIconSize(QSize(80, 80));
+
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
 
