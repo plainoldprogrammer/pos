@@ -3,10 +3,10 @@
 
 #include <QString>
 
-class ticket
+class Ticket
 {
 public:
-    ticket();
+    Ticket();
 private:
     QString header;
     QString body;
