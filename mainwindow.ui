@@ -801,7 +801,7 @@ CHICO</string>
      <string>BURRITOS</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonNewTicket">
+   <widget class="QPushButton" name="pushButtonCreateNewTicket">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -814,7 +814,7 @@ CHICO</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonDeleteTicket">
+   <widget class="QPushButton" name="pushButtonDeleteCurrentTicket">
     <property name="geometry">
      <rect>
       <x>310</x>

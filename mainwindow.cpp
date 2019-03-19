@@ -1,6 +1,7 @@
 #include <QTimer>
 #include <QCursor>
 #include <QKeyEvent>
+#include <QDebug>
 
 #include <iostream>
 
@@ -64,13 +65,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNextTicket->setIcon(QIcon("icons/rightarrow.ico"));
     ui->pushButtonNextTicket->setIconSize(QSize(80, 80));
 
-    ui->pushButtonDeleteTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
-    ui->pushButtonDeleteTicket->setIcon(QIcon("icons/delete.png"));
-    ui->pushButtonDeleteTicket->setIconSize(QSize(80, 80));
+    ui->pushButtonDeleteCurrentTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
+    ui->pushButtonDeleteCurrentTicket->setIcon(QIcon("icons/delete.png"));
+    ui->pushButtonDeleteCurrentTicket->setIconSize(QSize(80, 80));
 
-    ui->pushButtonNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
-    ui->pushButtonNewTicket->setIcon(QIcon("icons/new-ticket.png"));
-    ui->pushButtonNewTicket->setIconSize(QSize(80, 80));
+    ui->pushButtonCreateNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
+    ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
+    ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
 
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
@@ -735,4 +736,24 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     {
         on_pushButtonNum9_clicked();
     }
+}
+
+void MainWindow::on_pushButtonPreviousTicket_clicked()
+{
+    qDebug() << "pushButtonPreviousTicket clicked";
+}
+
+void MainWindow::on_pushButtonNextTicket_clicked()
+{
+    qDebug() << "pushButtonNextTicket clicked";
+}
+
+void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
+{
+    qDebug() << "pushButtonDeleteCurrentTicket clicked";
+}
+
+void MainWindow::on_pushButtonCreateNewTicket_clicked()
+{
+    qDebug("pushButtonCreateNewTicket clicket") ;
 }

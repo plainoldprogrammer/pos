@@ -16,6 +16,9 @@ public:
     ~MainWindow();
 
 private slots:
+    /*
+     * Numeric pad slots
+     */
     void on_pushButtonClear_clicked();
     void on_pushButtonNum0_clicked();
     void on_pushButtonNum1_clicked();
@@ -28,6 +31,10 @@ private slots:
     void on_pushButtonNum8_clicked();
     void on_pushButtonNum9_clicked();
 
+
+    /*
+     * Food menu item slots
+     */
     void on_pushButtonPechuga_clicked();
     void on_pushButtonBistec_clicked();
     void on_pushButtonPollo_clicked();
@@ -51,6 +58,15 @@ private slots:
     void on_pushButtonAguaDeBotella_clicked();
     void on_pushButtonCafe_clicked();
     void on_pushButtonTe_clicked();
+
+    /*
+     * Ticket options slots
+     */
+     void on_pushButtonPreviousTicket_clicked();
+     void on_pushButtonNextTicket_clicked();
+     void on_pushButtonDeleteCurrentTicket_clicked();
+     void on_pushButtonCreateNewTicket_clicked();
+
 
 private:
     Ui::MainWindow *ui;
