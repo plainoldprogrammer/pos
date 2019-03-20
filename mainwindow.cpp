@@ -787,10 +787,19 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 void MainWindow::on_pushButtonPreviousTicket_clicked()
 {
     qDebug() << "pushButtonPreviousTicket clicked";
-    currentTicketIndex--;
-    Ticket *ticket = tickets.at(currentTicketIndex);
-    ui->orderDisplay->setText(ticket->getBody());
-    ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+
+    if (currentTicketIndex > 0)
+    {
+        currentTicketIndex--;
+        Ticket *ticket = tickets.at(currentTicketIndex);
+        ui->orderDisplay->setText(ticket->getBody());
+        ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+
+        if (currentTicketIndex == 0)
+        {
+        ui->pushButtonPreviousTicket->setEnabled(false);
+        }
+    }
 }
 
 void MainWindow::on_pushButtonNextTicket_clicked()
