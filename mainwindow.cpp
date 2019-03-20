@@ -797,14 +797,36 @@ void MainWindow::on_pushButtonPreviousTicket_clicked()
 
         if (currentTicketIndex == 0)
         {
-        ui->pushButtonPreviousTicket->setEnabled(false);
+           ui->pushButtonPreviousTicket->setEnabled(false);
         }
     }
 }
 
 void MainWindow::on_pushButtonNextTicket_clicked()
 {
+    qDebug() << "\n";
     qDebug() << "pushButtonNextTicket clicked";
+    qDebug() << "tickets.size(): " << QString::number(tickets.size());
+    qDebug() << "currentTicketIndex: " << QString::number(currentTicketIndex);
+
+    currentTicketIndex++;
+
+    if (currentTicketIndex < tickets.size())
+    {
+        Ticket *ticket = tickets.at(currentTicketIndex);
+        ui->orderDisplay->setText(ticket->getBody());
+        ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+
+        if (currentTicketIndex == tickets.size())
+        {
+            ui->pushButtonNextTicket->setEnabled(false);
+        }
+    }
+
+    if (currentTicketIndex > 0)
+    {
+        ui->pushButtonPreviousTicket->setEnabled(true);
+    }
 }
 
 void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
@@ -826,4 +848,5 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     currentTicketIndex++;
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->clear();
+    totalAmount = 0;
 }
