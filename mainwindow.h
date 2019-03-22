@@ -70,7 +70,6 @@ private slots:
      void on_pushButtonDeleteCurrentTicket_clicked();
      void on_pushButtonCreateNewTicket_clicked();
 
-
 private:
     Ui::MainWindow *ui;
     QString singleFoodEntry;
@@ -78,7 +77,9 @@ private:
     int totalAmount;
     int currentTicketIndex;
     QList<Ticket *> tickets;
+    Ticket *ticket;
     int calculateAmount(int, QString);
+    void writeOnTicket(Ticket *);
     void keyPressEvent(QKeyEvent *);
 };
 

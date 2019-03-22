@@ -126,7 +126,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 
+
+    /*
+     * Create a new ticket when the program starts
+     */
     currentTicketIndex = 0;
+    ticket = new Ticket();
 }
 
 MainWindow::~MainWindow()
@@ -218,6 +223,7 @@ void MainWindow::on_pushButtonPechuga_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonBistec_clicked()
@@ -236,6 +242,8 @@ void MainWindow::on_pushButtonBistec_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
+
 }
 
 void MainWindow::on_pushButtonPollo_clicked()
@@ -254,6 +262,7 @@ void MainWindow::on_pushButtonPollo_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonChicharron_clicked()
@@ -272,6 +281,7 @@ void MainWindow::on_pushButtonChicharron_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonMole_clicked()
@@ -290,6 +300,7 @@ void MainWindow::on_pushButtonMole_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonMilanesa_clicked()
@@ -308,6 +319,7 @@ void MainWindow::on_pushButtonMilanesa_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonAlbondigas_clicked()
@@ -326,6 +338,7 @@ void MainWindow::on_pushButtonAlbondigas_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonCarneDeshebrada_clicked()
@@ -344,6 +357,7 @@ void MainWindow::on_pushButtonCarneDeshebrada_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonHuevos_clicked()
@@ -362,6 +376,7 @@ void MainWindow::on_pushButtonHuevos_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonChilaquiles_clicked()
@@ -380,6 +395,7 @@ void MainWindow::on_pushButtonChilaquiles_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonSincronizada_clicked()
@@ -398,6 +414,7 @@ void MainWindow::on_pushButtonSincronizada_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonBurritos_clicked()
@@ -416,6 +433,7 @@ void MainWindow::on_pushButtonBurritos_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonQuesadillaCombinada_clicked()
@@ -434,6 +452,7 @@ void MainWindow::on_pushButtonQuesadillaCombinada_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonQuesadillaChica_clicked()
@@ -452,6 +471,7 @@ void MainWindow::on_pushButtonQuesadillaChica_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonRefresco_clicked()
@@ -470,6 +490,7 @@ void MainWindow::on_pushButtonRefresco_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 
@@ -489,6 +510,7 @@ void MainWindow::on_pushButtonJugo_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonQuesadilla_clicked()
@@ -507,6 +529,7 @@ void MainWindow::on_pushButtonQuesadilla_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonTacoChico_clicked()
@@ -525,6 +548,7 @@ void MainWindow::on_pushButtonTacoChico_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonAguaFresca_clicked()
@@ -543,6 +567,7 @@ void MainWindow::on_pushButtonAguaFresca_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonLicuado_clicked()
@@ -561,6 +586,7 @@ void MainWindow::on_pushButtonLicuado_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonAguaDeBotella_clicked()
@@ -579,6 +605,7 @@ void MainWindow::on_pushButtonAguaDeBotella_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonCafe_clicked()
@@ -597,6 +624,7 @@ void MainWindow::on_pushButtonCafe_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 void MainWindow::on_pushButtonTe_clicked()
@@ -615,6 +643,7 @@ void MainWindow::on_pushButtonTe_clicked()
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
+    writeOnTicket(ticket);
 }
 
 int MainWindow::calculateAmount(int quantity, QString food)
@@ -836,7 +865,7 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
 {
-    qDebug() << "pushButtonCreateNewTicket clicket" ;
+    qDebug() << "pushButtonCreateNewTicket clicked" ;
     Ticket *ticket = new Ticket();
     ticket->setHeader(ui->ticketHeader->text());
     ticket->setBody(ui->orderDisplay->text());
@@ -849,4 +878,20 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->clear();
     totalAmount = 0;
+}
+
+void MainWindow::writeOnTicket(Ticket * ticketToWrite)
+{
+    qDebug() << "Call to writeOnTicket()" ;
+    // ticketToWrite->setHeader(ui->ticketHeader->text());
+    ticketToWrite->setBody(ui->orderDisplay->text());
+    // ticketToWrite->setTicketTotalAmount(totalAmount);
+    // ticketToWrite->setFooter(ui->ticketFooter->text());
+
+    // tickets.append(ticket);
+    // qDebug() << "Total number of tickets: " << QString::number(tickets.size());
+    // currentTicketIndex++;
+    // ui->orderDisplay->clear();
+    // ui->totalAmountDisplay->clear();
+    // totalAmount = 0;
 }
