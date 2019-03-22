@@ -132,6 +132,7 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     currentTicketIndex = 0;
     ticket = new Ticket();
+    tickets.append(ticket);
 }
 
 MainWindow::~MainWindow()
@@ -829,6 +830,8 @@ void MainWindow::on_pushButtonPreviousTicket_clicked()
            ui->pushButtonPreviousTicket->setEnabled(false);
         }
     }
+
+    qDebug() << "At the end of the on_pushButtonPreviousTicket_clicked() call the currentTicketIndex is: " << currentTicketIndex;
 }
 
 void MainWindow::on_pushButtonNextTicket_clicked()
@@ -856,6 +859,8 @@ void MainWindow::on_pushButtonNextTicket_clicked()
     {
         ui->pushButtonPreviousTicket->setEnabled(true);
     }
+
+        qDebug() << "At the end of the on_pushButtonNextTicket_clicked() call the currentTicketIndex is: " << currentTicketIndex;
 }
 
 void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
@@ -866,32 +871,32 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
 {
     qDebug() << "pushButtonCreateNewTicket clicked" ;
-    Ticket *ticket = new Ticket();
-    ticket->setHeader(ui->ticketHeader->text());
-    ticket->setBody(ui->orderDisplay->text());
-    ticket->setTicketTotalAmount(totalAmount);
-    ticket->setFooter(ui->ticketFooter->text());
 
-    tickets.append(ticket);
-    qDebug() << "Total number of tickets: " << QString::number(tickets.size());
     currentTicketIndex++;
+
+
+    /*
+     * Create empty ticket
+     */
+    ticket = new Ticket();
+    tickets.append(ticket);
+
+    ticket->setHeader(ui->ticketHeader->text());
+
     ui->orderDisplay->clear();
-    ui->totalAmountDisplay->clear();
+    ticket->setBody(ui->orderDisplay->text());
+
     totalAmount = 0;
+    ui->totalAmountDisplay->clear();
+    ticket->setTicketTotalAmount(totalAmount);
+
+    ticket->setFooter(ui->ticketFooter->text());
 }
 
 void MainWindow::writeOnTicket(Ticket * ticketToWrite)
 {
-    qDebug() << "Call to writeOnTicket()" ;
-    // ticketToWrite->setHeader(ui->ticketHeader->text());
+    qDebug() << "\n";
+    qDebug() << "Call to writeOnTicket() on currentTicketIndex: " << currentTicketIndex ;
     ticketToWrite->setBody(ui->orderDisplay->text());
-    // ticketToWrite->setTicketTotalAmount(totalAmount);
-    // ticketToWrite->setFooter(ui->ticketFooter->text());
-
-    // tickets.append(ticket);
-    // qDebug() << "Total number of tickets: " << QString::number(tickets.size());
-    // currentTicketIndex++;
-    // ui->orderDisplay->clear();
-    // ui->totalAmountDisplay->clear();
-    // totalAmount = 0;
+    ticketToWrite->setTicketTotalAmount(totalAmount);
 }
