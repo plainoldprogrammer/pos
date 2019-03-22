@@ -133,6 +133,8 @@ MainWindow::MainWindow(QWidget *parent) :
     currentTicketIndex = 0;
     ticket = new Ticket();
     tickets.append(ticket);
+    ui->pushButtonPreviousTicket->setEnabled(false);
+    ui->pushButtonNextTicket->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -897,6 +899,8 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     ticket->setTicketTotalAmount(totalAmount);
 
     ticket->setFooter(ui->ticketFooter->text());
+
+    ui->pushButtonPreviousTicket->setEnabled(true);
 }
 
 void MainWindow::writeOnTicket(Ticket * ticketToWrite)
