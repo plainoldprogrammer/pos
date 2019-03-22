@@ -831,6 +831,11 @@ void MainWindow::on_pushButtonPreviousTicket_clicked()
         }
     }
 
+    if (currentTicketIndex < tickets.size())
+    {
+        ui->pushButtonNextTicket->setEnabled(true);
+    }
+
     qDebug() << "At the end of the on_pushButtonPreviousTicket_clicked() call the currentTicketIndex is: " << currentTicketIndex;
 }
 
@@ -848,11 +853,12 @@ void MainWindow::on_pushButtonNextTicket_clicked()
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
         ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+    }
 
-        if (currentTicketIndex == tickets.size())
-        {
-            ui->pushButtonNextTicket->setEnabled(false);
-        }
+    // Detect if the current ticket is the last ticket
+    if ((currentTicketIndex + 1) == tickets.size())
+    {
+        ui->pushButtonNextTicket->setEnabled(false);
     }
 
     if (currentTicketIndex > 0)
@@ -860,7 +866,7 @@ void MainWindow::on_pushButtonNextTicket_clicked()
         ui->pushButtonPreviousTicket->setEnabled(true);
     }
 
-        qDebug() << "At the end of the on_pushButtonNextTicket_clicked() call the currentTicketIndex is: " << currentTicketIndex;
+    qDebug() << "At the end of the on_pushButtonNextTicket_clicked() call the currentTicketIndex is: " << currentTicketIndex;
 }
 
 void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
