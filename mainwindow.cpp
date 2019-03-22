@@ -825,7 +825,7 @@ void MainWindow::on_pushButtonPreviousTicket_clicked()
         currentTicketIndex--;
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
 
         if (currentTicketIndex == 0)
         {
@@ -854,7 +854,7 @@ void MainWindow::on_pushButtonNextTicket_clicked()
     {
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText(QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
     }
 
     // Detect if the current ticket is the last ticket
@@ -895,7 +895,7 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     ticket->setBody(ui->orderDisplay->text());
 
     totalAmount = 0;
-    ui->totalAmountDisplay->clear();
+    ui->totalAmountDisplay->setText("TOTAL $ 0");
     ticket->setTicketTotalAmount(totalAmount);
 
     ticket->setFooter(ui->ticketFooter->text());
