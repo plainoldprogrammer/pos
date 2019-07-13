@@ -61,6 +61,7 @@ private slots:
     void on_pushButtonAguaDeBotella_clicked();
     void on_pushButtonCafe_clicked();
     void on_pushButtonTe_clicked();
+    void on_pushButtonTortillas_clicked();
 
     /*
      * Ticket options slots

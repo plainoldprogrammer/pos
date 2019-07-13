@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Setup hand cursor for the ui buttons
      */
+    ui->pushButtonConfiguration->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
@@ -56,6 +57,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonAguaDeBotella->setCursor(Qt::PointingHandCursor);
     ui->pushButtonCafe->setCursor(Qt::PointingHandCursor);
     ui->pushButtonTe->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonTortillas->setCursor(Qt::PointingHandCursor);
     ui->pushButtonPreviousTicket->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNextTicket->setCursor(Qt::PointingHandCursor);
     ui->pushButtonDeleteCurrentTicket->setCursor(Qt::PointingHandCursor);
@@ -87,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonAguaDeBotella->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonCafe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonTe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonTortillas->setStyleSheet("QPushButton { background-color: #99d6ff } ");
 
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
@@ -103,6 +106,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonCreateNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
     ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
     ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
+
+    ui->pushButtonConfiguration->setIcon(QIcon("icons/configuration.png"));
+    ui->pushButtonConfiguration->setIconSize(QSize(145, 145));
 
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
@@ -649,6 +655,25 @@ void MainWindow::on_pushButtonTe_clicked()
     writeOnTicket(ticket);
 }
 
+void MainWindow::on_pushButtonTortillas_clicked()
+{
+    std::cout << std::endl;
+    singleFoodEntry = singleFoodEntry + " TORTILLAS";
+    ui->orderDisplay->setText(ui->orderDisplay->text() + " TORTILLAS\n");
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, "TORTILLAS");
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+    writeOnTicket(ticket);
+}
+
 int MainWindow::calculateAmount(int quantity, QString food)
 {
     std::cout << "calculateAmount(" << quantity << ", " << food.toStdString().c_str() << ") " << std::endl;
@@ -768,8 +793,15 @@ int MainWindow::calculateAmount(int quantity, QString food)
         std::cout << "compare(te)";
         return quantity * 12;
     }
+    else if ((QString::compare(food, "TORTILLAS", Qt::CaseSensitive)) == 0)
+    {
+        std::cout << "compare(tortillas)";
+        return quantity * 6;
+    }
     else
+    {
         return -1;
+    }
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)

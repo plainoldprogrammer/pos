@@ -112,9 +112,9 @@ BOTELLA</string>
      <string>TÉ</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="pushButtonTortillas">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -132,7 +132,7 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string/>
+     <string>TORTILLAS</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonNum7">
@@ -335,9 +335,9 @@ BOTELLA</string>
      <string>0</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_16">
+   <widget class="QPushButton" name="pushButtonConfiguration">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
