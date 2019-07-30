@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "ui_mainwindow.h"
 #include "Ticket.h"
 

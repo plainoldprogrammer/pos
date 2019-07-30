@@ -25,13 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        DigitalClock.cpp \
+        MainWindow.cpp \
         Ticket.cpp \
-        main.cpp \
-        mainwindow.cpp
+        main.cpp
 
 HEADERS += \
-        Ticket.h \
-        mainwindow.h
+        DigitalClock.h \
+        MainWindow.h \
+        Ticket.h
 
 FORMS += \
         mainwindow.ui
