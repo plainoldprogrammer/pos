@@ -81,10 +81,12 @@ private:
     int currentTicketIndex;
     QVector<Ticket *> tickets;
     Ticket *ticket;
-    int calculateAmount(int, QString);
-    void writeOnTicket(Ticket *);
-    void keyPressEvent(QKeyEvent *);
     SettingsWindow *settingsWindow;
+    char characterTicketSectionSeparator;
+    int calculateAmount(int, QString);
+    void keyPressEvent(QKeyEvent *);
+    void writeOnTicket(Ticket *);
+    QString getTicketSectionSeparator(QChar c);
 };
 
 #endif // MAINWINDOW_H

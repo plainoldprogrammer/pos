@@ -23,8 +23,12 @@ QString SettingsWindow::getRestaurantAddress()
     return ui->lineEditRestaurantAddress->text();
 }
 
-
 QString SettingsWindow::getFooterMessage()
 {
     return ui->lineEditFooterMessage->text();
+}
+
+QChar SettingsWindow::getTicketSectionSeparatorChar()
+{
+    return ui->lineEditTicketSectionSeparatorChar->text().at(0);
 }

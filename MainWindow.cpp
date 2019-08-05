@@ -119,17 +119,17 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     QString restaurantName = "Demo Restaurant";
     QString restaurantAddress = "Principal #000 Col. Centro Morelia, Morelia C.P. 58000";
-    QString ticketSectionSeparator = "=============================================";
     ui->ticketHeader->setStyleSheet("QLabel {background-color: white; color: blue} ");
     ui->ticketHeader->clear();
-    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + ticketSectionSeparator);
+    characterTicketSectionSeparator = '=';
+    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + getTicketSectionSeparator(characterTicketSectionSeparator));
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->setStyleSheet("QLabel { background-color: white }");
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
     ui->ticketFooter->setStyleSheet("QLabel { background-color: white; color: blue } ");
     QString footer = "Thank you!";
-    ui->ticketFooter->setText(ticketSectionSeparator + "\n" + footer);
+    ui->ticketFooter->setText(getTicketSectionSeparator(characterTicketSectionSeparator) + "\n" + footer);
 
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
 
@@ -174,7 +174,7 @@ void MainWindow::on_pushButtonSettings_clicked()
     {
         qDebug() << "Applying new settings";
 
-        QString ticketSectionSeparator = "=============================================";
+        QString ticketSectionSeparator = getTicketSectionSeparator(settingsWindow->getTicketSectionSeparatorChar());
         ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
         ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
     }
@@ -1026,4 +1026,16 @@ void MainWindow::writeOnTicket(Ticket * ticketToWrite)
     qDebug() << "Call to writeOnTicket() on currentTicketIndex: " << currentTicketIndex ;
     ticketToWrite->setBody(ui->orderDisplay->text());
     ticketToWrite->setTicketTotalAmount(totalAmount);
+}
+
+QString MainWindow::getTicketSectionSeparator(QChar c)
+{
+    QString line = "";
+
+    for (int i = 0; i < 43; i++)
+    {
+        line.append(c);
+    }
+
+    return line;
 }
