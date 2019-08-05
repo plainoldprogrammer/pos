@@ -9,6 +9,7 @@
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
 #include "Ticket.h"
+#include "SettingsWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -154,6 +155,12 @@ void MainWindow::on_pushButtonClear_clicked()
     ui->totalAmountDisplay->clear();
     ui->totalAmountDisplay->setText("TOTAL $ 0");
     totalAmount = 0;
+}
+
+void MainWindow::on_pushButtonConfiguration_clicked()
+{
+    SettingsWindow *settingsWindow = new SettingsWindow();
+    settingsWindow->show();
 }
 
 void MainWindow::on_pushButtonNum0_clicked()

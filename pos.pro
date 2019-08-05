@@ -27,16 +27,19 @@ CONFIG += c++11
 SOURCES += \
         DigitalClock.cpp \
         MainWindow.cpp \
+        SettingsWindow.cpp \
         Ticket.cpp \
         main.cpp
 
 HEADERS += \
         DigitalClock.h \
         MainWindow.h \
+        SettingsWindow.h \
         Ticket.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        settingswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
