@@ -78,7 +78,7 @@ private:
     int selectedQuantity;
     int totalAmount;
     int currentTicketIndex;
-    QList<Ticket *> tickets;
+    QVector<Ticket *> tickets;
     Ticket *ticket;
     int calculateAmount(int, QString);
     void writeOnTicket(Ticket *);

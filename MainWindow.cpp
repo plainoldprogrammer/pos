@@ -139,9 +139,12 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     currentTicketIndex = 0;
     ticket = new Ticket();
-    tickets.append(ticket);
+    tickets.push_back(ticket);
     ui->pushButtonPreviousTicket->setEnabled(false);
     ui->pushButtonNextTicket->setEnabled(false);
+    ui->pushButtonDeleteCurrentTicket->setEnabled(false);
+    ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
+    ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
 }
 
 MainWindow::~MainWindow()
@@ -865,6 +868,7 @@ void MainWindow::on_pushButtonPreviousTicket_clicked()
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
         ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
+        ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
 
         if (currentTicketIndex == 0)
         {
@@ -894,6 +898,7 @@ void MainWindow::on_pushButtonNextTicket_clicked()
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
         ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+        ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
     }
 
     // Detect if the current ticket is the last ticket
@@ -913,20 +918,18 @@ void MainWindow::on_pushButtonNextTicket_clicked()
 void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 {
     qDebug() << "pushButtonDeleteCurrentTicket clicked";
+    qDebug() << "Delete ticket #" << currentTicketIndex ;
 }
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
 {
     qDebug() << "pushButtonCreateNewTicket clicked" ;
 
-    currentTicketIndex++;
-
-
     /*
      * Create empty ticket
      */
     ticket = new Ticket();
-    tickets.append(ticket);
+    tickets.push_back(ticket);
 
     ticket->setHeader(ui->ticketHeader->text());
 
@@ -940,6 +943,20 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     ticket->setFooter(ui->ticketFooter->text());
 
     ui->pushButtonPreviousTicket->setEnabled(true);
+    ui->pushButtonDeleteCurrentTicket->setEnabled(true);
+
+    // If the ticket showed was the last (NOTE: tickets.size() increase 1)
+    if (currentTicketIndex == (tickets.size() - 2))
+    {
+        currentTicketIndex++;
+    }
+    else
+    {
+        currentTicketIndex = tickets.size() - 1;
+    }
+
+    ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
+    ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
 }
 
 void MainWindow::writeOnTicket(Ticket * ticketToWrite)

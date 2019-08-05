@@ -378,6 +378,9 @@ BOTELLA</string>
       <pointsize>48</pointsize>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="text">
      <string>TOTAL $ 0</string>
     </property>
@@ -391,7 +394,7 @@ BOTELLA</string>
    <widget class="QPushButton" name="pushButtonPreviousTicket">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>140</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -404,7 +407,7 @@ BOTELLA</string>
    <widget class="QPushButton" name="pushButtonNextTicket">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>230</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -822,7 +825,7 @@ CHICO</string>
    <widget class="QPushButton" name="pushButtonCreateNewTicket">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>410</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -835,7 +838,7 @@ CHICO</string>
    <widget class="QPushButton" name="pushButtonDeleteCurrentTicket">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>320</x>
       <y>930</y>
       <width>85</width>
       <height>85</height>
@@ -859,6 +862,9 @@ CHICO</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -880,6 +886,9 @@ CHICO</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -895,6 +904,58 @@ CHICO</string>
       <width>151</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditCurrentTicket">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>950</y>
+      <width>40</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditTotalTickets">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>950</y>
+      <width>40</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelForTickets">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>950</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>of</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>930</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ticket:</string>
     </property>
    </widget>
   </widget>
