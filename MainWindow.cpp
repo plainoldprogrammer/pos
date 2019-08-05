@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Setup hand cursor for the ui buttons
      */
-    ui->pushButtonConfiguration->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonSettings->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
@@ -108,8 +108,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
     ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
 
-    ui->pushButtonConfiguration->setIcon(QIcon("icons/configuration.png"));
-    ui->pushButtonConfiguration->setIconSize(QSize(145, 145));
+    ui->pushButtonSettings->setIcon(QIcon("icons/settings.png"));
+    ui->pushButtonSettings->setIconSize(QSize(145, 145));
 
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
@@ -145,6 +145,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonDeleteCurrentTicket->setEnabled(false);
     ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+
+    /*
+     * Initializing the internal settings window
+     */
+    settingsWindow = new SettingsWindow();
 }
 
 MainWindow::~MainWindow()
@@ -160,10 +166,18 @@ void MainWindow::on_pushButtonClear_clicked()
     totalAmount = 0;
 }
 
-void MainWindow::on_pushButtonConfiguration_clicked()
+void MainWindow::on_pushButtonSettings_clicked()
 {
-    SettingsWindow *settingsWindow = new SettingsWindow();
-    settingsWindow->show();
+    settingsWindow->setWindowTitle("Settings");
+
+    if (settingsWindow->exec() == QDialog::Accepted)
+    {
+        qDebug() << "Applying new settings";
+
+        QString ticketSectionSeparator = "=============================================";
+        ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
+        ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
+    }
 }
 
 void MainWindow::on_pushButtonNum0_clicked()

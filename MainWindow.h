@@ -5,6 +5,7 @@
 #include <QList>
 
 #include "Ticket.h"
+#include "SettingsWindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,7 +24,7 @@ private slots:
      * Numeric pad slots
      */
     void on_pushButtonClear_clicked();
-    void on_pushButtonConfiguration_clicked();
+    void on_pushButtonSettings_clicked();
     void on_pushButtonNum0_clicked();
     void on_pushButtonNum1_clicked();
     void on_pushButtonNum2_clicked();
@@ -83,6 +84,7 @@ private:
     int calculateAmount(int, QString);
     void writeOnTicket(Ticket *);
     void keyPressEvent(QKeyEvent *);
+    SettingsWindow *settingsWindow;
 };
 
 #endif // MAINWINDOW_H

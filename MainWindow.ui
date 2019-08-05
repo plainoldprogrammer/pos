@@ -335,7 +335,7 @@ BOTELLA</string>
      <string>0</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonConfiguration">
+   <widget class="QPushButton" name="pushButtonSettings">
     <property name="enabled">
      <bool>true</bool>
     </property>

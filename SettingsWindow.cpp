@@ -12,3 +12,19 @@ SettingsWindow::~SettingsWindow()
 {
     delete ui;
 }
+
+QString SettingsWindow::getRestaurantName()
+{
+    return ui->lineEditRestaurantName->text();
+}
+
+QString SettingsWindow::getRestaurantAddress()
+{
+    return ui->lineEditRestaurantAddress->text();
+}
+
+
+QString SettingsWindow::getFooterMessage()
+{
+    return ui->lineEditFooterMessage->text();
+}

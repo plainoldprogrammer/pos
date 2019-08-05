@@ -14,6 +14,9 @@ class SettingsWindow : public QDialog
 public:
     explicit SettingsWindow(QWidget *parent = nullptr);
     ~SettingsWindow();
+    QString getRestaurantName();
+    QString getRestaurantAddress();
+    QString getFooterMessage();
 
 private:
     Ui::SettingsWindow *ui;
