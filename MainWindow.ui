@@ -887,6 +887,16 @@ CHICO</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="DigitalClock" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1729</x>
+      <y>930</y>
+      <width>151</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -909,6 +919,14 @@ CHICO</string>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>DigitalClock</class>
+   <extends>QWidget</extends>
+   <header>DigitalClock.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
