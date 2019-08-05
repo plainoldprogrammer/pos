@@ -919,6 +919,53 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 {
     qDebug() << "pushButtonDeleteCurrentTicket clicked";
     qDebug() << "Delete ticket #" << currentTicketIndex ;
+
+    if ( (currentTicketIndex == 0) && (tickets.size() > 1) )
+    {
+        tickets.remove(currentTicketIndex);
+        ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+        Ticket *ticket = tickets.at(0);
+        ui->orderDisplay->setText(ticket->getBody());
+        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+    }
+    else if ( (currentTicketIndex == 0) && (tickets.size() == 1) )
+    {
+        ui->pushButtonDeleteCurrentTicket->setEnabled(false);
+        ui->pushButtonNextTicket->setEnabled(false);
+    }
+    else if ( (currentTicketIndex + 1) == tickets.size())
+    {
+
+        tickets.remove(currentTicketIndex);
+        ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
+        ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+        currentTicketIndex--;
+        Ticket *ticket = tickets.at(currentTicketIndex);
+        ui->orderDisplay->setText(ticket->getBody());
+        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+
+        if (tickets.size() == 1)
+        {
+            ui->pushButtonPreviousTicket->setEnabled(false);
+            ui->pushButtonDeleteCurrentTicket->setEnabled(false);
+        }
+    }
+    else
+    {
+        /*
+         *  Show the next most recent ticket of the deleted
+         */
+
+        tickets.remove(currentTicketIndex);
+        ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+        Ticket *ticket = tickets.at(currentTicketIndex);
+        ui->orderDisplay->setText(ticket->getBody());
+        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+    }
+
 }
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
