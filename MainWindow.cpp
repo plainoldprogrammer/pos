@@ -150,6 +150,7 @@ MainWindow::MainWindow(QWidget *parent) :
      * Initialize the internal settings window
      */
     settingsWindow = new SettingsWindow();
+    settingsWindow->setFixedSize(settingsWindow->size());
 }
 
 MainWindow::~MainWindow()
