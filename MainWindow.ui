@@ -958,6 +958,19 @@ CHICO</string>
      <string>Ticket:</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButtonTicketsTable">
+    <property name="geometry">
+     <rect>
+      <x>1730</x>
+      <y>760</y>
+      <width>150</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

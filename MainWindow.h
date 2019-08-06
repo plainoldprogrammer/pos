@@ -9,6 +9,7 @@
 
 #include "Ticket.h"
 #include "SettingsWindow.h"
+#include "TicketsTableWindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,10 +25,15 @@ public:
 
 private slots:
     /*
+     * Features and settings slots
+     */
+    void on_pushButtonSettings_clicked();
+    void on_pushButtonTicketsTable_clicked();
+
+    /*
      * Numeric pad slots
      */
     void on_pushButtonClear_clicked();
-    void on_pushButtonSettings_clicked();
     void on_pushButtonNum0_clicked();
     void on_pushButtonNum1_clicked();
     void on_pushButtonNum2_clicked();
@@ -38,7 +44,6 @@ private slots:
     void on_pushButtonNum7_clicked();
     void on_pushButtonNum8_clicked();
     void on_pushButtonNum9_clicked();
-
 
     /*
      * Food menu item slots

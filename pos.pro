@@ -29,17 +29,20 @@ SOURCES += \
         MainWindow.cpp \
         SettingsWindow.cpp \
         Ticket.cpp \
+        TicketsTableWindow.cpp \
         main.cpp
 
 HEADERS += \
         DigitalClock.h \
         MainWindow.h \
         SettingsWindow.h \
-        Ticket.h
+        Ticket.h \
+        TicketsTableWindow.h
 
 FORMS += \
         mainwindow.ui \
-        settingswindow.ui
+        settingswindow.ui \
+        ticketstablewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

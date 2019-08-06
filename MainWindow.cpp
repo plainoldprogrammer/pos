@@ -15,6 +15,7 @@
 #include "ui_mainwindow.h"
 #include "Ticket.h"
 #include "SettingsWindow.h"
+#include "TicketsTableWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
      * Setup hand cursor for the ui buttons
      */
     ui->pushButtonSettings->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonTicketsTable->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
@@ -113,11 +115,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
     ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
 
+    ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
+    ui->pushButtonClear->setIconSize(QSize(145, 145));
+
     ui->pushButtonSettings->setIcon(QIcon("icons/settings.png"));
     ui->pushButtonSettings->setIconSize(QSize(145, 145));
 
-    ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
-    ui->pushButtonClear->setIconSize(QSize(145, 145));
+    ui->pushButtonTicketsTable->setIcon(QIcon("icons/table.png"));
+    ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
 
     /*
      * Setup the ticket ui
@@ -200,6 +205,11 @@ void MainWindow::on_pushButtonSettings_clicked()
         settings.setValue("footerMessage", settingsWindow->getFooterMessage());
         settings.setValue("characterTicketSectionSeparator", settingsWindow->getTicketSectionCharSeparator());
     }
+}
+
+void MainWindow::on_pushButtonTicketsTable_clicked()
+{
+    qDebug() << "Display a table with all the tickets";
 }
 
 void MainWindow::on_pushButtonNum0_clicked()
