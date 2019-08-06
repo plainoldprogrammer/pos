@@ -933,7 +933,7 @@ void MainWindow::on_pushButtonNextTicket_clicked()
     {
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
         ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
     }
 
@@ -963,7 +963,7 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 
         Ticket *ticket = tickets.at(0);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
     }
     else if ( (currentTicketIndex == 0) && (tickets.size() == 1) )
     {
@@ -980,7 +980,7 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
         currentTicketIndex--;
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
 
         if (tickets.size() == 1)
         {
@@ -999,7 +999,7 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 
         Ticket *ticket = tickets.at(currentTicketIndex);
         ui->orderDisplay->setText(ticket->getBody());
-        ui->totalAmountDisplay->setText("TOTAL $" + QString::number(ticket->getTicketTotalAmount()));
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
     }
 
 }
