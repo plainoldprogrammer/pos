@@ -12,3 +12,8 @@ TicketsTableWindow::~TicketsTableWindow()
 {
     delete ui;
 }
+
+QTableView * TicketsTableWindow::getTableView()
+{
+    return ui->tableView;
+}

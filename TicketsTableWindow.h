@@ -2,6 +2,7 @@
 #define TICKETSTABLEWINDOW_H
 
 #include <QDialog>
+#include <QTableView>
 
 namespace Ui {
 class TicketsTableWindow;
@@ -14,6 +15,7 @@ class TicketsTableWindow : public QDialog
 public:
     explicit TicketsTableWindow(QWidget *parent = nullptr);
     ~TicketsTableWindow();
+    QTableView * getTableView();
 
 private:
     Ui::TicketsTableWindow *ui;

@@ -8,6 +8,8 @@
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QTableView>
 
 #include <iostream>
 
@@ -215,6 +217,18 @@ void MainWindow::on_pushButtonSettings_clicked()
 void MainWindow::on_pushButtonTicketsTable_clicked()
 {
     qDebug() << "Display a table with all the tickets";
+
+    QSqlQuery query;
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    if(query.exec("SELECT * FROM 'tickets';"))
+    {
+        qDebug() << "All tickets from db has been selected";
+
+        model->setQuery(query);
+        QTableView *tableView = ticketsTableWindow->getTableView();
+        tableView->setModel(model);
+    }
 
     ticketsTableWindow->exec();
 }
@@ -1033,6 +1047,7 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
         QString ticketItem = ticket->getBody();
         int ticketAmount = ticket->getTicketTotalAmount();
         QSqlQuery sqlQuery;
+
         if (sqlQuery.exec("INSERT INTO 'tickets' ('id', 'item', 'amount') VALUES (NULL, '" + ticketItem + "', '" + QString::number(ticketAmount) + "');"))
         {
             qDebug() << "New ticket inserted in table tickets";
@@ -1122,7 +1137,7 @@ void MainWindow::createDBConnection()
     }
 
     QSqlQuery sqlQuery;
-    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER)"))
+    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER);"))
     {
         qDebug() << "Table tickets has been created";
     }
