@@ -6,6 +6,7 @@ TicketsTableWindow::TicketsTableWindow(QWidget *parent) :
     ui(new Ui::TicketsTableWindow)
 {
     ui->setupUi(this);
+    ui->buttonBox->hide();
 }
 
 TicketsTableWindow::~TicketsTableWindow()
