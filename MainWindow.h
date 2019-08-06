@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QList>
+#include <QSettings>
 
 #include "Ticket.h"
 #include "SettingsWindow.h"
@@ -82,11 +83,12 @@ private:
     QVector<Ticket *> tickets;
     Ticket *ticket;
     SettingsWindow *settingsWindow;
-    char characterTicketSectionSeparator;
+    QChar characterTicketSectionSeparator;
     int calculateAmount(int, QString);
     void keyPressEvent(QKeyEvent *);
     void writeOnTicket(Ticket *);
-    QString getTicketSectionSeparator(QChar c);
+    QString getTicketSectionLineSeparator(QChar c);
+    QSettings settings;
 };
 
 #endif // MAINWINDOW_H

@@ -17,7 +17,11 @@ public:
     QString getRestaurantName();
     QString getRestaurantAddress();
     QString getFooterMessage();
-    QChar getTicketSectionSeparatorChar();
+    QChar getTicketSectionCharSeparator();
+    void setRestaurantName(QString);
+    void setRestaurantAddress(QString);
+    void setFooterMessage(QString);
+    void setTicketSectionCharSeparator(QChar);
 
 private:
     Ui::SettingsWindow *ui;

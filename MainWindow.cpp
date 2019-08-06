@@ -3,6 +3,7 @@
 #include <QKeyEvent>
 #include <QDebug>
 #include <QList>
+#include <QSettings>
 
 #include <iostream>
 
@@ -13,7 +14,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow), settings("plainoldprogrammer", "pos")
 {
     totalAmount = 0;
     singleFoodEntry = "";
@@ -117,22 +118,21 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Setup the ticket ui
      */
-    QString restaurantName = "Demo Restaurant";
-    QString restaurantAddress = "Principal #000 Col. Centro Morelia, Morelia C.P. 58000";
     ui->ticketHeader->setStyleSheet("QLabel {background-color: white; color: blue} ");
     ui->ticketHeader->clear();
-    characterTicketSectionSeparator = '=';
-    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + getTicketSectionSeparator(characterTicketSectionSeparator));
+    QString restaurantName = settings.value("restaurantName").toString();
+    QString restaurantAddress = settings.value("restaurantAddress").toString();
+    characterTicketSectionSeparator = settings.value("characterTicketSectionSeparator").toChar();
+    ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + getTicketSectionLineSeparator(characterTicketSectionSeparator));
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
     ui->totalAmountDisplay->setStyleSheet("QLabel { background-color: white }");
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
     ui->ticketFooter->setStyleSheet("QLabel { background-color: white; color: blue } ");
-    QString footer = "Thank you!";
-    ui->ticketFooter->setText(getTicketSectionSeparator(characterTicketSectionSeparator) + "\n" + footer);
+    QString footer = settings.value("footerMessage").toString();
+    ui->ticketFooter->setText(getTicketSectionLineSeparator(characterTicketSectionSeparator) + "\n" + footer);
 
     QTimer::singleShot(0, this, SLOT(showFullScreen()));
-
 
     /*
      * Create a new ticket when the program starts
@@ -146,9 +146,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
 
-
     /*
-     * Initializing the internal settings window
+     * Initialize the internal settings window
      */
     settingsWindow = new SettingsWindow();
 }
@@ -170,13 +169,26 @@ void MainWindow::on_pushButtonSettings_clicked()
 {
     settingsWindow->setWindowTitle("Settings");
 
+    // Load the current configuration
+    settingsWindow->setRestaurantName(settings.value("restaurantName").toString());
+    settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
+    settingsWindow->setFooterMessage(settings.value("footerMessage").toString());
+    settingsWindow->setTicketSectionCharSeparator(settings.value("characterTicketSectionSeparator").toChar());
+
+    // Applying the configuration
     if (settingsWindow->exec() == QDialog::Accepted)
     {
         qDebug() << "Applying new settings";
 
-        QString ticketSectionSeparator = getTicketSectionSeparator(settingsWindow->getTicketSectionSeparatorChar());
+        QString ticketSectionSeparator = getTicketSectionLineSeparator(settingsWindow->getTicketSectionCharSeparator());
         ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
         ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
+
+        // Making settings persistent on the machine
+        settings.setValue("restaurantName", settingsWindow->getRestaurantName());
+        settings.setValue("restaurantAddress", settingsWindow->getRestaurantAddress());
+        settings.setValue("footerMessage", settingsWindow->getFooterMessage());
+        settings.setValue("characterTicketSectionSeparator", settingsWindow->getTicketSectionCharSeparator());
     }
 }
 
@@ -1028,7 +1040,7 @@ void MainWindow::writeOnTicket(Ticket * ticketToWrite)
     ticketToWrite->setTicketTotalAmount(totalAmount);
 }
 
-QString MainWindow::getTicketSectionSeparator(QChar c)
+QString MainWindow::getTicketSectionLineSeparator(QChar c)
 {
     QString line = "";
 

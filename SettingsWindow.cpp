@@ -28,7 +28,27 @@ QString SettingsWindow::getFooterMessage()
     return ui->lineEditFooterMessage->text();
 }
 
-QChar SettingsWindow::getTicketSectionSeparatorChar()
+QChar SettingsWindow::getTicketSectionCharSeparator()
 {
     return ui->lineEditTicketSectionSeparatorChar->text().at(0);
+}
+
+void SettingsWindow::setRestaurantName(QString restaurantName)
+{
+    this->ui->lineEditRestaurantName->setText(restaurantName);
+}
+
+void SettingsWindow::setRestaurantAddress(QString restaurantAddress)
+{
+    this->ui->lineEditRestaurantAddress->setText(restaurantAddress);
+}
+
+void SettingsWindow::setFooterMessage(QString footerMessage)
+{
+    this->ui->lineEditFooterMessage->setText(footerMessage);
+}
+
+void SettingsWindow::setTicketSectionCharSeparator(QChar c)
+{
+    this->ui->lineEditTicketSectionSeparatorChar->setText(c);
 }
