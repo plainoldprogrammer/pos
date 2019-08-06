@@ -1011,16 +1011,19 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     /*
      * Store the current ticket in the db before create a new one
      */
-    QString ticketItem = ticket->getBody();
-    int ticketAmount = ticket->getTicketTotalAmount();
-    QSqlQuery sqlQuery;
-    if (sqlQuery.exec("INSERT INTO 'tickets' ('id', 'item', 'amount') VALUES (NULL, '" + ticketItem + "', '" + QString::number(ticketAmount) + "');"))
-    {
-        qDebug() << "New ticket inserted in table tickets";
-    }
-    else
-    {
-        qWarning() << "Can't insert a new ticket in table tickets";
+     if (currentTicketIndex == (tickets.size() - 1))
+     {
+        QString ticketItem = ticket->getBody();
+        int ticketAmount = ticket->getTicketTotalAmount();
+        QSqlQuery sqlQuery;
+        if (sqlQuery.exec("INSERT INTO 'tickets' ('id', 'item', 'amount') VALUES (NULL, '" + ticketItem + "', '" + QString::number(ticketAmount) + "');"))
+        {
+            qDebug() << "New ticket inserted in table tickets";
+        }
+        else
+        {
+            qWarning() << "Can't insert a new ticket in table tickets";
+        }
     }
 
     /*
