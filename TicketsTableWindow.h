@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QTableView>
+#include <QResizeEvent>
 
 namespace Ui {
 class TicketsTableWindow;
@@ -16,6 +17,7 @@ public:
     explicit TicketsTableWindow(QWidget *parent = nullptr);
     ~TicketsTableWindow();
     QTableView * getTableView();
+    void resizeEvent(QResizeEvent *);
 
 private:
     Ui::TicketsTableWindow *ui;

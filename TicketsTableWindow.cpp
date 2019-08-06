@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include "TicketsTableWindow.h"
 #include "ui_ticketstablewindow.h"
 
@@ -17,4 +19,10 @@ TicketsTableWindow::~TicketsTableWindow()
 QTableView * TicketsTableWindow::getTableView()
 {
     return ui->tableView;
+}
+
+void TicketsTableWindow::resizeEvent(QResizeEvent *event)
+{
+    qDebug() << "Resizing the table window";
+    ui->tableView->resize(this->size().width() - 20, this->size().height() - 20);
 }
