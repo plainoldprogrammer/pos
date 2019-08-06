@@ -156,15 +156,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
 
     /*
-     * Initialize the internal settings window
+     * Initialize the inner settings window
      */
     settingsWindow = new SettingsWindow();
     settingsWindow->setFixedSize(settingsWindow->size());
+    settingsWindow->setWindowTitle("Settings");
 
     /*
      * Initialize the connection with the database
      */
      createDBConnection();
+
+     /*
+      * Initialize the inner window to display a table with all the tickets
+      */
+      ticketsTableWindow = new TicketsTableWindow();
+      ticketsTableWindow->setWindowTitle("Table with all the Tickets");
 }
 
 MainWindow::~MainWindow()
@@ -182,8 +189,6 @@ void MainWindow::on_pushButtonClear_clicked()
 
 void MainWindow::on_pushButtonSettings_clicked()
 {
-    settingsWindow->setWindowTitle("Settings");
-
     // Load the current configuration
     settingsWindow->setRestaurantName(settings.value("restaurantName").toString());
     settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
@@ -210,6 +215,8 @@ void MainWindow::on_pushButtonSettings_clicked()
 void MainWindow::on_pushButtonTicketsTable_clicked()
 {
     qDebug() << "Display a table with all the tickets";
+
+    ticketsTableWindow->exec();
 }
 
 void MainWindow::on_pushButtonNum0_clicked()

@@ -93,6 +93,7 @@ private:
     QChar characterTicketSectionSeparator;
     QSettings settings;
     QSqlDatabase db;
+    TicketsTableWindow *ticketsTableWindow;
     int calculateAmount(int, QString);
     void keyPressEvent(QKeyEvent *);
     void writeOnTicket(Ticket *);
