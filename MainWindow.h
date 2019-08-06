@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QList>
 #include <QSettings>
+#include <QSqlDatabase>
+#include <QSqlQuery>
 
 #include "Ticket.h"
 #include "SettingsWindow.h"
@@ -84,11 +86,13 @@ private:
     Ticket *ticket;
     SettingsWindow *settingsWindow;
     QChar characterTicketSectionSeparator;
+    QSettings settings;
+    QSqlDatabase db;
     int calculateAmount(int, QString);
     void keyPressEvent(QKeyEvent *);
     void writeOnTicket(Ticket *);
     QString getTicketSectionLineSeparator(QChar c);
-    QSettings settings;
+    void createDBConnection();
 };
 
 #endif // MAINWINDOW_H

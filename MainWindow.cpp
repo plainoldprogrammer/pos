@@ -4,6 +4,10 @@
 #include <QDebug>
 #include <QList>
 #include <QSettings>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
 
 #include <iostream>
 
@@ -151,6 +155,11 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     settingsWindow = new SettingsWindow();
     settingsWindow->setFixedSize(settingsWindow->size());
+
+    /*
+     * Initialize the connection with the database
+     */
+     createDBConnection();
 }
 
 MainWindow::~MainWindow()
@@ -1000,6 +1009,21 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     qDebug() << "pushButtonCreateNewTicket clicked" ;
 
     /*
+     * Store the current ticket in the db before create a new one
+     */
+    QString ticketItem = ticket->getBody();
+    int ticketAmount = ticket->getTicketTotalAmount();
+    QSqlQuery sqlQuery;
+    if (sqlQuery.exec("INSERT INTO 'tickets' ('id', 'item', 'amount') VALUES (NULL, '" + ticketItem + "', '" + QString::number(ticketAmount) + "');"))
+    {
+        qDebug() << "New ticket inserted in table tickets";
+    }
+    else
+    {
+        qWarning() << "Can't insert a new ticket in table tickets";
+    }
+
+    /*
      * Create empty ticket
      */
     ticket = new Ticket();
@@ -1051,4 +1075,39 @@ QString MainWindow::getTicketSectionLineSeparator(QChar c)
     }
 
     return line;
+}
+
+void MainWindow::createDBConnection()
+{
+    /*
+     * Initialize sqlite to get working with Qt
+     */
+     const QString DRIVER("QSQLITE");
+
+     if (QSqlDatabase::isDriverAvailable(DRIVER))
+     {
+        qDebug() << "QSQLITE driver is available";
+     }
+
+     db = QSqlDatabase::addDatabase(DRIVER);
+     db.setDatabaseName("C:\\tmp\\database.db");
+
+    if (db.open())
+    {
+        qDebug() << "The db has been opened";
+    }
+    else
+    {
+        qWarning("Can't open db");
+    }
+
+    QSqlQuery sqlQuery;
+    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER)"))
+    {
+        qDebug() << "Table tickets has been created";
+    }
+    else
+    {
+        qWarning() <<"Can't create table tickets" ;
+    }
 }
