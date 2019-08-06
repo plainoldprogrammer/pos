@@ -6,6 +6,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
+    ui->lineEditTicketSectionSeparatorChar->setMaxLength(1);
 }
 
 SettingsWindow::~SettingsWindow()
