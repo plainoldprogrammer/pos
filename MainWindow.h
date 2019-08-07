@@ -41,6 +41,7 @@ private:
     void writeOnTicket(Ticket *);
     QString getTicketSectionLineSeparator(QChar c);
     void createDBConnection();
+    void loadTicketsFromDb();
 
 private slots:
     /*

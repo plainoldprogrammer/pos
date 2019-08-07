@@ -152,11 +152,15 @@ MainWindow::MainWindow(QWidget *parent) :
         QTimer::singleShot(0, this, SLOT(showMaximizedScreen()));
     }
 
+    /*
+     * Initialize the connection with the database
+     */
+    createDBConnection();
 
     /*
      * Create a new ticket when the program starts
      */
-    currentTicketIndex = 0;
+    currentTicketIndex = tickets.size();
     ticket = new Ticket();
     tickets.push_back(ticket);
     ui->pushButtonPreviousTicket->setEnabled(false);
@@ -173,15 +177,15 @@ MainWindow::MainWindow(QWidget *parent) :
     settingsWindow->setWindowTitle("Settings");
 
     /*
-     * Initialize the ion with the database
+     * Initialize the inner window to display a table with all the tickets
      */
-     createDBConnection();
+    ticketsTableWindow = new TicketsTableWindow();
+    ticketsTableWindow->setWindowTitle("Table with all the Tickets");
 
-     /*
-      * Initialize the inner window to display a table with all the tickets
-      */
-      ticketsTableWindow = new TicketsTableWindow();
-      ticketsTableWindow->setWindowTitle("Table with all the Tickets");
+    /*
+     * Load tickets from thedatabase
+     */
+    loadTicketsFromDb();
 }
 
 MainWindow::~MainWindow()
@@ -1152,7 +1156,7 @@ void MainWindow::createDBConnection()
     }
     else
     {
-        qWarning("Can't open db");
+        qWarning() << "Can't open db";
     }
 
     QSqlQuery sqlQuery;
@@ -1166,4 +1170,43 @@ void MainWindow::createDBConnection()
     }
 }
 
+void MainWindow::loadTicketsFromDb()
+{
+    QSqlQuery query;
+
+    if (query.exec("SELECT * FROM 'tickets';"))
+    {
+        qDebug() << "Tickets data has been retrieved from the database";
+
+        qDebug() << "At the init tickets has " << tickets.size() << " elements" << tickets.last()->getBody();
+
+        while (query.next())
+        {
+           // qDebug() << query.value(1).toString();
+
+            ticket = new Ticket();
+            tickets.push_back(ticket);
+
+            ticket->setHeader(ui->ticketHeader->text());
+            ticket->setBody(query.value(1).toString());
+            ticket->setTicketTotalAmount(query.value(2).toInt());
+            ticket->setFooter(ui->ticketFooter->text());
+        }
+
+        qDebug() << tickets.size() << " tickets loaded from database to memory";
+
+        // Show the last ticket of the database in the ui
+        ui->orderDisplay->setText((tickets[tickets.size() - 1])->getBody());
+        ui->totalAmountDisplay->setText("TOTAL $ " + QString::number((tickets[tickets.size() - 1])->getTicketTotalAmount()));
+        ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
+        ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+        ui->pushButtonNextTicket->setEnabled(false);
+        ui->pushButtonPreviousTicket->setEnabled(true);
+        currentTicketIndex = tickets.size() - 1;
+    }
+    else
+    {
+        qWarning() << "Can't load tickets data from the database";
+    }
+}
 
