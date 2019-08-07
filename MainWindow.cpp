@@ -153,6 +153,19 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     /*
+     * Initialize the inner settings window
+     */
+    settingsWindow = new SettingsWindow();
+    settingsWindow->setFixedSize(settingsWindow->size());
+    settingsWindow->setWindowTitle("Settings");
+
+    /*
+     * Initialize the inner window to display a table with all the tickets
+     */
+    ticketsTableWindow = new TicketsTableWindow();
+    ticketsTableWindow->setWindowTitle("Table with all the Tickets");
+
+    /*
      * Initialize the connection with the database
      */
     createDBConnection();
@@ -168,19 +181,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonDeleteCurrentTicket->setEnabled(false);
     ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
-
-    /*
-     * Initialize the inner settings window
-     */
-    settingsWindow = new SettingsWindow();
-    settingsWindow->setFixedSize(settingsWindow->size());
-    settingsWindow->setWindowTitle("Settings");
-
-    /*
-     * Initialize the inner window to display a table with all the tickets
-     */
-    ticketsTableWindow = new TicketsTableWindow();
-    ticketsTableWindow->setWindowTitle("Table with all the Tickets");
 
     /*
      * Load tickets from thedatabase
@@ -1179,6 +1179,8 @@ void MainWindow::loadTicketsFromDb()
         qDebug() << "Tickets data has been retrieved from the database";
 
         qDebug() << "At the init tickets has " << tickets.size() << " elements" << tickets.last()->getBody();
+
+        tickets.remove(0);
 
         while (query.next())
         {
