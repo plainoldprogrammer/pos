@@ -23,7 +23,7 @@
       <x>20</x>
       <y>110</y>
       <width>461</width>
-      <height>671</height>
+      <height>591</height>
      </rect>
     </property>
     <property name="font">
@@ -368,7 +368,7 @@ BOTELLA</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>740</y>
+      <y>700</y>
       <width>461</width>
       <height>141</height>
      </rect>
@@ -395,7 +395,7 @@ BOTELLA</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>930</y>
+      <y>900</y>
       <width>85</width>
       <height>85</height>
      </rect>
@@ -408,7 +408,7 @@ BOTELLA</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>930</y>
+      <y>900</y>
       <width>85</width>
       <height>85</height>
      </rect>
@@ -826,7 +826,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>930</y>
+      <y>900</y>
       <width>85</width>
       <height>85</height>
      </rect>
@@ -839,7 +839,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>930</y>
+      <y>900</y>
       <width>85</width>
       <height>85</height>
      </rect>
@@ -876,7 +876,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>872</y>
+      <y>840</y>
       <width>461</width>
       <height>41</height>
      </rect>
@@ -900,7 +900,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1729</x>
-      <y>930</y>
+      <y>920</y>
       <width>151</width>
       <height>80</height>
      </rect>
@@ -913,7 +913,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>950</y>
+      <y>920</y>
       <width>40</width>
       <height>20</height>
      </rect>
@@ -926,7 +926,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>950</y>
+      <y>920</y>
       <width>40</width>
       <height>20</height>
      </rect>
@@ -936,7 +936,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>950</y>
+      <y>920</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -949,7 +949,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>930</y>
+      <y>900</y>
       <width>47</width>
       <height>13</height>
      </rect>
@@ -962,7 +962,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1730</x>
-      <y>760</y>
+      <y>750</y>
       <width>150</width>
       <height>150</height>
      </rect>

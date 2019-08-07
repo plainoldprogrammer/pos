@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include "SettingsWindow.h"
 #include "ui_settingswindow.h"
 
@@ -52,4 +54,26 @@ void SettingsWindow::setFooterMessage(QString footerMessage)
 void SettingsWindow::setTicketSectionCharSeparator(QChar c)
 {
     this->ui->lineEditTicketSectionSeparatorChar->setText(c);
+}
+
+void SettingsWindow::on_checkBoxFullScreen_stateChanged(int state)
+{
+    if (this->ui->checkBoxFullScreen->isChecked())
+    {
+        qDebug() << "Fullscreen application";
+    }
+    else
+    {
+        qDebug() << "Maximized application";
+    }
+}
+
+bool SettingsWindow::isFullScreen()
+{
+    return this->ui->checkBoxFullScreen->isChecked();
+}
+
+void SettingsWindow::setFullScreen(bool value)
+{
+    this->ui->checkBoxFullScreen->setChecked(value);
 }

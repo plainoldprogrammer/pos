@@ -127,7 +127,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
 
     /*
-     * Setup the ticket ui
+     * Setup the ticket ui based on the stored settings
      */
     ui->ticketHeader->setStyleSheet("QLabel {background-color: white; color: blue} ");
     ui->ticketHeader->clear();
@@ -143,7 +143,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QString footer = settings.value("footerMessage").toString();
     ui->ticketFooter->setText(getTicketSectionLineSeparator(characterTicketSectionSeparator) + "\n" + footer);
 
-    QTimer::singleShot(0, this, SLOT(showFullScreen()));
+    if (settings.value("fullscreen").toBool())
+    {
+        QTimer::singleShot(0, this, SLOT(showFullScreen()));
+    }
+    else
+    {
+        QTimer::singleShot(0, this, SLOT(showMaximizedScreen()));
+    }
+
 
     /*
      * Create a new ticket when the program starts
@@ -165,7 +173,7 @@ MainWindow::MainWindow(QWidget *parent) :
     settingsWindow->setWindowTitle("Settings");
 
     /*
-     * Initialize the connection with the database
+     * Initialize the ion with the database
      */
      createDBConnection();
 
@@ -196,6 +204,7 @@ void MainWindow::on_pushButtonSettings_clicked()
     settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
     settingsWindow->setFooterMessage(settings.value("footerMessage").toString());
     settingsWindow->setTicketSectionCharSeparator(settings.value("characterTicketSectionSeparator").toChar());
+    settingsWindow->setFullScreen(settings.value("fullscreen").toBool());
 
     // Applying the configuration
     if (settingsWindow->exec() == QDialog::Accepted)
@@ -206,11 +215,21 @@ void MainWindow::on_pushButtonSettings_clicked()
         ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
         ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
 
+        if (settingsWindow->isFullScreen())
+        {
+            QTimer::singleShot(0, this, SLOT(showFullScreen()));
+        }
+        else
+        {
+            QTimer::singleShot(0, this, SLOT(showMaximized()));
+        }
+
         // Making settings persistent on the machine
         settings.setValue("restaurantName", settingsWindow->getRestaurantName());
         settings.setValue("restaurantAddress", settingsWindow->getRestaurantAddress());
         settings.setValue("footerMessage", settingsWindow->getFooterMessage());
         settings.setValue("characterTicketSectionSeparator", settingsWindow->getTicketSectionCharSeparator());
+        settings.setValue("fullscreen", settingsWindow->isFullScreen());
     }
 }
 
@@ -1146,3 +1165,5 @@ void MainWindow::createDBConnection()
         qWarning() <<"Can't create table tickets" ;
     }
 }
+
+

@@ -22,9 +22,17 @@ public:
     void setRestaurantAddress(QString);
     void setFooterMessage(QString);
     void setTicketSectionCharSeparator(QChar);
+    bool isFullScreen();
+    void setFullScreen(bool);
 
 private:
     Ui::SettingsWindow *ui;
+
+private slots:
+     /*
+      * Settings option slots
+      */
+      void on_checkBoxFullScreen_stateChanged(int);
 };
 
 #endif // SETTINGSWINDOW_H

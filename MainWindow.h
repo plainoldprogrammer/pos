@@ -23,6 +23,25 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private:
+    Ui::MainWindow *ui;
+    QString singleFoodEntry;
+    int selectedQuantity;
+    int totalAmount;
+    int currentTicketIndex;
+    QVector<Ticket *> tickets;
+    Ticket *ticket;
+    SettingsWindow *settingsWindow;
+    QChar characterTicketSectionSeparator;
+    QSettings settings;
+    QSqlDatabase db;
+    TicketsTableWindow *ticketsTableWindow;
+    int calculateAmount(int, QString);
+    void keyPressEvent(QKeyEvent *);
+    void writeOnTicket(Ticket *);
+    QString getTicketSectionLineSeparator(QChar c);
+    void createDBConnection();
+
 private slots:
     /*
      * Features and settings slots
@@ -80,25 +99,6 @@ private slots:
      void on_pushButtonNextTicket_clicked();
      void on_pushButtonDeleteCurrentTicket_clicked();
      void on_pushButtonCreateNewTicket_clicked();
-
-private:
-    Ui::MainWindow *ui;
-    QString singleFoodEntry;
-    int selectedQuantity;
-    int totalAmount;
-    int currentTicketIndex;
-    QVector<Ticket *> tickets;
-    Ticket *ticket;
-    SettingsWindow *settingsWindow;
-    QChar characterTicketSectionSeparator;
-    QSettings settings;
-    QSqlDatabase db;
-    TicketsTableWindow *ticketsTableWindow;
-    int calculateAmount(int, QString);
-    void keyPressEvent(QKeyEvent *);
-    void writeOnTicket(Ticket *);
-    QString getTicketSectionLineSeparator(QChar c);
-    void createDBConnection();
 };
 
 #endif // MAINWINDOW_H
