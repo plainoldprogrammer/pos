@@ -42,6 +42,7 @@ private:
     QString getTicketSectionLineSeparator(QChar c);
     void createDBConnection();
     void loadTicketsFromDb();
+    bool isTicketsTableFromDbEmpty();
 
 private slots:
     /*
