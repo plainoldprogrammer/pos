@@ -104,10 +104,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
     ui->pushButtonPreviousTicket->setIconSize(QSize(85, 85));
+    ui->pushButtonPreviousTicket->setShortcut(QKeySequence(Qt::Key_Left));
 
     ui->pushButtonNextTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonNextTicket->setIcon(QIcon("icons/rightarrow.ico"));
     ui->pushButtonNextTicket->setIconSize(QSize(80, 80));
+    ui->pushButtonNextTicket->setShortcut(QKeySequence(Qt::Key_Right));
 
     ui->pushButtonDeleteCurrentTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonDeleteCurrentTicket->setIcon(QIcon("icons/delete.png"));
