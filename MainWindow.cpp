@@ -1175,7 +1175,7 @@ void MainWindow::createDBConnection()
     }
 
     QSqlQuery sqlQuery;
-    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER);"))
+    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dtstampt' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
     {
         qDebug() << "Table tickets has been created";
     }
