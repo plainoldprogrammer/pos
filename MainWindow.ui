@@ -971,7 +971,7 @@ CHICO</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonReport">
+   <widget class="QPushButton" name="pushButtonSalesReport">
     <property name="geometry">
      <rect>
       <x>1580</x>

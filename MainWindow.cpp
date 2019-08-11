@@ -18,6 +18,7 @@
 #include "Ticket.h"
 #include "SettingsWindow.h"
 #include "TicketsTableWindow.h"
+#include "SalesReportWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Setup hand cursor for the ui buttons
      */
-    ui->pushButtonReport->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonSalesReport->setCursor(Qt::PointingHandCursor);
     ui->pushButtonSettings->setCursor(Qt::PointingHandCursor);
     ui->pushButtonTicketsTable->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
@@ -102,7 +103,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonTe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonTortillas->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonTicketsTable->setStyleSheet("QPushButton { background-color: #f5d742 }" );
-    ui->pushButtonReport->setStyleSheet("QPushButton { background-color: #f5d742 } " );
+    ui->pushButtonSalesReport->setStyleSheet("QPushButton { background-color: #f5d742 } " );
     ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 }" );
 
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
@@ -136,9 +137,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
     ui->pushButtonTicketsTable->setToolTip("Show all tickets on a table");
 
-    ui->pushButtonReport->setIcon(QIcon("icons/report.png"));
-    ui->pushButtonReport->setIconSize(QSize(145, 145));
-    ui->pushButtonReport->setToolTip("Show a sales report");
+    ui->pushButtonSalesReport->setIcon(QIcon("icons/report.png"));
+    ui->pushButtonSalesReport->setIconSize(QSize(145, 145));
+    ui->pushButtonSalesReport->setToolTip("Show a sales report");
 
     /*
      * Setup the ticket ui based on the stored settings
@@ -176,10 +177,16 @@ MainWindow::MainWindow(QWidget *parent) :
     settingsWindow->setWindowTitle("Settings");
 
     /*
-     * Initialize the inner window to display a table with all the tickets
+     * Initialize the inner window to show a table with all the tickets
      */
     ticketsTableWindow = new TicketsTableWindow();
     ticketsTableWindow->setWindowTitle("All Tickets");
+
+    /*
+     * Initialize the inner window to show a sales report
+     */
+    salesReportWindow = new SalesReportWindow();
+    salesReportWindow->setWindowTitle("Sales Report");
 
     /*
      * Initialize the connection with the database
@@ -1271,7 +1278,8 @@ bool MainWindow::isTicketsTableFromDbEmpty()
 }
 
 
-void MainWindow::on_pushButtonReport_clicked()
+void MainWindow::on_pushButtonSalesReport_clicked()
 {
     qDebug() << "Generating a report...";
+    salesReportWindow->exec();
 }

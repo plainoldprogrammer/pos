@@ -10,6 +10,7 @@
 #include "Ticket.h"
 #include "SettingsWindow.h"
 #include "TicketsTableWindow.h"
+#include "SalesReportWindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -36,6 +37,7 @@ private:
     QSettings settings;
     QSqlDatabase db;
     TicketsTableWindow *ticketsTableWindow;
+    SalesReportWindow *salesReportWindow;
     int calculateAmount(int, QString);
     void keyPressEvent(QKeyEvent *);
     void writeOnTicket(Ticket *);
@@ -50,7 +52,7 @@ private slots:
      */
     void on_pushButtonSettings_clicked();
     void on_pushButtonTicketsTable_clicked();
-    void on_pushButtonReport_clicked();
+    void on_pushButtonSalesReport_clicked();
 
     /*
      * Numeric pad slots
