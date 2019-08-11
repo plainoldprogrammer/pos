@@ -259,7 +259,7 @@ void MainWindow::on_pushButtonTicketsTable_clicked()
     QSqlQuery query;
     QSqlQueryModel *model = new QSqlQueryModel();
 
-    if(query.exec("SELECT * FROM 'tickets';"))
+    if(query.exec("SELECT id AS ID, item AS ITEM, amount AS AMOUNT, datetime(dateandtime, 'localtime') AS 'DATE' FROM 'tickets';"))
     {
         qDebug() << "All tickets from db has been selected";
 
@@ -1175,7 +1175,7 @@ void MainWindow::createDBConnection()
     }
 
     QSqlQuery sqlQuery;
-    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'datetime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
+    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
     {
         qDebug() << "Table tickets has been created";
     }
