@@ -134,7 +134,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->pushButtonTicketsTable->setIcon(QIcon("icons/table.png"));
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
-    ui->pushButtonTicketsTable->setToolTip("Display all tickets on a table");
+    ui->pushButtonTicketsTable->setToolTip("Show all tickets on a table");
 
     ui->pushButtonReport->setIcon(QIcon("icons/report.png"));
     ui->pushButtonReport->setIconSize(QSize(145, 145));
