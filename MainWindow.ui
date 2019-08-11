@@ -342,7 +342,7 @@ BOTELLA</string>
     <property name="geometry">
      <rect>
       <x>1730</x>
-      <y>750</y>
+      <y>680</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -900,7 +900,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1729</x>
-      <y>920</y>
+      <y>900</y>
       <width>151</width>
       <height>80</height>
      </rect>
@@ -962,7 +962,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1430</x>
-      <y>750</y>
+      <y>680</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -975,7 +975,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1580</x>
-      <y>750</y>
+      <y>680</y>
       <width>150</width>
       <height>150</height>
      </rect>

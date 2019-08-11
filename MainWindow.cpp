@@ -186,6 +186,7 @@ MainWindow::MainWindow(QWidget *parent) :
      * Initialize the inner window to show a sales report
      */
     salesReportWindow = new SalesReportWindow();
+    salesReportWindow->setFixedSize(salesReportWindow->size());
     salesReportWindow->setWindowTitle("Sales Report");
 
     /*
