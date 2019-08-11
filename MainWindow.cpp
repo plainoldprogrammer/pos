@@ -275,7 +275,7 @@ void MainWindow::on_pushButtonSettings_clicked()
 
 void MainWindow::on_pushButtonTicketsTable_clicked()
 {
-    qDebug() << "Display a table with all the tickets";
+    qDebug() << "Show a table with all the tickets";
 
     QSqlQuery query;
     QSqlQueryModel *model = new QSqlQueryModel();
@@ -290,6 +290,29 @@ void MainWindow::on_pushButtonTicketsTable_clicked()
     }
 
     ticketsTableWindow->exec();
+}
+
+void MainWindow::on_pushButtonSalesReport_clicked()
+{
+    qDebug() << "Show a sales report";
+    QSqlQuery query;
+    QString report;
+
+    if (query.exec("SELECT SUM(amount) AS TOTAL FROM tickets;"))
+    {
+        query.next();
+        int total = query.value(0).toInt();
+        report = "Total: " + QString::number(total);
+    }
+    if (query.exec("SELECT COUNT(*) AS TICKETS_QTY FROM tickets;"))
+    {
+        query.next();
+        int quantity = query.value(0).toInt();
+        report.append("\nSales quantity: " + QString::number(quantity));
+    }
+
+    salesReportWindow->getPlainTextEdit()->setPlainText(report);
+    salesReportWindow->exec();
 }
 
 void MainWindow::on_pushButtonNum0_clicked()
@@ -1275,11 +1298,4 @@ bool MainWindow::isTicketsTableFromDbEmpty()
     {
         return false;
     }
-}
-
-
-void MainWindow::on_pushButtonSalesReport_clicked()
-{
-    qDebug() << "Generating a report...";
-    salesReportWindow->exec();
 }

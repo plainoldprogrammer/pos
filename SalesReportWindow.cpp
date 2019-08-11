@@ -13,3 +13,8 @@ SalesReportWindow::~SalesReportWindow()
 {
     delete ui;
 }
+
+QPlainTextEdit * SalesReportWindow::getPlainTextEdit()
+{
+    return ui->plainTextEdit;
+}
