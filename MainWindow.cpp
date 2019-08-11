@@ -166,6 +166,8 @@ MainWindow::MainWindow(QWidget *parent) :
         QTimer::singleShot(0, this, SLOT(showMaximizedScreen()));
     }
 
+    ui->mainToolBar->hide();
+
     /*
      * Initialize the inner settings window
      */
