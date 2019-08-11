@@ -101,6 +101,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonCafe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonTe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
     ui->pushButtonTortillas->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonTicketsTable->setStyleSheet("QPushButton { background-color: #f5d742 }" );
+    ui->pushButtonReport->setStyleSheet("QPushButton { background-color: #f5d742 } " );
+    ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 }" );
 
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
@@ -135,7 +138,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->pushButtonReport->setIcon(QIcon("icons/report.png"));
     ui->pushButtonReport->setIconSize(QSize(145, 145));
-    ui->pushButtonReport->setToolTip("Display sells report");
+    ui->pushButtonReport->setToolTip("Show a sales report");
 
     /*
      * Setup the ticket ui based on the stored settings
