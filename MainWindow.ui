@@ -342,7 +342,7 @@ BOTELLA</string>
     <property name="geometry">
      <rect>
       <x>1730</x>
-      <y>460</y>
+      <y>750</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -961,7 +961,20 @@ CHICO</string>
    <widget class="QPushButton" name="pushButtonTicketsTable">
     <property name="geometry">
      <rect>
-      <x>1730</x>
+      <x>1430</x>
+      <y>750</y>
+      <width>150</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonReport">
+    <property name="geometry">
+     <rect>
+      <x>1580</x>
       <y>750</y>
       <width>150</width>
       <height>150</height>

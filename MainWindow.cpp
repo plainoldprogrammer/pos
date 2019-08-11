@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Setup hand cursor for the ui buttons
      */
+    ui->pushButtonReport->setCursor(Qt::PointingHandCursor);
     ui->pushButtonSettings->setCursor(Qt::PointingHandCursor);
     ui->pushButtonTicketsTable->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
@@ -131,6 +132,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonTicketsTable->setIcon(QIcon("icons/table.png"));
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
     ui->pushButtonTicketsTable->setToolTip("Display all tickets on a table");
+
+    ui->pushButtonReport->setIcon(QIcon("icons/report.png"));
+    ui->pushButtonReport->setIconSize(QSize(145, 145));
+    ui->pushButtonReport->setToolTip("Display sells report");
 
     /*
      * Setup the ticket ui based on the stored settings
@@ -1258,4 +1263,10 @@ bool MainWindow::isTicketsTableFromDbEmpty()
     {
         return false;
     }
+}
+
+
+void MainWindow::on_pushButtonReport_clicked()
+{
+    qDebug() << "Generating a report...";
 }

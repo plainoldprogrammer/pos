@@ -50,6 +50,7 @@ private slots:
      */
     void on_pushButtonSettings_clicked();
     void on_pushButtonTicketsTable_clicked();
+    void on_pushButtonReport_clicked();
 
     /*
      * Numeric pad slots
