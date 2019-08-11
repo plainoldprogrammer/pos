@@ -165,7 +165,7 @@ MainWindow::MainWindow(QWidget *parent) :
      * Initialize the inner window to display a table with all the tickets
      */
     ticketsTableWindow = new TicketsTableWindow();
-    ticketsTableWindow->setWindowTitle("Table with all the Tickets");
+    ticketsTableWindow->setWindowTitle("All Tickets");
 
     /*
      * Initialize the connection with the database
