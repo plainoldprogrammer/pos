@@ -118,15 +118,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonCreateNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
     ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
     ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
+    ui->pushButtonCreateNewTicket->setToolTip("Save current ticket and create a new one");
 
     ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
+    ui->pushButtonClear->setToolTip("Clear current ticket");
 
     ui->pushButtonSettings->setIcon(QIcon("icons/settings.png"));
     ui->pushButtonSettings->setIconSize(QSize(145, 145));
+    ui->pushButtonSettings->setToolTip("Settings");
 
     ui->pushButtonTicketsTable->setIcon(QIcon("icons/table.png"));
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
+    ui->pushButtonTicketsTable->setToolTip("Display all tickets on a table");
 
     /*
      * Setup the ticket ui based on the stored settings
