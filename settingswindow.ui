@@ -160,6 +160,19 @@
     <string>FullScreen</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButtonTicketCharColor">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>230</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ticket Char Color</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>

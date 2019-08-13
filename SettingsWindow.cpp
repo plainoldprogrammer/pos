@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <QColordialog>
 
 #include "SettingsWindow.h"
 #include "ui_settingswindow.h"
@@ -76,4 +77,20 @@ bool SettingsWindow::isFullScreen()
 void SettingsWindow::setFullScreen(bool value)
 {
     this->ui->checkBoxFullScreen->setChecked(value);
+}
+
+void SettingsWindow::on_pushButtonTicketCharColor_clicked()
+{
+    qDebug() << "Change ticket char color";
+    setTicketCharColor(QColorDialog::getColor());
+}
+
+void SettingsWindow::setTicketCharColor(QColor color)
+{
+    ticketCharColor = color;
+}
+
+QColor SettingsWindow::getTicketCharColor()
+{
+    return ticketCharColor;
 }

@@ -2,6 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include <QDialog>
+#include <QColor>
 
 namespace Ui {
 class SettingsWindow;
@@ -24,15 +25,19 @@ public:
     void setTicketSectionCharSeparator(QChar);
     bool isFullScreen();
     void setFullScreen(bool);
+    QColor getTicketCharColor();
+    void setTicketCharColor(QColor);
 
 private:
     Ui::SettingsWindow *ui;
+    QColor ticketCharColor;
 
 private slots:
      /*
       * Settings option slots
       */
       void on_checkBoxFullScreen_stateChanged(int);
+      void on_pushButtonTicketCharColor_clicked();
 };
 
 #endif // SETTINGSWINDOW_H

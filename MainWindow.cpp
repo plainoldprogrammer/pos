@@ -256,6 +256,17 @@ void MainWindow::on_pushButtonSettings_clicked()
         ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
         ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
 
+        QString ticketStyle = "QLabel {background-color: white; color:  rgb(";
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().red()));
+        ticketStyle.append(",");
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().green()));
+        ticketStyle.append(",");
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().blue()));
+        ticketStyle.append(")}");
+
+        ui->ticketHeader->setStyleSheet(ticketStyle);
+        ui->ticketFooter->setStyleSheet(ticketStyle);
+
         if (settingsWindow->isFullScreen())
         {
             QTimer::singleShot(0, this, SLOT(showFullScreen()));
