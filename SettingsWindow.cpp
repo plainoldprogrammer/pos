@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <QColordialog>
+#include <QPalette>
 
 #include "SettingsWindow.h"
 #include "ui_settingswindow.h"
@@ -88,6 +89,9 @@ void SettingsWindow::on_pushButtonTicketCharColor_clicked()
 void SettingsWindow::setTicketCharColor(QColor color)
 {
     ticketCharColor = color;
+    QPalette palette = ui->textEditCharColor->palette();
+    palette.setColor(QPalette::Base, color);
+    ui->textEditCharColor->setPalette(palette);
 }
 
 QColor SettingsWindow::getTicketCharColor()
