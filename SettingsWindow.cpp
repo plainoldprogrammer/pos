@@ -1,6 +1,8 @@
 #include <QDebug>
 #include <QColordialog>
 #include <QPalette>
+#include <QColor>
+#include <QRgb>
 
 #include "SettingsWindow.h"
 #include "ui_settingswindow.h"
@@ -11,6 +13,10 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEditTicketSectionSeparatorChar->setMaxLength(1);
+
+    QPalette palette = ui->textEditCharColor->palette();
+    palette.setColor(QPalette::Base, QColor::fromRgb(0, 0, 255));
+    ui->textEditCharColor->setPalette(palette);
 }
 
 SettingsWindow::~SettingsWindow()
