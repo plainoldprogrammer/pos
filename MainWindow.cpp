@@ -149,7 +149,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ticketHeader->clear();
     QString restaurantName = settings.value("restaurantName").toString();
     QString restaurantAddress = settings.value("restaurantAddress").toString();
-    characterTicketSectionSeparator = settings.value("characterTicketSectionSeparator").toChar();
+    characterTicketSectionSeparator = (settings.value("characterTicketSectionSeparator").toString().toStdString())[0];
     ui->ticketHeader->setText(restaurantName + "\n" + restaurantAddress + "\n" + getTicketSectionLineSeparator(characterTicketSectionSeparator));
     ui->orderDisplay->setStyleSheet("QLabel { background-color: white; color: blue }");
     ui->orderDisplay->clear();
@@ -306,7 +306,7 @@ void MainWindow::on_pushButtonSettings_clicked()
         settings.setValue("restaurantName", settingsWindow->getRestaurantName());
         settings.setValue("restaurantAddress", settingsWindow->getRestaurantAddress());
         settings.setValue("footerMessage", settingsWindow->getFooterMessage());
-        settings.setValue("characterTicketSectionSeparator", settingsWindow->getTicketSectionCharSeparator());
+        settings.setValue("characterTicketSectionSeparator", QString(settingsWindow->getTicketSectionCharSeparator()));
         settings.setValue("fullscreen", settingsWindow->isFullScreen());
 
         // Making ticket char color persistent on the machine
