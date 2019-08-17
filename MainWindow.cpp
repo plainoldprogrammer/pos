@@ -10,6 +10,7 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QTableView>
+#include <QList>
 
 #include <iostream>
 
@@ -158,6 +159,22 @@ MainWindow::MainWindow(QWidget *parent) :
     QString footer = settings.value("footerMessage").toString();
     ui->ticketFooter->setText(getTicketSectionLineSeparator(characterTicketSectionSeparator) + "\n" + footer);
 
+    // Load the ticket char color saved on the machine
+    QString savedRgbTicketCharColor = settings.value("ticketCharColor").toString();
+    if (!savedRgbTicketCharColor.isEmpty())
+    {
+        QList <QString> rgb = savedRgbTicketCharColor.split(" ");
+        QString ticketStyle = "QLabel {background-color: white; color: rgb(";
+        ticketStyle.append(rgb.at(0));
+        ticketStyle.append(",");
+        ticketStyle.append(rgb.at(1));
+        ticketStyle.append(",");
+        ticketStyle.append(rgb.at(2));
+        ticketStyle.append(")}");
+        ui->ticketHeader->setStyleSheet(ticketStyle);
+        ui->ticketFooter->setStyleSheet(ticketStyle);
+    }
+
     if (settings.value("fullscreen").toBool())
     {
         QTimer::singleShot(0, this, SLOT(showFullScreen()));
@@ -247,6 +264,15 @@ void MainWindow::on_pushButtonSettings_clicked()
     settingsWindow->setTicketSectionCharSeparator(settings.value("characterTicketSectionSeparator").toChar());
     settingsWindow->setFullScreen(settings.value("fullscreen").toBool());
 
+    // Load the saved ticket char color
+    QString savedRgbTicketCharColor = settings.value("ticketCharColor").toString();
+    if (!savedRgbTicketCharColor.isEmpty())
+    {
+        QList <QString> rgb = savedRgbTicketCharColor.split(" ");
+        if (!rgb.isEmpty())
+        settingsWindow->setTicketCharColor(QColor(rgb.at(0).toInt(), rgb.at(1).toInt(), rgb.at(2).toInt()));
+    }
+
     // Applying the configuration
     if (settingsWindow->exec() == QDialog::Accepted)
     {
@@ -282,6 +308,16 @@ void MainWindow::on_pushButtonSettings_clicked()
         settings.setValue("footerMessage", settingsWindow->getFooterMessage());
         settings.setValue("characterTicketSectionSeparator", settingsWindow->getTicketSectionCharSeparator());
         settings.setValue("fullscreen", settingsWindow->isFullScreen());
+
+        // Making ticket char color persistent on the machine
+        QString rgbTicketCharColor;
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().red()));
+        rgbTicketCharColor.append(" ");
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().green()));
+        rgbTicketCharColor.append(" ");
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().blue()));
+        settings.setValue("ticketCharColor", rgbTicketCharColor);
+        qDebug() << "tichetCharColor persistent is: " << rgbTicketCharColor;
     }
 }
 
