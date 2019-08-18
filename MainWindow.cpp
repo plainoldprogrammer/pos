@@ -261,7 +261,7 @@ void MainWindow::on_pushButtonSettings_clicked()
     settingsWindow->setRestaurantName(settings.value("restaurantName").toString());
     settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
     settingsWindow->setFooterMessage(settings.value("footerMessage").toString());
-    settingsWindow->setTicketSectionCharSeparator(settings.value("characterTicketSectionSeparator").toChar());
+    settingsWindow->setTicketSectionCharSeparator((settings.value("characterTicketSectionSeparator").toString().toStdString())[0]);
     settingsWindow->setFullScreen(settings.value("fullscreen").toBool());
 
     // Load the saved ticket char color
