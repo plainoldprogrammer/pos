@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/delete.png</file>
+        <file>icons/eraser.png</file>
+        <file>icons/leftarrow.ico</file>
+        <file>icons/new-ticket.png</file>
+        <file>icons/report.png</file>
+        <file>icons/rightarrow.ico</file>
+        <file>icons/settings.png</file>
+        <file>icons/table.png</file>
+    </qresource>
+</RCC>

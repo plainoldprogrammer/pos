@@ -108,37 +108,37 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 }" );
 
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
-    ui->pushButtonPreviousTicket->setIcon(QIcon("icons/leftarrow.ico"));
+    ui->pushButtonPreviousTicket->setIcon(QIcon(":/images/icons/leftarrow.ico"));
     ui->pushButtonPreviousTicket->setIconSize(QSize(85, 85));
     ui->pushButtonPreviousTicket->setShortcut(QKeySequence(Qt::Key_Left));
 
     ui->pushButtonNextTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
-    ui->pushButtonNextTicket->setIcon(QIcon("icons/rightarrow.ico"));
+    ui->pushButtonNextTicket->setIcon(QIcon(":/images/icons/rightarrow.ico"));
     ui->pushButtonNextTicket->setIconSize(QSize(80, 80));
     ui->pushButtonNextTicket->setShortcut(QKeySequence(Qt::Key_Right));
 
     ui->pushButtonDeleteCurrentTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
-    ui->pushButtonDeleteCurrentTicket->setIcon(QIcon("icons/delete.png"));
+    ui->pushButtonDeleteCurrentTicket->setIcon(QIcon(":/images/icons/delete.png"));
     ui->pushButtonDeleteCurrentTicket->setIconSize(QSize(80, 80));
 
     ui->pushButtonCreateNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
-    ui->pushButtonCreateNewTicket->setIcon(QIcon("icons/new-ticket.png"));
+    ui->pushButtonCreateNewTicket->setIcon(QIcon(":/images/icons/new-ticket.png"));
     ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
     ui->pushButtonCreateNewTicket->setToolTip("Save current ticket and create a new one");
 
-    ui->pushButtonClear->setIcon(QIcon("icons/eraser.png"));
+    ui->pushButtonClear->setIcon(QIcon(":/images/icons/eraser.png"));
     ui->pushButtonClear->setIconSize(QSize(145, 145));
     ui->pushButtonClear->setToolTip("Clear current ticket");
 
-    ui->pushButtonSettings->setIcon(QIcon("icons/settings.png"));
+    ui->pushButtonSettings->setIcon(QIcon(":/images/icons/settings.png"));
     ui->pushButtonSettings->setIconSize(QSize(145, 145));
     ui->pushButtonSettings->setToolTip("Settings");
 
-    ui->pushButtonTicketsTable->setIcon(QIcon("icons/table.png"));
+    ui->pushButtonTicketsTable->setIcon(QIcon(":/images/icons/table.png"));
     ui->pushButtonTicketsTable->setIconSize(QSize(145, 145));
     ui->pushButtonTicketsTable->setToolTip("Show all tickets on a table");
 
-    ui->pushButtonSalesReport->setIcon(QIcon("icons/report.png"));
+    ui->pushButtonSalesReport->setIcon(QIcon(":/images/icons/report.png"));
     ui->pushButtonSalesReport->setIconSize(QSize(145, 145));
     ui->pushButtonSalesReport->setToolTip("Show a sales report");
 
