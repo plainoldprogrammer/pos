@@ -899,11 +899,16 @@ CHICO</string>
    <widget class="DigitalClock" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>1729</x>
+      <x>1579</x>
       <y>900</y>
-      <width>151</width>
+      <width>301</width>
       <height>80</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>6</pointsize>
+     </font>
     </property>
     <property name="autoFillBackground">
      <bool>true</bool>
