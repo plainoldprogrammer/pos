@@ -23,6 +23,5 @@ void DigitalClock::showTime()
     QTime time = QTime::currentTime();
     QString text = time.toString("hh:mm:ss");
 
-
     display(text);
 }
