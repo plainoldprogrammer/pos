@@ -364,6 +364,12 @@ void MainWindow::on_pushButtonSalesReport_clicked()
         int max = query.value(0).toInt();
         report.append("\nMax sale: " + QString::number(max));
     }
+    if (query.exec("SELECT MIN(amount) FROM tickets;"))
+    {
+        query.next();
+        int min = query.value(0).toInt();
+        report.append("\nMin sale: " + QString::number(min));
+    }
 
     salesReportWindow->getPlainTextEdit()->setPlainText(report);
     salesReportWindow->exec();
