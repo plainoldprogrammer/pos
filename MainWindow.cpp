@@ -376,6 +376,12 @@ void MainWindow::on_pushButtonSalesReport_clicked()
         QString date = query.value(0).toString();
         report.append("\nFirst sale: " + date);
     }
+    if (query.exec("SELECT MAX(dateandtime) FROM tickets;"))
+    {
+        query.next();
+        QString date = query.value(0).toString();
+        report.append("\nLast sale: " + date);
+    }
 
     salesReportWindow->getPlainTextEdit()->setPlainText(report);
     salesReportWindow->exec();
