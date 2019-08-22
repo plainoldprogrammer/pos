@@ -370,6 +370,12 @@ void MainWindow::on_pushButtonSalesReport_clicked()
         int min = query.value(0).toInt();
         report.append("\nMin sale: " + QString::number(min));
     }
+    if (query.exec("SELECT MIN(dateandtime) FROM tickets;"))
+    {
+        query.next();
+        QString date = query.value(0).toString();
+        report.append("\nFirst sale: " + date);
+    }
 
     salesReportWindow->getPlainTextEdit()->setPlainText(report);
     salesReportWindow->exec();
