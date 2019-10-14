@@ -899,7 +899,7 @@ CHICO</string>
    <widget class="DigitalClock" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>1579</x>
+      <x>1430</x>
       <y>900</y>
       <width>301</width>
       <height>80</height>
@@ -989,6 +989,19 @@ CHICO</string>
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButtonExit">
+    <property name="geometry">
+     <rect>
+      <x>1740</x>
+      <y>900</y>
+      <width>141</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -996,7 +1009,7 @@ CHICO</string>
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
