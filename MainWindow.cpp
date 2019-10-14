@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonSalesReport->setCursor(Qt::PointingHandCursor);
     ui->pushButtonSettings->setCursor(Qt::PointingHandCursor);
     ui->pushButtonTicketsTable->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonExit->setCursor(Qt::PointingHandCursor);
     ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
@@ -1244,6 +1245,11 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
 
     ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+}
+
+void MainWindow::on_pushButtonExit_clicked()
+{
+    close();
 }
 
 void MainWindow::writeOnTicket(Ticket * ticketToWrite)

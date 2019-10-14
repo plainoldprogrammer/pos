@@ -104,6 +104,11 @@ private slots:
      void on_pushButtonNextTicket_clicked();
      void on_pushButtonDeleteCurrentTicket_clicked();
      void on_pushButtonCreateNewTicket_clicked();
+
+     /*
+      * Other
+      */
+      void on_pushButtonExit_clicked();
 };
 
 #endif // MAINWINDOW_H

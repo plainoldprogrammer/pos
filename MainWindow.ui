@@ -995,8 +995,15 @@ CHICO</string>
       <x>1740</x>
       <y>900</y>
       <width>141</width>
-      <height>81</height>
+      <height>80</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Exit</string>
