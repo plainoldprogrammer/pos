@@ -11,6 +11,7 @@
 #include <QSqlQueryModel>
 #include <QTableView>
 #include <QList>
+#include <QMessageBox>
 
 #include <iostream>
 
@@ -1249,7 +1250,18 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
 
 void MainWindow::on_pushButtonExit_clicked()
 {
-    close();
+	QMessageBox::StandardButton confirm;
+
+	confirm = QMessageBox::question(this, "Exit", "Exit from the Point Of Sales?", QMessageBox::Yes | QMessageBox::No);
+
+	if (confirm == QMessageBox::Yes)
+	{
+		close();
+	}
+	else
+	{
+		qDebug() << "Cancel the exit";
+	}
 }
 
 void MainWindow::writeOnTicket(Ticket * ticketToWrite)
