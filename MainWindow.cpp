@@ -12,6 +12,7 @@
 #include <QTableView>
 #include <QList>
 #include <QMessageBox>
+#include <QDir>
 
 #include <iostream>
 
@@ -1297,8 +1298,21 @@ void MainWindow::createDBConnection()
 		qDebug() << "QSQLITE driver is available";
 	}
 	
+	QString dbFolder = "C:\\tmp\\";
+	QDir dbDirectory(dbFolder);
+	QString sqliteFileName = "database.db";
+	QString dbURI = dbFolder + sqliteFileName;
+	
 	db = QSqlDatabase::addDatabase(DRIVER);
-	db.setDatabaseName("C:\\tmp\\database.db");
+	db.setDatabaseName(dbURI);
+	
+	if (!dbDirectory.exists())
+	{
+		dbDirectory.mkdir(".");
+		
+		QMessageBox::StandardButton notification;
+		notification = QMessageBox::information(this, "New Database Created", "A new directory and a new database\nhas been created");
+	}
 	
 	if (db.open())
 	{
