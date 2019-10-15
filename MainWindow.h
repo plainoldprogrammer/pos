@@ -58,6 +58,7 @@ private slots:
 	 * Numeric pad slots
 	 */
 	void on_pushButtonClear_clicked();
+	void on_pushButtonClearEntry_clicked();
 	void on_pushButtonNum0_clicked();
 	void on_pushButtonNum1_clicked();
 	void on_pushButtonNum2_clicked();

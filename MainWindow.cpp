@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonTicketsTable->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonExit->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonClear->setCursor(Qt::PointingHandCursor);
+	ui->pushButtonClearEntry->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonNum0->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonNum1->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonNum2->setCursor(Qt::PointingHandCursor);
@@ -133,6 +134,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonClear->setIcon(QIcon(":/images/icons/trash.png"));
 	ui->pushButtonClear->setIconSize(QSize(145, 145));
 	ui->pushButtonClear->setToolTip("Clear current ticket");
+	
+	ui->pushButtonClearEntry->setIcon(QIcon(":/images/icons/eraser.png"));
+	ui->pushButtonClearEntry->setIconSize(QSize(145, 145));
+	ui->pushButtonClearEntry->setToolTip("Clear last entry");
 	
 	ui->pushButtonSettings->setIcon(QIcon(":/images/icons/settings.png"));
 	ui->pushButtonSettings->setIconSize(QSize(145, 145));
@@ -257,6 +262,11 @@ void MainWindow::on_pushButtonClear_clicked()
 	ui->totalAmountDisplay->clear();
 	ui->totalAmountDisplay->setText("TOTAL $ 0");
 	totalAmount = 0;
+}
+
+void MainWindow::on_pushButtonClearEntry_clicked()
+{
+	qDebug() << "Clear entry";
 }
 
 void MainWindow::on_pushButtonSettings_clicked()

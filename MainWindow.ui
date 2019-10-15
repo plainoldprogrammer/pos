@@ -1009,6 +1009,19 @@ CHICO</string>
      <string>Exit</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButtonClearEntry">
+    <property name="geometry">
+     <rect>
+      <x>1730</x>
+      <y>460</y>
+      <width>150</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
