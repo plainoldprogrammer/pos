@@ -130,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
 	ui->pushButtonCreateNewTicket->setToolTip("Save current ticket and create a new one");
 	
-	ui->pushButtonClear->setIcon(QIcon(":/images/icons/eraser.png"));
+	ui->pushButtonClear->setIcon(QIcon(":/images/icons/trash.png"));
 	ui->pushButtonClear->setIconSize(QSize(145, 145));
 	ui->pushButtonClear->setToolTip("Clear current ticket");
 	
