@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     singleFoodEntry = "";
 
     ui->setupUi(this);
+    this->setWindowTitle("Point Of Sales (POS)");
 
     /*
      * Setup hand cursor for the ui buttons
