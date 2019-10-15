@@ -11,16 +11,16 @@ class TicketsTableWindow;
 
 class TicketsTableWindow : public QDialog
 {
-    Q_OBJECT
-
+	Q_OBJECT
+	
 public:
-    explicit TicketsTableWindow(QWidget *parent = nullptr);
-    ~TicketsTableWindow();
-    QTableView * getTableView();
-    void resizeEvent(QResizeEvent *);
-
+	explicit TicketsTableWindow(QWidget *parent = nullptr);
+	~TicketsTableWindow();
+	QTableView * getTableView();
+	void resizeEvent(QResizeEvent *);
+	
 private:
-    Ui::TicketsTableWindow *ui;
+	Ui::TicketsTableWindow *ui;
 };
 
 #endif // TICKETSTABLEWINDOW_H

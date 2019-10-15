@@ -2,19 +2,19 @@
 #include "ui_salesreportwindow.h"
 
 SalesReportWindow::SalesReportWindow(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::SalesReportWindow)
+	QDialog(parent),
+	ui(new Ui::SalesReportWindow)
 {
-    ui->setupUi(this);
-    ui->buttonBox->hide();
+	ui->setupUi(this);
+	ui->buttonBox->hide();
 }
 
 SalesReportWindow::~SalesReportWindow()
 {
-    delete ui;
+	delete ui;
 }
 
 QPlainTextEdit * SalesReportWindow::getPlainTextEdit()
 {
-    return ui->plainTextEdit;
+	return ui->plainTextEdit;
 }

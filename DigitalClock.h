@@ -5,13 +5,13 @@
 
 class DigitalClock : public QLCDNumber
 {
-    Q_OBJECT
-
+	Q_OBJECT
+	
 public:
-    DigitalClock(QWidget *parent = nullptr);
-
+	DigitalClock(QWidget *parent = nullptr);
+	
 private:
-    void showTime();
+	void showTime();
 };
 
 #endif // DIGITALCLOCK_H

@@ -2,48 +2,48 @@
 
 Ticket::Ticket()
 {
-    header = "";
-    body = "";
-    footer = "";
-    ticketTotalAmount;
+	header = "";
+	body = "";
+	footer = "";
+	ticketTotalAmount;
 }
 
 void Ticket::setHeader(QString newHeader)
 {
-    header = newHeader;
+	header = newHeader;
 }
 
 void Ticket::setBody(QString newBody)
 {
-    body = newBody;
+	body = newBody;
 }
 
 void Ticket::setFooter(QString newFooter)
 {
-    footer = newFooter;
+	footer = newFooter;
 }
 
 void Ticket::setTicketTotalAmount(int newTicketTotalAmount)
 {
-    ticketTotalAmount = newTicketTotalAmount;
+	ticketTotalAmount = newTicketTotalAmount;
 }
 
 QString Ticket::getHeader()
 {
-    return header;
+	return header;
 }
 
 QString Ticket::getBody()
 {
-    return body;
+	return body;
 }
 
 QString Ticket::getFooter()
 {
-    return footer;
+	return footer;
 }
 
 int Ticket::getTicketTotalAmount()
 {
-    return ticketTotalAmount;
+	return ticketTotalAmount;
 }
