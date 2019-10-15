@@ -1,6 +1,0 @@
-Pending:
--Display the date and time in each ticket.
--Display the price of each item below the item name.
--Set a custom path for the database.
--Define the menu items in a JSON file to make it interchangable.
-
