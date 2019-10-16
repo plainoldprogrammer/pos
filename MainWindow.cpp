@@ -258,10 +258,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonClear_clicked()
 {
-	ui->orderDisplay->clear();
-	ui->totalAmountDisplay->clear();
-	ui->totalAmountDisplay->setText("TOTAL $ 0");
-	totalAmount = 0;
+	QMessageBox::StandardButton confirm;
+	confirm = QMessageBox::question(this, "Exit", "Are you sure you want to erase all the ticket entry?", QMessageBox::Yes | QMessageBox::No);	
+	
+	if (confirm == QMessageBox::Yes)
+	{
+		ui->orderDisplay->clear();
+		ui->totalAmountDisplay->clear();
+		ui->totalAmountDisplay->setText("TOTAL $ 0");
+		totalAmount = 0;
+	}
+	else
+	{
+		qDebug() << "Cancel the clear";
+	}
 }
 
 void MainWindow::on_pushButtonClearEntry_clicked()
@@ -1263,7 +1273,6 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
 void MainWindow::on_pushButtonExit_clicked()
 {
 	QMessageBox::StandardButton confirm;
-	
 	confirm = QMessageBox::question(this, "Exit", "Exit from the Point Of Sales?", QMessageBox::Yes | QMessageBox::No);
 	
 	if (confirm == QMessageBox::Yes)
