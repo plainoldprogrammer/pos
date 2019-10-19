@@ -94,6 +94,7 @@ void SettingsWindow::on_pushButtonTicketCharColor_clicked()
 
 void SettingsWindow::setTicketCharColor(QColor color)
 {
+	ticketCharColor = color;
 	this->ui->textEditCharColor->setPalette(QPalette(color));
 }
 
