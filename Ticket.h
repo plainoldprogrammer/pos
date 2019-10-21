@@ -16,11 +16,13 @@ public:
 	QString getBody();
 	QString getFooter();
 	int getTicketTotalAmount();
+	void setId(int);
 private:
 	QString header;
 	QString body;
 	QString footer;
 	int ticketTotalAmount;
+	int id;
 };
 
 #endif // TICKET_H

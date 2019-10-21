@@ -5,7 +5,7 @@ Ticket::Ticket()
 	header = "";
 	body = "";
 	footer = "";
-	ticketTotalAmount;
+	ticketTotalAmount = 0;
 }
 
 void Ticket::setHeader(QString newHeader)
@@ -46,4 +46,9 @@ QString Ticket::getFooter()
 int Ticket::getTicketTotalAmount()
 {
 	return ticketTotalAmount;
+}
+
+void Ticket::setId(int id)
+{
+	this->id = id;
 }

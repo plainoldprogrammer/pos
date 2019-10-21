@@ -1375,6 +1375,7 @@ void MainWindow::loadTicketsFromDb()
 			ticket->setBody(query.value(1).toString());
 			ticket->setTicketTotalAmount(query.value(2).toInt());
 			ticket->setFooter(ui->ticketFooter->text());
+			ticket->setId(query.value(0).toInt());
 		}
 		
 		qDebug() << tickets.size() << " tickets loaded from database to memory";
