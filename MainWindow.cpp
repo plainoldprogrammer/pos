@@ -1165,6 +1165,12 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 	qDebug() << "pushButtonDeleteCurrentTicket clicked";
 	qDebug() << "Delete ticket #" << currentTicketIndex << "(zero index based)";
 	
+	
+	 //	NOTE:	The the id of each ticket register in the database could be different
+	 //			from the index of each element of the tickets vector.
+	int ticketIdInDb = tickets.at(currentTicketIndex)->getId();
+	qDebug() << "ticked removed with and id" << ticketIdInDb << "in the database";
+	
 	if ( (currentTicketIndex == 0) && (tickets.size() > 1) )
 	{
 		tickets.remove(currentTicketIndex);
@@ -1204,6 +1210,8 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 		ui->orderDisplay->setText(ticket->getBody());
 		ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
 	}
+	
+	QSqlQuery sqlQuery("DELETE FROM tickets WHERE id=" + QString::number(ticketIdInDb) + ";");
 }
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
