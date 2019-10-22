@@ -131,6 +131,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonCreateNewTicket->setIcon(QIcon(":/images/icons/new-ticket.png"));
 	ui->pushButtonCreateNewTicket->setIconSize(QSize(80, 80));
 	ui->pushButtonCreateNewTicket->setToolTip("Save current ticket and create a new one");
+	ui->pushButtonCreateNewTicket->setShortcut(QKeySequence(Qt::Key_Return));
 	
 	ui->pushButtonClear->setIcon(QIcon(":/images/icons/trash.png"));
 	ui->pushButtonClear->setIconSize(QSize(145, 145));
