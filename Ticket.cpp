@@ -52,3 +52,8 @@ void Ticket::setId(int id)
 {
 	this->id = id;
 }
+
+int Ticket::getId()
+{
+	return this->id;
+}

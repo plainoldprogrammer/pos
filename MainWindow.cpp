@@ -1163,7 +1163,7 @@ void MainWindow::on_pushButtonNextTicket_clicked()
 void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 {
 	qDebug() << "pushButtonDeleteCurrentTicket clicked";
-	qDebug() << "Delete ticket #" << currentTicketIndex ;
+	qDebug() << "Delete ticket #" << currentTicketIndex << "(zero index based)";
 	
 	if ( (currentTicketIndex == 0) && (tickets.size() > 1) )
 	{
@@ -1204,7 +1204,6 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 		ui->orderDisplay->setText(ticket->getBody());
 		ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
 	}
-	
 }
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()

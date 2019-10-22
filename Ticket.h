@@ -17,6 +17,7 @@ public:
 	QString getFooter();
 	int getTicketTotalAmount();
 	void setId(int);
+	int getId();
 private:
 	QString header;
 	QString body;
