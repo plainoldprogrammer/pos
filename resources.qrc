@@ -9,5 +9,6 @@
         <file>icons/settings.png</file>
         <file>icons/table.png</file>
         <file>icons/trash.png</file>
+        <file>icons/menu.png</file>
     </qresource>
 </RCC>

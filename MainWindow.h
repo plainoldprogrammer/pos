@@ -50,6 +50,7 @@ private slots:
 	/*
 	 * Features and settings slots
 	 */
+	void on_pushButtonMenu_clicked();
 	void on_pushButtonSettings_clicked();
 	void on_pushButtonTicketsTable_clicked();
 	void on_pushButtonSalesReport_clicked();

@@ -341,8 +341,8 @@ BOTELLA</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>1730</x>
-      <y>680</y>
+      <x>1580</x>
+      <y>760</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -900,7 +900,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1430</x>
-      <y>900</y>
+      <y>930</y>
       <width>301</width>
       <height>80</height>
      </rect>
@@ -967,7 +967,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1430</x>
-      <y>680</y>
+      <y>610</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -980,7 +980,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1580</x>
-      <y>680</y>
+      <y>610</y>
       <width>150</width>
       <height>150</height>
      </rect>
@@ -993,7 +993,7 @@ CHICO</string>
     <property name="geometry">
      <rect>
       <x>1740</x>
-      <y>900</y>
+      <y>930</y>
       <width>141</width>
       <height>80</height>
      </rect>
@@ -1014,6 +1014,19 @@ CHICO</string>
      <rect>
       <x>1730</x>
       <y>460</y>
+      <width>150</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonMenu">
+    <property name="geometry">
+     <rect>
+      <x>1430</x>
+      <y>760</y>
       <width>150</width>
       <height>150</height>
      </rect>

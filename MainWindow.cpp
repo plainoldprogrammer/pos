@@ -80,6 +80,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonNextTicket->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonDeleteCurrentTicket->setCursor(Qt::PointingHandCursor);
 	ui->pushButtonCreateNewTicket->setCursor(Qt::PointingHandCursor);
+	ui->pushButtonMenu->setCursor(Qt::PointingHandCursor);
 	
 	/*
 	 * Setup  the push buttons style
@@ -111,6 +112,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonTicketsTable->setStyleSheet("QPushButton { background-color: #f5d742 }" );
 	ui->pushButtonSalesReport->setStyleSheet("QPushButton { background-color: #f5d742 } " );
 	ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 }" );
+	ui->pushButtonMenu->setStyleSheet("QPushButton { background-color: #f5d742 }");
 	
 	ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
 	ui->pushButtonPreviousTicket->setIcon(QIcon(":/images/icons/leftarrow.ico"));
@@ -152,6 +154,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonSalesReport->setIcon(QIcon(":/images/icons/report.png"));
 	ui->pushButtonSalesReport->setIconSize(QSize(145, 145));
 	ui->pushButtonSalesReport->setToolTip("Show a sales report");
+	
+	ui->pushButtonMenu->setIcon(QIcon(":/images/icons/menu.png"));
+	ui->pushButtonMenu->setIconSize(QSize(145, 145));
+	ui->pushButtonSalesReport->setToolTip("View and edit menu details");
 	
 	/*
 	 * Setup the ticket ui based on the stored settings
@@ -1425,4 +1431,9 @@ bool MainWindow::isTicketsTableFromDbEmpty()
 	{
 		return false;
 	}
+}
+
+void MainWindow::on_pushButtonMenu_clicked()
+{
+	qDebug() << "Display and edit the menu";
 }
