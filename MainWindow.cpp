@@ -125,6 +125,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->pushButtonDeleteCurrentTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
 	ui->pushButtonDeleteCurrentTicket->setIcon(QIcon(":/images/icons/delete.png"));
 	ui->pushButtonDeleteCurrentTicket->setIconSize(QSize(80, 80));
+	ui->pushButtonDeleteCurrentTicket->setShortcut(QKeySequence(Qt::Key_Delete));
 	
 	ui->pushButtonCreateNewTicket->setStyleSheet("QPushButton{ background-color: #808080 } ");
 	ui->pushButtonCreateNewTicket->setIcon(QIcon(":/images/icons/new-ticket.png"));
@@ -1165,9 +1166,8 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
 	qDebug() << "pushButtonDeleteCurrentTicket clicked";
 	qDebug() << "Delete ticket #" << currentTicketIndex << "(zero index based)";
 	
-	
-	 //	NOTE:	The the id of each ticket register in the database could be different
-	 //			from the index of each element of the tickets vector.
+	//	NOTE:	The the id of each ticket register in the database could be different
+	//			from the index of each element of the tickets vector.
 	int ticketIdInDb = tickets.at(currentTicketIndex)->getId();
 	qDebug() << "ticked removed with and id" << ticketIdInDb << "in the database";
 	
