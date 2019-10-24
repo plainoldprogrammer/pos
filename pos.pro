@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         DigitalClock.cpp \
+        FoodMenuWindow.cpp \
         MainWindow.cpp \
         SalesReportWindow.cpp \
         SettingsWindow.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 
 HEADERS += \
         DigitalClock.h \
+        FoodMenuWindow.h \
         MainWindow.h \
         SalesReportWindow.h \
         SettingsWindow.h \
@@ -42,6 +44,7 @@ HEADERS += \
         TicketsTableWindow.h
 
 FORMS += \
+        foodmenuwindow.ui \
         mainwindow.ui \
         salesreportwindow.ui \
         settingswindow.ui \
