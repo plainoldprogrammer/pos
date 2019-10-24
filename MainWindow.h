@@ -11,6 +11,7 @@
 #include "SettingsWindow.h"
 #include "TicketsTableWindow.h"
 #include "SalesReportWindow.h"
+#include "FoodMenuWindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -45,6 +46,7 @@ private:
 	void createDBConnection();
 	void loadTicketsFromDb();
 	bool isTicketsTableFromDbEmpty();
+	FoodMenuWindow *foodMenuWindow;
 	
 private slots:
 	/*

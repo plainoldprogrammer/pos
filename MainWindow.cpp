@@ -22,6 +22,7 @@
 #include "SettingsWindow.h"
 #include "TicketsTableWindow.h"
 #include "SalesReportWindow.h"
+#include "FoodMenuWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -224,6 +225,13 @@ MainWindow::MainWindow(QWidget *parent) :
 	salesReportWindow->setWindowTitle("Sales Report");
 	
 	/*
+	 * Initialize the inner window to show a food menu details
+	 */
+	foodMenuWindow = new FoodMenuWindow();
+	foodMenuWindow->setFixedSize(foodMenuWindow->size());
+	foodMenuWindow->setWindowTitle("Food Menu");
+	
+	/*
 	 * Initialize the connection with the database
 	 */
 	createDBConnection();
@@ -290,6 +298,7 @@ void MainWindow::on_pushButtonClearEntry_clicked()
 void MainWindow::on_pushButtonFoodMenu_clicked()
 {
 	qDebug() << "Display and edit the menu";
+	foodMenuWindow->exec();
 }
 
 void MainWindow::on_pushButtonSettings_clicked()
