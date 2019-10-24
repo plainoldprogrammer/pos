@@ -1022,7 +1022,7 @@ CHICO</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonMenu">
+   <widget class="QPushButton" name="pushButtonFoodMenu">
     <property name="geometry">
      <rect>
       <x>1430</x>
