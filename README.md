@@ -1,5 +1,5 @@
 # pos
-Point Of Sales.
+The *POS* (Point Of Sales) is a C++/Qt application designed to be used fast and precisely by a cashier without effort and complications.
 
 **Capabilities**
 
