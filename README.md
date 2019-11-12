@@ -12,3 +12,4 @@ The *POS* (Point Of Sales) is a C++/Qt application designed to be used fast and 
 * Navigate through all the saved tickcets.
 * Customize the ticket header and footer.
 * Customize the ticket font color.
+* Browse between all tickets in a fast way.
