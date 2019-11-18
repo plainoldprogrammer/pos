@@ -1341,7 +1341,7 @@ void MainWindow::createDBConnection()
 	
 	QString dbFolder = "C:\\tmp\\";
 	QDir dbDirectory(dbFolder);
-	QString sqliteFileName = "database.db";
+	QString sqliteFileName = "pos.db";
 	QString dbURI = dbFolder + sqliteFileName;
 	
 	db = QSqlDatabase::addDatabase(DRIVER);
