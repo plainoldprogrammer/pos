@@ -10,5 +10,6 @@
         <file>icons/table.png</file>
         <file>icons/trash.png</file>
         <file>icons/menu.png</file>
+        <file>icons/icon.ico</file>
     </qresource>
 </RCC>
