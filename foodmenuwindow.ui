@@ -59,7 +59,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -86,6 +86,66 @@
     </item>
     <item>
      <widget class="QLineEdit" name="lineEdit_12"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>859</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLineEdit" name="lineEdit_13"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_14"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_15"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_16"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_17"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_18"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>859</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLineEdit" name="lineEdit_19"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_20"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_21"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_22"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_23"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_24"/>
     </item>
    </layout>
   </widget>
