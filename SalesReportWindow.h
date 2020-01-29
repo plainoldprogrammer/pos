@@ -10,15 +10,15 @@ class SalesReportWindow;
 
 class SalesReportWindow : public QDialog
 {
-	Q_OBJECT
-	
+    Q_OBJECT
+
 public:
-	explicit SalesReportWindow(QWidget *parent = nullptr);
-	~SalesReportWindow();
-	QPlainTextEdit * getPlainTextEdit();
-	
+    explicit SalesReportWindow(QWidget *parent = nullptr);
+    ~SalesReportWindow();
+    QPlainTextEdit * getPlainTextEdit();
+
 private:
-	Ui::SalesReportWindow *ui;
+    Ui::SalesReportWindow *ui;
 };
 
 #endif // SALESREPORTWINDOW_H

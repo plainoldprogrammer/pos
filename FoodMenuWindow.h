@@ -9,14 +9,14 @@ class FoodMenuWindow;
 
 class FoodMenuWindow : public QDialog
 {
-	Q_OBJECT
-	
+    Q_OBJECT
+
 public:
-	explicit FoodMenuWindow(QWidget *parent = nullptr);
-	~FoodMenuWindow();
-	
+    explicit FoodMenuWindow(QWidget *parent = nullptr);
+    ~FoodMenuWindow();
+
 private:
-	Ui::FoodMenuWindow *ui;
+    Ui::FoodMenuWindow *ui;
 };
 
 #endif // FOODMENUWINDOW_H

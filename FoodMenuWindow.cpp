@@ -2,13 +2,13 @@
 #include "ui_foodmenuwindow.h"
 
 FoodMenuWindow::FoodMenuWindow(QWidget *parent) :
-QDialog(parent),
-ui(new Ui::FoodMenuWindow)
+    QDialog(parent),
+    ui(new Ui::FoodMenuWindow)
 {
-	ui->setupUi(this);
+    ui->setupUi(this);
 }
 
 FoodMenuWindow::~FoodMenuWindow()
 {
-	delete ui;
+    delete ui;
 }
