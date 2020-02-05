@@ -296,8 +296,14 @@ void MainWindow::on_pushButtonClearEntry_clicked()
 {
     qDebug() << "Clear entry";
 
-    entries.takeLast();;
+    Entry * lastEntry = entries.takeLast();;
+    int singleFoodEntryAmount = calculateAmount(lastEntry->getQuantity(), lastEntry->getItem());
+    totalAmount -= singleFoodEntryAmount;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
     printEntriesOnTicket();
+
+    delete lastEntry;
 }
 
 void MainWindow::on_pushButtonFoodMenu_clicked()
@@ -1130,9 +1136,7 @@ void MainWindow::processQuantityInput(int digit)
     }
 
     entry->setQuantity((entry->getQuantity() * 10) + digit);
-
     singleFoodEntry += QString::number(digit);
-
     printEntriesOnTicket();
 }
 
