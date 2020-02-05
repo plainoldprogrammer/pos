@@ -657,7 +657,7 @@ int MainWindow::calculateAmount(int quantity, QString food)
 {
     std::cout << "calculateAmount(" << quantity << ", " << food.toStdString().c_str() << ") " << std::endl;
 
-    if ((QString::compare(food, "TORTA", Qt::CaseSensitive)) == 0)
+    if ((QString::compare(food, "PECHUGA", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(pechuga)";
         return quantity * 50;
