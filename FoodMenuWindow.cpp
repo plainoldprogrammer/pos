@@ -80,3 +80,4 @@ void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> foodMenu)
         (foodMenuItemPriceLineEdits.at(i))->setText(QString::number(itemAndPrice.second));
     }
 }
+

@@ -348,7 +348,11 @@ void MainWindow::on_pushButtonFoodMenu_clicked()
 {
     qDebug() << "Display and edit the menu";
     foodMenuWindow->setFoodMenu(foodMenu);
-    foodMenuWindow->exec();
+
+    if (foodMenuWindow->exec() == QDialog::Accepted)
+    {
+        qDebug() << "Updating the food menu";
+    }
 }
 
 void MainWindow::on_pushButtonSettings_clicked()
