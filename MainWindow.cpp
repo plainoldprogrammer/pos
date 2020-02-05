@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     totalAmount = 0;
     singleFoodEntry = "";
+    entry = NULL;
 
     ui->setupUi(this);
     this->setWindowTitle("Point Of Sales (POS)");
@@ -435,520 +436,173 @@ void MainWindow::on_pushButtonSalesReport_clicked()
 
 void MainWindow::on_pushButtonNum0_clicked()
 {
-    singleFoodEntry += "0";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "0");
+    processQuantityInput(0);
 }
 
 void MainWindow::on_pushButtonNum1_clicked()
 {
-    singleFoodEntry += "1";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "1");
+    processQuantityInput(1);
 }
 
 void MainWindow::on_pushButtonNum2_clicked()
 {
-    singleFoodEntry += "2";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "2");
+    processQuantityInput(2);
 }
 
 void MainWindow::on_pushButtonNum3_clicked()
 {
-    singleFoodEntry += "3";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "3");
+    processQuantityInput(3);
 }
 
 void MainWindow::on_pushButtonNum4_clicked()
 {
-    singleFoodEntry += "4";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "4");
+    processQuantityInput(4);
 }
 
 void MainWindow::on_pushButtonNum5_clicked()
 {
-    singleFoodEntry += "5";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "5");
+    processQuantityInput(5);
 }
 
 void MainWindow::on_pushButtonNum6_clicked()
 {
-    singleFoodEntry += "6";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "6");
+    processQuantityInput(6);
 }
 
 void MainWindow::on_pushButtonNum7_clicked()
 {
-    singleFoodEntry += "7";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "7");
+    processQuantityInput(7);
 }
 
 void MainWindow::on_pushButtonNum8_clicked()
 {
-    singleFoodEntry += "8";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "8");
+    processQuantityInput(8);
 }
 
 void MainWindow::on_pushButtonNum9_clicked()
 {
-    singleFoodEntry += "9";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + "9");
+    processQuantityInput(9);
 }
 
 void MainWindow::on_pushButtonPechuga_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " PECHUGA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " PECHUGA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "PECHUGA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("PECHUGA");
 }
 
 void MainWindow::on_pushButtonBistec_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " BISTEC";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " BISTEC\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "BISTEC");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
-
+    processItemSelected("BISTEC");
 }
 
 void MainWindow::on_pushButtonPollo_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " POLLO";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " POLLO\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "POLLO");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("POLLO");
 }
 
 void MainWindow::on_pushButtonChicharron_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " CHICHARRON";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHICHARRON\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "CHICHARRON");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("CHICHARRON");
 }
 
 void MainWindow::on_pushButtonMole_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " CHICHARRON";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHICHARRON\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "CHICHARRON");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("MOLE");
 }
 
 void MainWindow::on_pushButtonMilanesa_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " MILANESA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " MILANESA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "MILANESA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("MILANESA");
 }
 
 void MainWindow::on_pushButtonAlbondigas_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " ALBONDIGAS";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " ALBONDIGAS\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "ALBONDIGAS");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("ALBONDIGAS");
 }
 
 void MainWindow::on_pushButtonCarneDeshebrada_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " CARNE_DESHEBRADA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " CARNE DESHEBRADA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "CARNE_DESHEBRADA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("CARNE_DESHEBRADA");
 }
 
 void MainWindow::on_pushButtonHuevos_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " HUEVOS";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " HUEVOS\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "HUEVOS");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("HUEVOS");
 }
 
 void MainWindow::on_pushButtonChilaquiles_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " CHILAQUILES";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " CHILAQUILES\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "CHILAQUILES");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("CHILAQUILES");
 }
 
 void MainWindow::on_pushButtonSincronizada_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " SINCRONIZADA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " SINCRONIZADA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "SINCRONIZADA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("SINCRONIZADA");
 }
 
 void MainWindow::on_pushButtonBurritos_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " BURRITOS";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " BURRITOS\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "BURRITOS");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("BURRITOS");
 }
 
 void MainWindow::on_pushButtonQuesadillaCombinada_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " QUESADILLA_COMBINADA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " QUESADILLA COMBINADA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA_COMBINADA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("QUESADILLA_COMBINADA");
 }
 
 void MainWindow::on_pushButtonQuesadillaChica_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " QUESADILLA_CHICHA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " QUESADILLA CHICA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA_CHICA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("QUESADILLA_CHICA");
 }
 
 void MainWindow::on_pushButtonRefresco_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " REFRESCO";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " REFRESCO\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "REFRESCO");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("REFRESCO");
 }
 
 
 void MainWindow::on_pushButtonJugo_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " JUGO";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " JUGO\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "JUGO");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("JUGO");
 }
 
 void MainWindow::on_pushButtonQuesadilla_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " QUESADILLA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " QUESADILLA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "QUESADILLA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("QUESADILLA");
 }
 
 void MainWindow::on_pushButtonTacoChico_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " TACO_CHICO";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " TACO CHICO\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "TACO_CHICO");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("TACO_CHICO");
 }
 
 void MainWindow::on_pushButtonAguaFresca_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " AGUA_FRESCA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA FRESCA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "AGUA_FRESCA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("AGUA_FRESCA");
 }
 
 void MainWindow::on_pushButtonLicuado_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " LICUADO";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " LICUADO\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "LICUADO");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("LICUADO");
 }
 
 void MainWindow::on_pushButtonAguaDeBotella_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " AGUA_DE_BOTELLA";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " AGUA DE BOTELLA\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "AGUA_DE_BOTELLA");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("AGUA_DE_BOTELLA");
 }
 
 void MainWindow::on_pushButtonCafe_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " CAFE";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " CAFE\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "CAFE");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("CAFE");
 }
 
 void MainWindow::on_pushButtonTe_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " TE";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " TE\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "TE");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("TE");
 }
 
 void MainWindow::on_pushButtonTortillas_clicked()
 {
-    std::cout << std::endl;
-    singleFoodEntry = singleFoodEntry + " TORTILLAS";
-    ui->orderDisplay->setText(ui->orderDisplay->text() + " TORTILLAS\n");
-
-    QStringList pieces = singleFoodEntry.split(" ");
-    int quantity = pieces.value(0).toInt();
-    int singleFoodEntryAmount = calculateAmount(quantity, "TORTILLAS");
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
-
-    totalAmount += singleFoodEntryAmount;
-    std::cout << "totalAmount: " << totalAmount << std::endl;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    singleFoodEntry = "";
-    writeOnTicket(ticket);
+    processItemSelected("TORTILLAS");
 }
 
 int MainWindow::calculateAmount(int quantity, QString food)
@@ -1445,4 +1099,63 @@ bool MainWindow::isTicketsTableFromDbEmpty()
     {
         return false;
     }
+}
+
+void MainWindow::printEntriesOnTicket()
+{
+    qDebug() << "Printing the entries on ticket...";
+
+    for (int i = 0; i < entries.size(); i++)
+    {
+        qDebug() << "\t" << (entries.at(i))->getQuantity() << "\t" << (entries.at(i)->getItem());
+    }
+
+    ui->orderDisplay->clear();
+
+    for (int i = 0; i < entries.size(); i++)
+    {
+        ui->orderDisplay->setText(ui->orderDisplay->text() + QString::number(entries.at(i)->getQuantity()) + " " + entries.at(i)->getItem() + "\n");
+    }
+}
+
+void MainWindow::processQuantityInput(int digit)
+{
+    if (entry == NULL)
+    {
+        entry = new Entry();
+        entries.push_back(entry);
+    }
+
+    entry->setQuantity((entry->getQuantity() * 10) + digit);
+
+    singleFoodEntry += QString::number(digit);
+
+    printEntriesOnTicket();
+}
+
+
+void MainWindow::processItemSelected(QString item)
+{
+    if (entry)
+    {
+        entry->setItem(item);
+    }
+
+    std::cout << std::endl;
+
+    singleFoodEntry = singleFoodEntry + " " + item;
+
+    QStringList pieces = singleFoodEntry.split(" ");
+    int quantity = pieces.value(0).toInt();
+    int singleFoodEntryAmount = calculateAmount(quantity, item);
+    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+
+    totalAmount += singleFoodEntryAmount;
+    std::cout << "totalAmount: " << totalAmount << std::endl;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    singleFoodEntry = "";
+    writeOnTicket(ticket);
+    printEntriesOnTicket();
+    entry = NULL;
 }

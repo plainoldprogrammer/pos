@@ -12,6 +12,7 @@
 #include "TicketsTableWindow.h"
 #include "SalesReportWindow.h"
 #include "FoodMenuWindow.h"
+#include "Entry.h"
 
 namespace Ui {
 class MainWindow;
@@ -47,6 +48,11 @@ private:
     void loadTicketsFromDb();
     bool isTicketsTableFromDbEmpty();
     FoodMenuWindow *foodMenuWindow;
+    Entry *entry;
+    QVector<Entry *> entries;
+    void printEntriesOnTicket();
+    void processQuantityInput(int);
+    void processItemSelected(QString);
 
 private slots:
     /*
