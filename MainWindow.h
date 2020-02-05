@@ -85,29 +85,29 @@ private slots:
      * Food menu item slots
      */
     void on_pushButtonMenu_0_0_clicked();
-    void on_pushButtonBistec_clicked();
-    void on_pushButtonPollo_clicked();
-    void on_pushButtonChicharron_clicked();
-    void on_pushButtonMole_clicked();
-    void on_pushButtonMilanesa_clicked();
-    void on_pushButtonAlbondigas_clicked();
-    void on_pushButtonCarneDeshebrada_clicked();
-    void on_pushButtonHuevos_clicked();
-    void on_pushButtonChilaquiles_clicked();
-    void on_pushButtonSincronizada_clicked();
-    void on_pushButtonBurritos_clicked();
-    void on_pushButtonQuesadillaCombinada_clicked();
-    void on_pushButtonQuesadillaChica_clicked();
-    void on_pushButtonRefresco_clicked();
-    void on_pushButtonJugo_clicked();
-    void on_pushButtonQuesadilla_clicked();
-    void on_pushButtonTacoChico_clicked();
-    void on_pushButtonAguaFresca_clicked();
-    void on_pushButtonLicuado_clicked();
-    void on_pushButtonAguaDeBotella_clicked();
-    void on_pushButtonCafe_clicked();
-    void on_pushButtonTe_clicked();
-    void on_pushButtonTortillas_clicked();
+    void on_pushButtonMenu_0_1_clicked();
+    void on_pushButtonMenu_0_2_clicked();
+    void on_pushButtonMenu_0_3_clicked();
+    void on_pushButtonMenu_0_4_clicked();
+    void on_pushButtonMenu_0_5_clicked();
+    void on_pushButtonMenu_1_0_clicked();
+    void on_pushButtonMenu_1_1_clicked();
+    void on_pushButtonMenu_1_2_clicked();
+    void on_pushButtonMenu_1_3_clicked();
+    void on_pushButtonMenu_1_4_clicked();
+    void on_pushButtonMenu_1_5_clicked();
+    void on_pushButtonMenu_2_0_clicked();
+    void on_pushButtonMenu_2_1_clicked();
+    void on_pushButtonMenu_2_2_clicked();
+    void on_pushButtonMenu_2_3_clicked();
+    void on_pushButtonMenu_2_4_clicked();
+    void on_pushButtonMenu_2_5_clicked();
+    void on_pushButtonMenu_3_0_clicked();
+    void on_pushButtonMenu_3_1_clicked();
+    void on_pushButtonMenu_3_2_clicked();
+    void on_pushButtonMenu_3_3_clicked();
+    void on_pushButtonMenu_3_4_clicked();
+    void on_pushButtonMenu_3_5_clicked();
 
     /*
      * Ticket options slots

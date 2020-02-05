@@ -535,122 +535,122 @@ void MainWindow::on_pushButtonNum9_clicked()
 
 void MainWindow::on_pushButtonMenu_0_0_clicked()
 {
-    processItemSelected("TORTA");
+    processItemSelected(ui->pushButtonMenu_0_0->text());
 }
 
-void MainWindow::on_pushButtonBistec_clicked()
+void MainWindow::on_pushButtonMenu_0_1_clicked()
 {
-    processItemSelected("BISTEC");
+    processItemSelected(ui->pushButtonMenu_0_1->text());
 }
 
-void MainWindow::on_pushButtonPollo_clicked()
+void MainWindow::on_pushButtonMenu_0_2_clicked()
 {
-    processItemSelected("POLLO");
+    processItemSelected(ui->pushButtonMenu_0_2->text());
 }
 
-void MainWindow::on_pushButtonChicharron_clicked()
+void MainWindow::on_pushButtonMenu_0_3_clicked()
 {
-    processItemSelected("CHICHARRON");
+    processItemSelected(ui->pushButtonMenu_0_3->text());
 }
 
-void MainWindow::on_pushButtonMole_clicked()
+void MainWindow::on_pushButtonMenu_0_4_clicked()
 {
-    processItemSelected("MOLE");
+    processItemSelected(ui->pushButtonMenu_0_4->text());
 }
 
-void MainWindow::on_pushButtonMilanesa_clicked()
+void MainWindow::on_pushButtonMenu_0_5_clicked()
 {
-    processItemSelected("MILANESA");
+    processItemSelected(ui->pushButtonMenu_0_5->text());
 }
 
-void MainWindow::on_pushButtonAlbondigas_clicked()
+void MainWindow::on_pushButtonMenu_1_0_clicked()
 {
-    processItemSelected("ALBONDIGAS");
+    processItemSelected(ui->pushButtonMenu_1_0->text());
 }
 
-void MainWindow::on_pushButtonCarneDeshebrada_clicked()
+void MainWindow::on_pushButtonMenu_1_1_clicked()
 {
-    processItemSelected("CARNE_DESHEBRADA");
+    processItemSelected(ui->pushButtonMenu_1_0->text());
 }
 
-void MainWindow::on_pushButtonHuevos_clicked()
+void MainWindow::on_pushButtonMenu_1_2_clicked()
 {
-    processItemSelected("HUEVOS");
+    processItemSelected(ui->pushButtonMenu_1_2->text());
 }
 
-void MainWindow::on_pushButtonChilaquiles_clicked()
+void MainWindow::on_pushButtonMenu_1_3_clicked()
 {
-    processItemSelected("CHILAQUILES");
+    processItemSelected(ui->pushButtonMenu_1_3->text());
 }
 
-void MainWindow::on_pushButtonSincronizada_clicked()
+void MainWindow::on_pushButtonMenu_1_4_clicked()
 {
-    processItemSelected("SINCRONIZADA");
+    processItemSelected(ui->pushButtonMenu_1_4->text());
 }
 
-void MainWindow::on_pushButtonBurritos_clicked()
+void MainWindow::on_pushButtonMenu_1_5_clicked()
 {
-    processItemSelected("BURRITOS");
+    processItemSelected(ui->pushButtonMenu_1_5->text());
 }
 
-void MainWindow::on_pushButtonQuesadillaCombinada_clicked()
+void MainWindow::on_pushButtonMenu_2_0_clicked()
 {
-    processItemSelected("QUESADILLA_COMBINADA");
+    processItemSelected(ui->pushButtonMenu_2_0->text());
 }
 
-void MainWindow::on_pushButtonQuesadillaChica_clicked()
+void MainWindow::on_pushButtonMenu_2_1_clicked()
 {
-    processItemSelected("QUESADILLA_CHICA");
+    processItemSelected(ui->pushButtonMenu_2_1->text());
 }
 
-void MainWindow::on_pushButtonRefresco_clicked()
+void MainWindow::on_pushButtonMenu_2_2_clicked()
 {
-    processItemSelected("REFRESCO");
+    processItemSelected(ui->pushButtonMenu_2_2->text());
 }
 
-void MainWindow::on_pushButtonJugo_clicked()
+void MainWindow::on_pushButtonMenu_2_3_clicked()
 {
-    processItemSelected("JUGO");
+    processItemSelected(ui->pushButtonMenu_2_3->text());
 }
 
-void MainWindow::on_pushButtonQuesadilla_clicked()
+void MainWindow::on_pushButtonMenu_2_4_clicked()
 {
-    processItemSelected("QUESADILLA");
+    processItemSelected(ui->pushButtonMenu_2_4->text());
 }
 
-void MainWindow::on_pushButtonTacoChico_clicked()
+void MainWindow::on_pushButtonMenu_2_5_clicked()
 {
-    processItemSelected("TACO_CHICO");
+    processItemSelected(ui->pushButtonMenu_2_5->text());
 }
 
-void MainWindow::on_pushButtonAguaFresca_clicked()
+void MainWindow::on_pushButtonMenu_3_0_clicked()
 {
-    processItemSelected("AGUA_FRESCA");
+    processItemSelected(ui->pushButtonMenu_3_0->text());
 }
 
-void MainWindow::on_pushButtonLicuado_clicked()
+void MainWindow::on_pushButtonMenu_3_1_clicked()
 {
-    processItemSelected("LICUADO");
+    processItemSelected(ui->pushButtonMenu_3_1->text());
 }
 
-void MainWindow::on_pushButtonAguaDeBotella_clicked()
+void MainWindow::on_pushButtonMenu_3_2_clicked()
 {
-    processItemSelected("AGUA_DE_BOTELLA");
+    processItemSelected(ui->pushButtonMenu_3_2->text());
 }
 
-void MainWindow::on_pushButtonCafe_clicked()
+void MainWindow::on_pushButtonMenu_3_3_clicked()
 {
-    processItemSelected("CAFE");
+    processItemSelected(ui->pushButtonMenu_3_3->text());
 }
 
-void MainWindow::on_pushButtonTe_clicked()
+void MainWindow::on_pushButtonMenu_3_4_clicked()
 {
-    processItemSelected("TE");
+    processItemSelected(ui->pushButtonMenu_3_4->text());
 }
 
-void MainWindow::on_pushButtonTortillas_clicked()
+void MainWindow::on_pushButtonMenu_3_5_clicked()
 {
-    processItemSelected("TORTILLAS");
+    processItemSelected(ui->pushButtonMenu_3_5->text());
 }
 
 int MainWindow::calculateAmount(int quantity, QString food)
