@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("Point Of Sales (POS)");
 
-
     /*
      * Setup hand cursor for the ui buttons
      */
@@ -655,127 +654,12 @@ void MainWindow::on_pushButtonMenu_3_5_clicked()
 
 int MainWindow::calculateAmount(int quantity, QString food)
 {
-    std::cout << "calculateAmount(" << quantity << ", " << food.toStdString().c_str() << ") " << std::endl;
+   qDebug() << "calculateAmount(" << quantity + ", " << food.toStdString().c_str() << ") ";
 
-    if ((QString::compare(food, "PECHUGA", Qt::CaseSensitive)) == 0)
+    if (foodMenu.contains(food.toUpper()))
     {
-        std::cout << "compare(pechuga)";
-        return quantity * 50;
-    }
-    else if ((QString::compare(food, "BISTEC", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(bistec)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "POLLO", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(pollo)";
-        return quantity * 45;
-    }
-    else if((QString::compare(food, "CHICHARRON", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(chicharron)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "MOLE", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(mole)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "MILANESA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(milanesa)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "ALBONDIGAS", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(albondigas)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "CARNE_DESHEBRADA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(carne_deshebrada)";
-        return quantity * 45;
-    }
-    else if ((QString::compare(food, "HUEVOS", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(huevos)";
-        return quantity * 35;
-    }
-    else if ((QString::compare(food, "CHILAQUILES", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(chilaquiles)";
-        return quantity * 35;
-    }
-    else if ((QString::compare(food, "SINCRONIZADA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(sincronizada)";
-        return quantity * 35;
-    }
-    else if ((QString::compare(food, "BURRITOS", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(burritos)";
-        return quantity * 35;
-    }
-    else if ((QString::compare(food, "QUESADILLA_COMBINADA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(quesadilla_combinada);";
-        return quantity * 22;
-    }
-    else if ((QString::compare(food, "QUESADILLA_CHICA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(quesadilla_chica)";
-        return quantity * 11;
-    }
-    else if ((QString::compare(food, "QUESADILLA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(quesadilla)";
-        return quantity *20;
-    }
-    else if ((QString::compare(food, "AGUA_FRESCA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(agua)";
-        return quantity * 12;
-    }
-    else if ((QString::compare(food, "REFRESCO", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(refresco)";
-        return quantity * 16;
-    }
-    else if ((QString::compare(food, "JUGO", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(jugo)";
-        return quantity * 16;
-    }
-    else if ((QString::compare(food, "TACO_CHICO", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(taco_chico)";
-        return quantity * 11;
-    }
-    else if ((QString::compare(food, "LICUADO", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(licuado)";
-        return quantity * 16;
-    }
-    else if ((QString::compare(food, "AGUA_DE_BOTELLA", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(agua_de_botella)";
-        return quantity * 12;
-    }
-    else if ((QString::compare(food, "CAFE", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(cafe)";
-        return quantity * 12;
-    }
-    else if ((QString::compare(food, "TE", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(te)";
-        return quantity * 12;
-    }
-    else if ((QString::compare(food, "TORTILLAS", Qt::CaseSensitive)) == 0)
-    {
-        std::cout << "compare(tortillas)";
-        return quantity * 6;
+        qDebug() << "\tThe price is";
+        return foodMenu.value(food) * quantity;
     }
     else
     {
@@ -1203,7 +1087,7 @@ void MainWindow::processItemSelected(QString item)
     QStringList pieces = singleFoodEntry.split(" ");
     int quantity = pieces.value(0).toInt();
     int singleFoodEntryAmount = calculateAmount(quantity, item);
-    std::cout << "singleFoodEntry: " << singleFoodEntryAmount << std::endl;
+    std::cout << "\nsingleFoodEntry: " << singleFoodEntryAmount << std::endl;
 
     totalAmount += singleFoodEntryAmount;
     std::cout << "totalAmount: " << totalAmount << std::endl;
@@ -1236,6 +1120,7 @@ void MainWindow::initializeMenu()
             {
                 query.next();
                 (foodMenuButtons.at(i))->setText(query.value(1).toString());
+                foodMenu.insert(query.value(1).toString(), query.value(2).toInt());
             }
         }
         else

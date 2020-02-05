@@ -6,6 +6,7 @@
 #include <QSettings>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QMap>
 
 #include "Ticket.h"
 #include "SettingsWindow.h"
@@ -55,6 +56,7 @@ private:
     void processItemSelected(QString);
     void initializeMenu();
     QVector<QPushButton *> foodMenuButtons;
+    QMap<QString, int> foodMenu;
 
 private slots:
     /*
