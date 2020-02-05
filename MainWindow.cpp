@@ -271,6 +271,12 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    while (!entries.isEmpty())
+    {
+        Entry * entry = entries.takeFirst();
+        delete entry;
+    }
 }
 
 void MainWindow::on_pushButtonClear_clicked()
