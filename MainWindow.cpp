@@ -294,6 +294,9 @@ void MainWindow::on_pushButtonClear_clicked()
 void MainWindow::on_pushButtonClearEntry_clicked()
 {
     qDebug() << "Clear entry";
+
+    entries.takeLast();;
+    printEntriesOnTicket();
 }
 
 void MainWindow::on_pushButtonFoodMenu_clicked()
