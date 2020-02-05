@@ -657,15 +657,18 @@ int MainWindow::calculateAmount(int quantity, QString food)
 {
    qDebug() << "calculateAmount(" << quantity + ", " << food.toStdString().c_str() << ") ";
 
-    if (foodMenu.contains(food.toUpper()))
+    for (int i = 0; i < foodMenu.size(); i++)
     {
-        qDebug() << "\tThe price is";
-        return foodMenu.value(food) * quantity;
+        QPair<QString, int> itemAndPrice = foodMenu.at(i);
+
+        if ((QString::compare(itemAndPrice.first, food, Qt::CaseSensitive)) == 0)
+        {
+            return itemAndPrice.second * quantity;
+        }
     }
-    else
-    {
-        return -1;
-    }
+
+    // If the food is not found
+    return -1;
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -1121,7 +1124,11 @@ void MainWindow::initializeMenu()
             {
                 query.next();
                 (foodMenuButtons.at(i))->setText(query.value(1).toString());
-                foodMenu.insert(query.value(1).toString(), query.value(2).toInt());
+                // foodMenu.insert(query.value(1).toString(), query.value(2).toInt());
+                QPair<QString, int> itemAndPrice;
+                itemAndPrice.first = query.value(1).toString();
+                itemAndPrice.second = query.value(2).toInt();
+                foodMenu.push_back(itemAndPrice);
                 qDebug() << "\t" << query.value(1).toString();
             }
         }

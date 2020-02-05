@@ -3,10 +3,10 @@
 
 #include <QDialog>
 #include <QDebug>
-#include <QMap>
 #include <QVector>
 #include <QLineEdit>
-#include <qiterator.h>
+#include <QPair>
+#include <QList>
 
 namespace Ui {
 class FoodMenuWindow;
@@ -19,7 +19,7 @@ class FoodMenuWindow : public QDialog
 public:
     explicit FoodMenuWindow(QWidget *parent = nullptr);
     ~FoodMenuWindow();
-    void setFoodMenu(QMap<QString, int>);
+    void setFoodMenu(QList<QPair<QString, int>>);
 
 private:
     Ui::FoodMenuWindow *ui;

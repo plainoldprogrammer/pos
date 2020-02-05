@@ -69,18 +69,14 @@ FoodMenuWindow::~FoodMenuWindow()
     delete ui;
 }
 
-void FoodMenuWindow::setFoodMenu(QMap<QString, int> foodMenu)
+void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> foodMenu)
 {
     qDebug() << foodMenu;
 
-    QMapIterator<QString, int> i(foodMenu);
-    int index = 0;
-
-    while (i.hasNext())
+    for (int i = 0; i < foodMenu.size(); i++)
     {
-        i.next();
-        (foodMenuItemNameLineEdits.at(index))->setText(i.key());
-        (foodMenuItemPriceLineEdits.at(index))->setText(QString::number(i.value()));
-        index++;
+        QPair<QString, int> itemAndPrice = foodMenu.at(i);
+        (foodMenuItemNameLineEdits.at(i))->setText(itemAndPrice.first);
+        (foodMenuItemPriceLineEdits.at(i))->setText(QString::number(itemAndPrice.second));
     }
 }
