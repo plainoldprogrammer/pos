@@ -12,3 +12,8 @@ FoodMenuWindow::~FoodMenuWindow()
 {
     delete ui;
 }
+
+void FoodMenuWindow::setFoodMenu(QMap<QString, int> foodMenu)
+{
+    qDebug() << foodMenu;
+}
