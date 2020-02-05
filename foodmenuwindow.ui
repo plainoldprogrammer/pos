@@ -40,22 +40,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_2"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_3"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_4"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_5"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_6"/>
+     <widget class="QLineEdit" name="lineEditItemName_0_5"/>
     </item>
    </layout>
   </widget>
@@ -70,22 +70,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QLineEdit" name="lineEdit_7"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_8"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_9"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_10"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_11"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_12"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_0_5"/>
     </item>
    </layout>
   </widget>
@@ -100,22 +100,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
-     <widget class="QLineEdit" name="lineEdit_13"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_14"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_15"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_16"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_17"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_18"/>
+     <widget class="QLineEdit" name="lineEditItemName_1_5"/>
     </item>
    </layout>
   </widget>
@@ -130,22 +130,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_4">
     <item>
-     <widget class="QLineEdit" name="lineEdit_19"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_20"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_21"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_22"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_23"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_24"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_1_5"/>
     </item>
    </layout>
   </widget>
@@ -160,22 +160,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <widget class="QLineEdit" name="lineEdit_25"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_26"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_27"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_28"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_29"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_30"/>
+     <widget class="QLineEdit" name="lineEditItemName_2_5"/>
     </item>
    </layout>
   </widget>
@@ -190,26 +190,26 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_6">
     <item>
-     <widget class="QLineEdit" name="lineEdit_31"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_32"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_33"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_34"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_35"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_36"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_2_5"/>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -220,26 +220,26 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_7">
     <item>
-     <widget class="QLineEdit" name="lineEdit_37"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_38"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_39"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_40"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_41"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_42"/>
+     <widget class="QLineEdit" name="lineEditItemName_3_5"/>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -250,22 +250,22 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_8">
     <item>
-     <widget class="QLineEdit" name="lineEdit_43"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_0"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_44"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_1"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_45"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_2"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_46"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_3"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_47"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_4"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_48"/>
+     <widget class="QLineEdit" name="lineEditItemPrice_3_5"/>
     </item>
    </layout>
   </widget>
