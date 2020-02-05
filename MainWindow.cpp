@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("Point Of Sales (POS)");
 
+
     /*
      * Setup hand cursor for the ui buttons
      */
@@ -54,30 +55,30 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonNum7->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum8->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNum9->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonPechuga->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonBistec->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonPollo->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonChicharron->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonMole->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonMilanesa->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonAlbondigas->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonCarneDeshebrada->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonHuevos->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonChilaquiles->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonSincronizada->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonBurritos->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonQuesadillaCombinada->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonQuesadillaChica->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonRefresco->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonJugo->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonQuesadilla->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonTacoChico->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonAguaFresca->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonLicuado->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonAguaDeBotella->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonCafe->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonTe->setCursor(Qt::PointingHandCursor);
-    ui->pushButtonTortillas->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_0->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_1->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_2->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_3->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_4->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_0_5->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_0->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_1->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_2->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_3->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_4->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_1_5->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_0->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_1->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_2->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_3->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_4->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_2_5->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_0->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_1->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_2->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_3->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_4->setCursor(Qt::PointingHandCursor);
+    ui->pushButtonMenu_3_5->setCursor(Qt::PointingHandCursor);
     ui->pushButtonPreviousTicket->setCursor(Qt::PointingHandCursor);
     ui->pushButtonNextTicket->setCursor(Qt::PointingHandCursor);
     ui->pushButtonDeleteCurrentTicket->setCursor(Qt::PointingHandCursor);
@@ -85,36 +86,64 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButtonFoodMenu->setCursor(Qt::PointingHandCursor);
 
     /*
-     * Setup  the push buttons style
+     * Registry of all of the menu buttons to be accessed in a generic way
      */
-    ui->pushButtonPechuga->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonBistec->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonPollo->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonChicharron->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonMole->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonMilanesa->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonAlbondigas->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonCarneDeshebrada->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonHuevos->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonChilaquiles->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonSincronizada->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonBurritos->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonQuesadillaCombinada->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonQuesadillaChica->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonRefresco->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonJugo->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonQuesadilla->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonTacoChico->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonAguaFresca->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonLicuado->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonAguaDeBotella->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonCafe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonTe->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonTortillas->setStyleSheet("QPushButton { background-color: #99d6ff } ");
-    ui->pushButtonTicketsTable->setStyleSheet("QPushButton { background-color: #f5d742 }" );
-    ui->pushButtonSalesReport->setStyleSheet("QPushButton { background-color: #f5d742 } " );
-    ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 }" );
-    ui->pushButtonFoodMenu->setStyleSheet("QPushButton { background-color: #f5d742 }");
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_0);
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_1);
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_2);
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_3);
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_4);
+    foodMenuButtons.push_back(ui->pushButtonMenu_0_5);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_0);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_1);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_2);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_3);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_4);
+    foodMenuButtons.push_back(ui->pushButtonMenu_1_5);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_0);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_1);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_2);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_3);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_4);
+    foodMenuButtons.push_back(ui->pushButtonMenu_2_5);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_0);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_1);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_2);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_3);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_4);
+    foodMenuButtons.push_back(ui->pushButtonMenu_3_5);
+
+    /*
+     * Setup the push buttons style
+     */
+    ui->pushButtonMenu_0_0->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_0_1->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_0_2->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_0_3->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_0_4->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_0_5->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_0->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_1->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_2->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_3->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_4->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_1_5->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_0->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_1->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_2->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_3->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_4->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_2_5->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_0->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_1->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_2->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_3->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_4->setStyleSheet("QPushButton { background-color: #99d6ff } ");
+    ui->pushButtonMenu_3_5->setStyleSheet("QPushButton { background-color: #99d6ff } " );
+    ui->pushButtonTicketsTable->setStyleSheet("QPushButton { background-color: #f5d742 } ");
+    ui->pushButtonSalesReport->setStyleSheet("QPushButton { background-color: #f5d742 } ");
+    ui->pushButtonSettings->setStyleSheet("QPushButton { background-color: #f5d742 } ");
+    ui->pushButtonFoodMenu->setStyleSheet("QPushButton { background-color: #f5d742 } ");
 
     ui->pushButtonPreviousTicket->setStyleSheet("QPushButton { background-color: #808080 } ");
     ui->pushButtonPreviousTicket->setIcon(QIcon(":/images/icons/leftarrow.ico"));
@@ -237,12 +266,11 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     createDBConnection();
 
-
     if (isTicketsTableFromDbEmpty())
     {
         /*
-     * Create a new ticket when the program starts
-     */
+         * Create a new ticket when the program starts
+         */
         currentTicketIndex = tickets.size();
         ticket = new Ticket();
         tickets.push_back(ticket);
@@ -255,8 +283,8 @@ MainWindow::MainWindow(QWidget *parent) :
     else
     {
         /*
-     * Load tickets from the database
-     */
+         * Load tickets from the database
+         */
 
         // Create a dummy ticket that is necesary to dont get an empty QVector.
         // This will be removed inmediately in the next 'loadTicketsFromDb()' call.
@@ -266,6 +294,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
         loadTicketsFromDb();
     }
+
+    /*
+     * Initialize the menu content from the database information
+     */
+    initializeMenu();
 }
 
 MainWindow::~MainWindow()
@@ -500,9 +533,9 @@ void MainWindow::on_pushButtonNum9_clicked()
     processQuantityInput(9);
 }
 
-void MainWindow::on_pushButtonPechuga_clicked()
+void MainWindow::on_pushButtonMenu_0_0_clicked()
 {
-    processItemSelected("PECHUGA");
+    processItemSelected("TORTA");
 }
 
 void MainWindow::on_pushButtonBistec_clicked()
@@ -624,7 +657,7 @@ int MainWindow::calculateAmount(int quantity, QString food)
 {
     std::cout << "calculateAmount(" << quantity << ", " << food.toStdString().c_str() << ") " << std::endl;
 
-    if ((QString::compare(food, "PECHUGA", Qt::CaseSensitive)) == 0)
+    if ((QString::compare(food, "TORTA", Qt::CaseSensitive)) == 0)
     {
         std::cout << "compare(pechuga)";
         return quantity * 50;
@@ -1156,7 +1189,6 @@ void MainWindow::processQuantityInput(int digit)
     printEntriesOnTicket();
 }
 
-
 void MainWindow::processItemSelected(QString item)
 {
     if (entry)
@@ -1181,4 +1213,38 @@ void MainWindow::processItemSelected(QString item)
     printEntriesOnTicket();
     writeOnTicket(ticket);
     entry = NULL;
+}
+
+void MainWindow::initializeMenu()
+{
+    QSqlQuery query;
+    int rowsCount = -1;
+
+    if (query.exec("SELECT COUNT(*) from 'menu';"))
+    {
+        query.next();
+        rowsCount = query.value(0).toInt();
+        qDebug() << "Table menu has " << rowsCount << " rows";
+    }
+
+    // Retrieve menu from the database if exist
+    if (rowsCount > 0)
+    {
+        if (query.exec("SELECT * FROM menu;"))
+        {
+            for (int i = 0; i < rowsCount; i++)
+            {
+                query.next();
+                (foodMenuButtons.at(i))->setText(query.value(1).toString());
+            }
+        }
+        else
+        {
+            qWarning() << "Can't read the menu from the database";
+        }
+    }
+    else
+    {
+        // ToDo: Auto fill on the fly
+    }
 }

@@ -53,6 +53,8 @@ private:
     void printEntriesOnTicket();
     void processQuantityInput(int);
     void processItemSelected(QString);
+    void initializeMenu();
+    QVector<QPushButton *> foodMenuButtons;
 
 private slots:
     /*
@@ -82,7 +84,7 @@ private slots:
     /*
      * Food menu item slots
      */
-    void on_pushButtonPechuga_clicked();
+    void on_pushButtonMenu_0_0_clicked();
     void on_pushButtonBistec_clicked();
     void on_pushButtonPollo_clicked();
     void on_pushButtonChicharron_clicked();

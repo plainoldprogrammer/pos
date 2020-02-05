@@ -50,7 +50,7 @@
      <number>30</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonAguaDeBotella">
+   <widget class="QPushButton" name="pushButtonMenu_0_5">
     <property name="geometry">
      <rect>
       <x>1280</x>
@@ -67,12 +67,10 @@
      </font>
     </property>
     <property name="text">
-     <string>AGUA
-DE
-BOTELLA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonJugo">
+   <widget class="QPushButton" name="pushButtonMenu_3_3">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -89,10 +87,10 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>JUGO</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonTe">
+   <widget class="QPushButton" name="pushButtonMenu_2_5">
     <property name="geometry">
      <rect>
       <x>1280</x>
@@ -109,10 +107,10 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>TÉ</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonTortillas">
+   <widget class="QPushButton" name="pushButtonMenu_3_5">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -132,7 +130,7 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>TORTILLAS</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonNum7">
@@ -417,7 +415,7 @@ BOTELLA</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonMilanesa">
+   <widget class="QPushButton" name="pushButtonMenu_1_1">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -434,10 +432,10 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>MILANESA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonAlbondigas">
+   <widget class="QPushButton" name="pushButtonMenu_2_1">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -454,10 +452,10 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>ALBÓNDIGAS</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonCarneDeshebrada">
+   <widget class="QPushButton" name="pushButtonMenu_3_1">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -474,11 +472,10 @@ BOTELLA</string>
      </font>
     </property>
     <property name="text">
-     <string>CARNE
-DESHEBRADA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonMole">
+   <widget class="QPushButton" name="pushButtonMenu_0_1">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -495,10 +492,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>MOLE</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonPechuga">
+   <widget class="QPushButton" name="pushButtonMenu_0_0">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -515,10 +512,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>PECHUGA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonPollo">
+   <widget class="QPushButton" name="pushButtonMenu_2_0">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -535,10 +532,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>POLLO</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonChicharron">
+   <widget class="QPushButton" name="pushButtonMenu_3_0">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -555,10 +552,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>CHICHARRÓN</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonBistec">
+   <widget class="QPushButton" name="pushButtonMenu_1_0">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -575,10 +572,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>BISTEC</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonRefresco">
+   <widget class="QPushButton" name="pushButtonMenu_2_3">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -595,10 +592,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>REFRESCO</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonQuesadillaChica">
+   <widget class="QPushButton" name="pushButtonMenu_1_3">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -615,11 +612,10 @@ DESHEBRADA</string>
      </font>
     </property>
     <property name="text">
-     <string>QUESADILLA
-CHICA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonQuesadillaCombinada">
+   <widget class="QPushButton" name="pushButtonMenu_0_3">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -636,11 +632,10 @@ CHICA</string>
      </font>
     </property>
     <property name="text">
-     <string>QUESADILLA
-COMBINADA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonCafe">
+   <widget class="QPushButton" name="pushButtonMenu_1_5">
     <property name="geometry">
      <rect>
       <x>1280</x>
@@ -657,10 +652,10 @@ COMBINADA</string>
      </font>
     </property>
     <property name="text">
-     <string>CAFÉ</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonQuesadilla">
+   <widget class="QPushButton" name="pushButtonMenu_0_4">
     <property name="geometry">
      <rect>
       <x>1130</x>
@@ -677,10 +672,10 @@ COMBINADA</string>
      </font>
     </property>
     <property name="text">
-     <string>QUESADILLA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonLicuado">
+   <widget class="QPushButton" name="pushButtonMenu_3_4">
     <property name="geometry">
      <rect>
       <x>1130</x>
@@ -697,10 +692,10 @@ COMBINADA</string>
      </font>
     </property>
     <property name="text">
-     <string>LICUADO</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonAguaFresca">
+   <widget class="QPushButton" name="pushButtonMenu_2_4">
     <property name="geometry">
      <rect>
       <x>1130</x>
@@ -717,11 +712,10 @@ COMBINADA</string>
      </font>
     </property>
     <property name="text">
-     <string>AGUA
-FRESCA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonTacoChico">
+   <widget class="QPushButton" name="pushButtonMenu_1_4">
     <property name="geometry">
      <rect>
       <x>1130</x>
@@ -738,11 +732,10 @@ FRESCA</string>
      </font>
     </property>
     <property name="text">
-     <string>TACO
-CHICO</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonHuevos">
+   <widget class="QPushButton" name="pushButtonMenu_0_2">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -759,10 +752,10 @@ CHICO</string>
      </font>
     </property>
     <property name="text">
-     <string>HUEVOS</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonChilaquiles">
+   <widget class="QPushButton" name="pushButtonMenu_1_2">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -779,10 +772,10 @@ CHICO</string>
      </font>
     </property>
     <property name="text">
-     <string>CHILAQUILES</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonSincronizada">
+   <widget class="QPushButton" name="pushButtonMenu_2_2">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -799,10 +792,10 @@ CHICO</string>
      </font>
     </property>
     <property name="text">
-     <string>SINCRONIZADA</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonBurritos">
+   <widget class="QPushButton" name="pushButtonMenu_3_2">
     <property name="geometry">
      <rect>
       <x>830</x>
@@ -819,7 +812,7 @@ CHICO</string>
      </font>
     </property>
     <property name="text">
-     <string>BURRITOS</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonCreateNewTicket">
@@ -1042,7 +1035,7 @@ CHICO</string>
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
