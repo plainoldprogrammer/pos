@@ -959,6 +959,14 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
 
     ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+
+    // Clearing the entries to start a new fresh ticket
+    while (!entries.isEmpty())
+    {
+        Entry * entry = entries.takeFirst();
+        delete entry;
+    }
 }
 
 void MainWindow::on_pushButtonExit_clicked()
@@ -982,6 +990,8 @@ void MainWindow::writeOnTicket(Ticket * ticketToWrite)
     qDebug() << "Call to writeOnTicket() on currentTicketIndex: " << currentTicketIndex ;
     ticketToWrite->setBody(ui->orderDisplay->text());
     ticketToWrite->setTicketTotalAmount(totalAmount);
+    qDebug() << "WriteOnTicket";
+    qDebug() << "\t" << ticketToWrite->getBody();
 }
 
 QString MainWindow::getTicketSectionLineSeparator(QChar c)
@@ -1168,7 +1178,7 @@ void MainWindow::processItemSelected(QString item)
     ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
 
     singleFoodEntry = "";
-    writeOnTicket(ticket);
     printEntriesOnTicket();
+    writeOnTicket(ticket);
     entry = NULL;
 }
