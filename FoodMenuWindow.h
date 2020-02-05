@@ -2,8 +2,11 @@
 #define FOODMENUWINDOW_H
 
 #include <QDialog>
-#include <QMap>
 #include <QDebug>
+#include <QMap>
+#include <QVector>
+#include <QLineEdit>
+#include <qiterator.h>
 
 namespace Ui {
 class FoodMenuWindow;
@@ -20,6 +23,8 @@ public:
 
 private:
     Ui::FoodMenuWindow *ui;
+    QVector<QLineEdit *> foodMenuItemNameLineEdits;
+    QVector<QLineEdit *> foodMenuItemPriceLineEdits;;
 };
 
 #endif // FOODMENUWINDOW_H

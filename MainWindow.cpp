@@ -1122,6 +1122,7 @@ void MainWindow::initializeMenu()
                 query.next();
                 (foodMenuButtons.at(i))->setText(query.value(1).toString());
                 foodMenu.insert(query.value(1).toString(), query.value(2).toInt());
+                qDebug() << "\t" << query.value(1).toString();
             }
         }
         else
