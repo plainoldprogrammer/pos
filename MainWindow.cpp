@@ -284,6 +284,7 @@ void MainWindow::on_pushButtonClear_clicked()
         ui->totalAmountDisplay->clear();
         ui->totalAmountDisplay->setText("TOTAL $ 0");
         totalAmount = 0;
+        entries.clear();
     }
     else
     {
@@ -561,7 +562,6 @@ void MainWindow::on_pushButtonRefresco_clicked()
 {
     processItemSelected("REFRESCO");
 }
-
 
 void MainWindow::on_pushButtonJugo_clicked()
 {
