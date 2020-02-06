@@ -347,11 +347,12 @@ void MainWindow::on_pushButtonClearEntry_clicked()
 void MainWindow::on_pushButtonFoodMenu_clicked()
 {
     qDebug() << "Display and edit the menu";
-    foodMenuWindow->setFoodMenu(foodMenu);
+    foodMenuWindow->setFoodMenu(&foodMenu);
 
     if (foodMenuWindow->exec() == QDialog::Accepted)
     {
         qDebug() << "Updating the food menu";
+        foodMenuWindow->updateItemsAndPrices();
     }
 }
 
@@ -1127,13 +1128,13 @@ void MainWindow::initializeMenu()
             for (int i = 0; i < rowsCount; i++)
             {
                 query.next();
+
                 (foodMenuButtons.at(i))->setText(query.value(1).toString());
-                // foodMenu.insert(query.value(1).toString(), query.value(2).toInt());
+
                 QPair<QString, int> itemAndPrice;
                 itemAndPrice.first = query.value(1).toString();
                 itemAndPrice.second = query.value(2).toInt();
                 foodMenu.push_back(itemAndPrice);
-                qDebug() << "\t" << query.value(1).toString();
             }
         }
         else

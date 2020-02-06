@@ -69,15 +69,36 @@ FoodMenuWindow::~FoodMenuWindow()
     delete ui;
 }
 
-void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> foodMenu)
+void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> * theFoodMenu)
 {
     qDebug() << foodMenu;
 
-    for (int i = 0; i < foodMenu.size(); i++)
+    foodMenu = theFoodMenu;
+
+    for (int i = 0; i < foodMenu->size(); i++)
     {
-        QPair<QString, int> itemAndPrice = foodMenu.at(i);
+        QPair<QString, int> itemAndPrice = foodMenu->at(i);
         (foodMenuItemNameLineEdits.at(i))->setText(itemAndPrice.first);
         (foodMenuItemPriceLineEdits.at(i))->setText(QString::number(itemAndPrice.second));
     }
 }
 
+void FoodMenuWindow::updateItemsAndPrices()
+{
+    qDebug() << "Updating items and prices";
+
+    QList<QPair<QString, int>> updatedFoodMenu;
+
+    for (int i = 0; i < foodMenuItemNameLineEdits.size(); i++)
+    {
+        qDebug() << foodMenuItemNameLineEdits.at(i)->text();
+        qDebug() << foodMenuItemPriceLineEdits.at(i)->text();
+
+        QPair<QString, int> itemAndPrice = foodMenu->at(i);
+        itemAndPrice.first = foodMenuItemNameLineEdits.at(i)->text();
+        itemAndPrice.second = foodMenuItemPriceLineEdits.at(i)->text().toInt();
+        updatedFoodMenu.push_back(itemAndPrice);
+    }
+
+    *foodMenu = updatedFoodMenu;
+}
