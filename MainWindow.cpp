@@ -353,6 +353,12 @@ void MainWindow::on_pushButtonFoodMenu_clicked()
     {
         qDebug() << "Updating the food menu";
         foodMenuWindow->updateItemsAndPrices();
+
+        for (int i = 0; i < foodMenuButtons.size(); i++)
+        {
+            QPair<QString, int> food = foodMenu.at(i);
+            foodMenuButtons.at(i)->setText(food.first);
+        }
     }
 }
 
