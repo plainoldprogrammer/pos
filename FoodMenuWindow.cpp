@@ -100,5 +100,6 @@ void FoodMenuWindow::updateItemsAndPrices()
         updatedFoodMenu.push_back(itemAndPrice);
     }
 
+    // Access the same foodMenu from the main application
     *foodMenu = updatedFoodMenu;
 }
