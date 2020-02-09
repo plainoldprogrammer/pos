@@ -17,16 +17,16 @@ class FoodMenuWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit FoodMenuWindow(QWidget *parent = nullptr);
+    explicit FoodMenuWindow(QList<QPair<QString, int>> &, QWidget *parent = nullptr);
     ~FoodMenuWindow();
-    void setFoodMenu(QList<QPair<QString, int>> &);
+    void showFoodMenu();
     void updateItemsAndPrices();
 
 private:
     Ui::FoodMenuWindow *ui;
     QVector<QLineEdit *> foodMenuItemNameLineEdits;
     QVector<QLineEdit *> foodMenuItemPriceLineEdits;;
-    QList<QPair<QString, int>> * foodMenu;
+    QList<QPair<QString, int>> & foodMenu;
 };
 
 #endif // FOODMENUWINDOW_H

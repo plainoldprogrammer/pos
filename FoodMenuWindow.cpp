@@ -1,9 +1,10 @@
 #include "FoodMenuWindow.h"
 #include "ui_foodmenuwindow.h"
 
-FoodMenuWindow::FoodMenuWindow(QWidget *parent) :
+FoodMenuWindow::FoodMenuWindow(QList<QPair<QString, int>> & refFoodMenu, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::FoodMenuWindow)
+    ui(new Ui::FoodMenuWindow),
+    foodMenu(refFoodMenu)
 {
     ui->setupUi(this);
 
@@ -69,15 +70,11 @@ FoodMenuWindow::~FoodMenuWindow()
     delete ui;
 }
 
-void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> & theFoodMenu)
+void FoodMenuWindow::showFoodMenu()
 {
-    qDebug() << foodMenu;
-
-    foodMenu = &theFoodMenu;
-
-    for (int i = 0; i < foodMenu->size(); i++)
+    for (int i = 0; i < foodMenu.size(); i++)
     {
-        QPair<QString, int> itemAndPrice = foodMenu->at(i);
+        QPair<QString, int> itemAndPrice = foodMenu.at(i);
         (foodMenuItemNameLineEdits.at(i))->setText(itemAndPrice.first);
         (foodMenuItemPriceLineEdits.at(i))->setText(QString::number(itemAndPrice.second));
     }
@@ -85,21 +82,12 @@ void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> & theFoodMenu)
 
 void FoodMenuWindow::updateItemsAndPrices()
 {
-    qDebug() << "Updating items and prices";
+    QList<QPair<QString, int>>::iterator i;
+    int j = 0;
 
-    QList<QPair<QString, int>> updatedFoodMenu;
-
-    for (int i = 0; i < foodMenuItemNameLineEdits.size(); i++)
+    for (i = foodMenu.begin(); i != foodMenu.end(); i++, j++)
     {
-        qDebug() << foodMenuItemNameLineEdits.at(i)->text();
-        qDebug() << foodMenuItemPriceLineEdits.at(i)->text();
-
-        QPair<QString, int> itemAndPrice = foodMenu->at(i);
-        itemAndPrice.first = foodMenuItemNameLineEdits.at(i)->text();
-        itemAndPrice.second = foodMenuItemPriceLineEdits.at(i)->text().toInt();
-        updatedFoodMenu.push_back(itemAndPrice);
+        (*i).first = foodMenuItemNameLineEdits.at(j)->text();
+        (*i).second = foodMenuItemPriceLineEdits.at(j)->text().toInt();
     }
-
-    // Access the same foodMenu from the main application
-    *foodMenu = updatedFoodMenu;
 }

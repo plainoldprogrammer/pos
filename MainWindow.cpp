@@ -256,7 +256,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Initialize the inner window to show a food menu details
      */
-    foodMenuWindow = new FoodMenuWindow();
+    foodMenuWindow = new FoodMenuWindow(foodMenu, nullptr);
     foodMenuWindow->setFixedSize(foodMenuWindow->size());
     foodMenuWindow->setWindowTitle("Food Menu");
 
@@ -346,12 +346,10 @@ void MainWindow::on_pushButtonClearEntry_clicked()
 
 void MainWindow::on_pushButtonFoodMenu_clicked()
 {
-    qDebug() << "Display and edit the menu";
-    foodMenuWindow->setFoodMenu(foodMenu);
+    foodMenuWindow->showFoodMenu();
 
     if (foodMenuWindow->exec() == QDialog::Accepted)
     {
-        qDebug() << "Updating the food menu";
         foodMenuWindow->updateItemsAndPrices();
 
         for (int i = 0; i < foodMenuButtons.size(); i++)
