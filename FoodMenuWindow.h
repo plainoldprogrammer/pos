@@ -19,7 +19,7 @@ class FoodMenuWindow : public QDialog
 public:
     explicit FoodMenuWindow(QWidget *parent = nullptr);
     ~FoodMenuWindow();
-    void setFoodMenu(QList<QPair<QString, int>> *);
+    void setFoodMenu(QList<QPair<QString, int>> &);
     void updateItemsAndPrices();
 
 private:

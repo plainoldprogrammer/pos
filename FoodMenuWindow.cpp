@@ -69,11 +69,11 @@ FoodMenuWindow::~FoodMenuWindow()
     delete ui;
 }
 
-void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> * theFoodMenu)
+void FoodMenuWindow::setFoodMenu(QList<QPair<QString, int>> & theFoodMenu)
 {
     qDebug() << foodMenu;
 
-    foodMenu = theFoodMenu;
+    foodMenu = &theFoodMenu;
 
     for (int i = 0; i < foodMenu->size(); i++)
     {
