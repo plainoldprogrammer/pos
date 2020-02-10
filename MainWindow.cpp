@@ -812,6 +812,10 @@ void MainWindow::on_pushButtonFoodMenu_clicked()
         {
             QPair<QString, int> food = foodMenu.at(i);
             foodMenuButtons.at(i)->setText(food.first);
+
+            // NOTE: Index of menu table on the database must start on 1
+            QSqlQuery query;
+            query.exec("UPDATE menu SET item='" + food.first + "', price=" + QString::number(food.second) + " WHERE id=" + QString::number(i + 1));
         }
     }
 }
