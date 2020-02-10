@@ -1,28 +1,5 @@
-#include <QTimer>
-#include <QCursor>
-#include <QKeyEvent>
-#include <QDebug>
-#include <QList>
-#include <QSettings>
-#include <QSqlDatabase>
-#include <QSqlDriver>
-#include <QSqlError>
-#include <QSqlQuery>
-#include <QSqlQueryModel>
-#include <QTableView>
-#include <QList>
-#include <QMessageBox>
-#include <QDir>
-
-#include <iostream>
-
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
-#include "Ticket.h"
-#include "SettingsWindow.h"
-#include "TicketsTableWindow.h"
-#include "SalesReportWindow.h"
-#include "FoodMenuWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -735,21 +712,7 @@ void MainWindow::on_pushButtonClearEntry_clicked()
 
 void MainWindow::on_pushButtonTicketsTable_clicked()
 {
-    qDebug() << "Show a table with all the tickets";
-
-    QSqlQuery query;
-    QSqlQueryModel *model = new QSqlQueryModel();
-
-    if(query.exec("SELECT id AS ID, item AS ITEM, amount AS AMOUNT, datetime(dateandtime, 'localtime') AS 'DATE' FROM 'tickets';"))
-    {
-        qDebug() << "All tickets from db has been selected";
-
-        model->setQuery(query);
-        QTableView *tableView = ticketsTableWindow->getTableView();
-        tableView->setModel(model);
-    }
-
-    ticketsTableWindow->exec();
+    ticketsTableWindow->showTickets();
 }
 
 void MainWindow::on_pushButtonSalesReport_clicked()
@@ -799,8 +762,6 @@ void MainWindow::on_pushButtonSettings_clicked()
     // Applying the configuration
     if (settingsWindow->exec() == QDialog::Accepted)
     {
-        qDebug() << "Applying new settings";
-
         QString ticketSectionSeparator = getTicketSectionLineSeparator(settingsWindow->getTicketSectionCharSeparator());
         ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
         ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
@@ -840,7 +801,6 @@ void MainWindow::on_pushButtonSettings_clicked()
         rgbTicketCharColor.append(" ");
         rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().blue()));
         settings.setValue("ticketCharColor", rgbTicketCharColor);
-        qDebug() << "tichetCharColor persistent is: " << rgbTicketCharColor;
     }
 }
 

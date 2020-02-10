@@ -1,9 +1,3 @@
-#include <QDebug>
-#include <QColordialog>
-#include <QPalette>
-#include <QColor>
-#include <QRgb>
-
 #include "SettingsWindow.h"
 #include "ui_settingswindow.h"
 

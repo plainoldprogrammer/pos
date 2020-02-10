@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
-#include <QSQLQuery>
+#include <QSqlQuery>
 
 namespace Ui {
 class SalesReportWindow;

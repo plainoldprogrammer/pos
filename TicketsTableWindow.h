@@ -4,6 +4,9 @@
 #include <QDialog>
 #include <QTableView>
 #include <QResizeEvent>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QTableView>
 
 namespace Ui {
 class TicketsTableWindow;
@@ -16,8 +19,8 @@ class TicketsTableWindow : public QDialog
 public:
     explicit TicketsTableWindow(QWidget *parent = nullptr);
     ~TicketsTableWindow();
-    QTableView * getTableView();
     void resizeEvent(QResizeEvent *);
+    void showTickets();
 
 private:
     Ui::TicketsTableWindow *ui;

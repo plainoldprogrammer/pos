@@ -1,12 +1,23 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
+
 #include <QMainWindow>
 #include <QList>
+#include <QPair>
 #include <QSettings>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QPair>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QTimer>
+#include <QCursor>
+#include <QKeyEvent>
+#include <QDebug>
+#include <QSettings>
+#include <QMessageBox>
+#include <QDir>
 
 #include "Ticket.h"
 #include "SettingsWindow.h"

@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include <QColor>
+#include <QDebug>
+#include <QColordialog>
+#include <QPalette>
+#include <QRgb>
 
 namespace Ui {
 class SettingsWindow;
