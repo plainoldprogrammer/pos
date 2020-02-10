@@ -311,238 +311,6 @@ MainWindow::~MainWindow()
     }
 }
 
-void MainWindow::on_pushButtonClear_clicked()
-{
-    QMessageBox::StandardButton confirm;
-    confirm = QMessageBox::question(this, "Exit", "Are you sure you want to erase all the ticket entry?", QMessageBox::Yes | QMessageBox::No);
-
-    if (confirm == QMessageBox::Yes)
-    {
-        ui->orderDisplay->clear();
-        ui->totalAmountDisplay->clear();
-        ui->totalAmountDisplay->setText("TOTAL $ 0");
-        totalAmount = 0;
-        entries.clear();
-    }
-    else
-    {
-        qDebug() << "Cancel the clear";
-    }
-}
-
-void MainWindow::on_pushButtonClearEntry_clicked()
-{
-    qDebug() << "Clear entry";
-
-    Entry * lastEntry = entries.takeLast();;
-    int singleFoodEntryAmount = calculateAmount(lastEntry->getQuantity(), lastEntry->getItem());
-    totalAmount -= singleFoodEntryAmount;
-    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
-
-    printEntriesOnTicket();
-
-    delete lastEntry;
-}
-
-void MainWindow::on_pushButtonFoodMenu_clicked()
-{
-    foodMenuWindow->showFoodMenu();
-
-    if (foodMenuWindow->exec() == QDialog::Accepted)
-    {
-        foodMenuWindow->updateItemsAndPrices();
-
-        // Update the main gui if there is a change in the food menu window
-        for (int i = 0; i < foodMenuButtons.size(); i++)
-        {
-            QPair<QString, int> food = foodMenu.at(i);
-            foodMenuButtons.at(i)->setText(food.first);
-        }
-    }
-}
-
-void MainWindow::on_pushButtonSettings_clicked()
-{
-    // Load the current configuration
-    settingsWindow->setRestaurantName(settings.value("restaurantName").toString());
-    settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
-    settingsWindow->setFooterMessage(settings.value("footerMessage").toString());
-    settingsWindow->setTicketSectionCharSeparator((settings.value("characterTicketSectionSeparator").toString().toStdString())[0]);
-    settingsWindow->setFullScreen(settings.value("fullscreen").toBool());
-
-    // Load the saved ticket char color
-    QString savedRgbTicketCharColor = settings.value("ticketCharColor").toString();
-    if (!savedRgbTicketCharColor.isEmpty())
-    {
-        QList <QString> rgb = savedRgbTicketCharColor.split(" ");
-        if (!rgb.isEmpty())
-            settingsWindow->setTicketCharColor(QColor(rgb.at(0).toInt(), rgb.at(1).toInt(), rgb.at(2).toInt()));
-    }
-
-    // Applying the configuration
-    if (settingsWindow->exec() == QDialog::Accepted)
-    {
-        qDebug() << "Applying new settings";
-
-        QString ticketSectionSeparator = getTicketSectionLineSeparator(settingsWindow->getTicketSectionCharSeparator());
-        ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
-        ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
-
-        QString ticketStyle = "QLabel {background-color: white; color:  rgb(";
-        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().red()));
-        ticketStyle.append(",");
-        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().green()));
-        ticketStyle.append(",");
-        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().blue()));
-        ticketStyle.append(")}");
-
-        ui->ticketHeader->setStyleSheet(ticketStyle);
-        ui->ticketFooter->setStyleSheet(ticketStyle);
-
-        if (settingsWindow->isFullScreen())
-        {
-            QTimer::singleShot(0, this, SLOT(showFullScreen()));
-        }
-        else
-        {
-            QTimer::singleShot(0, this, SLOT(showMaximized()));
-        }
-
-        // Making settings persistent on the machine
-        settings.setValue("restaurantName", settingsWindow->getRestaurantName());
-        settings.setValue("restaurantAddress", settingsWindow->getRestaurantAddress());
-        settings.setValue("footerMessage", settingsWindow->getFooterMessage());
-        settings.setValue("characterTicketSectionSeparator", QString(settingsWindow->getTicketSectionCharSeparator()));
-        settings.setValue("fullscreen", settingsWindow->isFullScreen());
-
-        // Making ticket char color persistent on the machine
-        QString rgbTicketCharColor;
-        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().red()));
-        rgbTicketCharColor.append(" ");
-        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().green()));
-        rgbTicketCharColor.append(" ");
-        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().blue()));
-        settings.setValue("ticketCharColor", rgbTicketCharColor);
-        qDebug() << "tichetCharColor persistent is: " << rgbTicketCharColor;
-    }
-}
-
-void MainWindow::on_pushButtonTicketsTable_clicked()
-{
-    qDebug() << "Show a table with all the tickets";
-
-    QSqlQuery query;
-    QSqlQueryModel *model = new QSqlQueryModel();
-
-    if(query.exec("SELECT id AS ID, item AS ITEM, amount AS AMOUNT, datetime(dateandtime, 'localtime') AS 'DATE' FROM 'tickets';"))
-    {
-        qDebug() << "All tickets from db has been selected";
-
-        model->setQuery(query);
-        QTableView *tableView = ticketsTableWindow->getTableView();
-        tableView->setModel(model);
-    }
-
-    ticketsTableWindow->exec();
-}
-
-void MainWindow::on_pushButtonSalesReport_clicked()
-{
-    qDebug() << "Show a sales report";
-    QSqlQuery query;
-    QString report;
-
-    if (query.exec("SELECT SUM(amount) AS TOTAL FROM 'tickets';"))
-    {
-        query.next();
-        int total = query.value(0).toInt();
-        report = "Total: " + QString::number(total);
-    }
-    if (query.exec("SELECT COUNT(*) AS TICKETS_QTY FROM 'tickets';"))
-    {
-        query.next();
-        int quantity = query.value(0).toInt();
-        report.append("\nSales quantity: " + QString::number(quantity));
-    }
-    if (query.exec("SELECT MAX(amount) FROM tickets;"))
-    {
-        query.next();
-        int max = query.value(0).toInt();
-        report.append("\nMax sale: " + QString::number(max));
-    }
-    if (query.exec("SELECT MIN(amount) FROM 'tickets';"))
-    {
-        query.next();
-        int min = query.value(0).toInt();
-        report.append("\nMin sale: " + QString::number(min));
-    }
-    if (query.exec("SELECT MIN(dateandtime) FROM 'tickets';"))
-    {
-        query.next();
-        QString date = query.value(0).toString();
-        report.append("\nFirst sale: " + date);
-    }
-    if (query.exec("SELECT MAX(dateandtime) FROM 'tickets';"))
-    {
-        query.next();
-        QString date = query.value(0).toString();
-        report.append("\nLast sale: " + date);
-    }
-
-    salesReportWindow->getPlainTextEdit()->setPlainText(report);
-    salesReportWindow->exec();
-}
-
-void MainWindow::on_pushButtonNum0_clicked()
-{
-    processQuantityInput(0);
-}
-
-void MainWindow::on_pushButtonNum1_clicked()
-{
-    processQuantityInput(1);
-}
-
-void MainWindow::on_pushButtonNum2_clicked()
-{
-    processQuantityInput(2);
-}
-
-void MainWindow::on_pushButtonNum3_clicked()
-{
-    processQuantityInput(3);
-}
-
-void MainWindow::on_pushButtonNum4_clicked()
-{
-    processQuantityInput(4);
-}
-
-void MainWindow::on_pushButtonNum5_clicked()
-{
-    processQuantityInput(5);
-}
-
-void MainWindow::on_pushButtonNum6_clicked()
-{
-    processQuantityInput(6);
-}
-
-void MainWindow::on_pushButtonNum7_clicked()
-{
-    processQuantityInput(7);
-}
-
-void MainWindow::on_pushButtonNum8_clicked()
-{
-    processQuantityInput(8);
-}
-
-void MainWindow::on_pushButtonNum9_clicked()
-{
-    processQuantityInput(9);
-}
-
 void MainWindow::on_pushButtonMenu_0_0_clicked()
 {
     processItemSelected(ui->pushButtonMenu_0_0->text());
@@ -663,22 +431,54 @@ void MainWindow::on_pushButtonMenu_3_5_clicked()
     processItemSelected(ui->pushButtonMenu_3_5->text());
 }
 
-int MainWindow::calculateAmount(int quantity, QString food)
+void MainWindow::on_pushButtonNum0_clicked()
 {
-   qDebug() << "calculateAmount(" << quantity + ", " << food.toStdString().c_str() << ") ";
+    processQuantityInput(0);
+}
 
-    for (int i = 0; i < foodMenu.size(); i++)
-    {
-        QPair<QString, int> itemAndPrice = foodMenu.at(i);
+void MainWindow::on_pushButtonNum1_clicked()
+{
+    processQuantityInput(1);
+}
 
-        if ((QString::compare(itemAndPrice.first, food, Qt::CaseSensitive)) == 0)
-        {
-            return itemAndPrice.second * quantity;
-        }
-    }
+void MainWindow::on_pushButtonNum2_clicked()
+{
+    processQuantityInput(2);
+}
 
-    // If the food is not found
-    return -1;
+void MainWindow::on_pushButtonNum3_clicked()
+{
+    processQuantityInput(3);
+}
+
+void MainWindow::on_pushButtonNum4_clicked()
+{
+    processQuantityInput(4);
+}
+
+void MainWindow::on_pushButtonNum5_clicked()
+{
+    processQuantityInput(5);
+}
+
+void MainWindow::on_pushButtonNum6_clicked()
+{
+    processQuantityInput(6);
+}
+
+void MainWindow::on_pushButtonNum7_clicked()
+{
+    processQuantityInput(7);
+}
+
+void MainWindow::on_pushButtonNum8_clicked()
+{
+    processQuantityInput(8);
+}
+
+void MainWindow::on_pushButtonNum9_clicked()
+{
+    processQuantityInput(9);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -723,6 +523,206 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     {
         on_pushButtonNum9_clicked();
     }
+}
+
+void MainWindow::on_pushButtonClear_clicked()
+{
+    QMessageBox::StandardButton confirm;
+    confirm = QMessageBox::question(this, "Exit", "Are you sure you want to erase all the ticket entry?", QMessageBox::Yes | QMessageBox::No);
+
+    if (confirm == QMessageBox::Yes)
+    {
+        ui->orderDisplay->clear();
+        ui->totalAmountDisplay->clear();
+        ui->totalAmountDisplay->setText("TOTAL $ 0");
+        totalAmount = 0;
+        entries.clear();
+    }
+    else
+    {
+        qDebug() << "Cancel the clear";
+    }
+}
+
+void MainWindow::on_pushButtonClearEntry_clicked()
+{
+    qDebug() << "Clear entry";
+
+    Entry * lastEntry = entries.takeLast();;
+    int singleFoodEntryAmount = calculateAmount(lastEntry->getQuantity(), lastEntry->getItem());
+    totalAmount -= singleFoodEntryAmount;
+    ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(totalAmount));
+
+    printEntriesOnTicket();
+
+    delete lastEntry;
+}
+
+void MainWindow::on_pushButtonTicketsTable_clicked()
+{
+    qDebug() << "Show a table with all the tickets";
+
+    QSqlQuery query;
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    if(query.exec("SELECT id AS ID, item AS ITEM, amount AS AMOUNT, datetime(dateandtime, 'localtime') AS 'DATE' FROM 'tickets';"))
+    {
+        qDebug() << "All tickets from db has been selected";
+
+        model->setQuery(query);
+        QTableView *tableView = ticketsTableWindow->getTableView();
+        tableView->setModel(model);
+    }
+
+    ticketsTableWindow->exec();
+}
+
+void MainWindow::on_pushButtonSalesReport_clicked()
+{
+    qDebug() << "Show a sales report";
+    QSqlQuery query;
+    QString report;
+
+    if (query.exec("SELECT SUM(amount) AS TOTAL FROM 'tickets';"))
+    {
+        query.next();
+        int total = query.value(0).toInt();
+        report = "Total: " + QString::number(total);
+    }
+    if (query.exec("SELECT COUNT(*) AS TICKETS_QTY FROM 'tickets';"))
+    {
+        query.next();
+        int quantity = query.value(0).toInt();
+        report.append("\nSales quantity: " + QString::number(quantity));
+    }
+    if (query.exec("SELECT MAX(amount) FROM tickets;"))
+    {
+        query.next();
+        int max = query.value(0).toInt();
+        report.append("\nMax sale: " + QString::number(max));
+    }
+    if (query.exec("SELECT MIN(amount) FROM 'tickets';"))
+    {
+        query.next();
+        int min = query.value(0).toInt();
+        report.append("\nMin sale: " + QString::number(min));
+    }
+    if (query.exec("SELECT MIN(dateandtime) FROM 'tickets';"))
+    {
+        query.next();
+        QString date = query.value(0).toString();
+        report.append("\nFirst sale: " + date);
+    }
+    if (query.exec("SELECT MAX(dateandtime) FROM 'tickets';"))
+    {
+        query.next();
+        QString date = query.value(0).toString();
+        report.append("\nLast sale: " + date);
+    }
+
+    salesReportWindow->getPlainTextEdit()->setPlainText(report);
+    salesReportWindow->exec();
+}
+
+void MainWindow::on_pushButtonFoodMenu_clicked()
+{
+    foodMenuWindow->showFoodMenu();
+
+    if (foodMenuWindow->exec() == QDialog::Accepted)
+    {
+        foodMenuWindow->updateItemsAndPrices();
+
+        // Update the main gui if there is a change in the food menu window
+        for (int i = 0; i < foodMenuButtons.size(); i++)
+        {
+            QPair<QString, int> food = foodMenu.at(i);
+            foodMenuButtons.at(i)->setText(food.first);
+        }
+    }
+}
+
+void MainWindow::on_pushButtonSettings_clicked()
+{
+    // Load the current configuration
+    settingsWindow->setRestaurantName(settings.value("restaurantName").toString());
+    settingsWindow->setRestaurantAddress(settings.value("restaurantAddress").toString());
+    settingsWindow->setFooterMessage(settings.value("footerMessage").toString());
+    settingsWindow->setTicketSectionCharSeparator((settings.value("characterTicketSectionSeparator").toString().toStdString())[0]);
+    settingsWindow->setFullScreen(settings.value("fullscreen").toBool());
+
+    // Load the saved ticket char color
+    QString savedRgbTicketCharColor = settings.value("ticketCharColor").toString();
+    if (!savedRgbTicketCharColor.isEmpty())
+    {
+        QList <QString> rgb = savedRgbTicketCharColor.split(" ");
+        if (!rgb.isEmpty())
+            settingsWindow->setTicketCharColor(QColor(rgb.at(0).toInt(), rgb.at(1).toInt(), rgb.at(2).toInt()));
+    }
+
+    // Applying the configuration
+    if (settingsWindow->exec() == QDialog::Accepted)
+    {
+        qDebug() << "Applying new settings";
+
+        QString ticketSectionSeparator = getTicketSectionLineSeparator(settingsWindow->getTicketSectionCharSeparator());
+        ui->ticketHeader->setText(settingsWindow->getRestaurantName() + "\n" + settingsWindow->getRestaurantAddress() + "\n" + ticketSectionSeparator);
+        ui->ticketFooter->setText(ticketSectionSeparator + "\n" + settingsWindow->getFooterMessage());
+
+        QString ticketStyle = "QLabel {background-color: white; color:  rgb(";
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().red()));
+        ticketStyle.append(",");
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().green()));
+        ticketStyle.append(",");
+        ticketStyle.append(QString::number(settingsWindow->getTicketCharColor().blue()));
+        ticketStyle.append(")}");
+
+        ui->ticketHeader->setStyleSheet(ticketStyle);
+        ui->ticketFooter->setStyleSheet(ticketStyle);
+
+        if (settingsWindow->isFullScreen())
+        {
+            QTimer::singleShot(0, this, SLOT(showFullScreen()));
+        }
+        else
+        {
+            QTimer::singleShot(0, this, SLOT(showMaximized()));
+        }
+
+        // Making settings persistent on the machine
+        settings.setValue("restaurantName", settingsWindow->getRestaurantName());
+        settings.setValue("restaurantAddress", settingsWindow->getRestaurantAddress());
+        settings.setValue("footerMessage", settingsWindow->getFooterMessage());
+        settings.setValue("characterTicketSectionSeparator", QString(settingsWindow->getTicketSectionCharSeparator()));
+        settings.setValue("fullscreen", settingsWindow->isFullScreen());
+
+        // Making ticket char color persistent on the machine
+        QString rgbTicketCharColor;
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().red()));
+        rgbTicketCharColor.append(" ");
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().green()));
+        rgbTicketCharColor.append(" ");
+        rgbTicketCharColor.append(QString::number(settingsWindow->getTicketCharColor().blue()));
+        settings.setValue("ticketCharColor", rgbTicketCharColor);
+        qDebug() << "tichetCharColor persistent is: " << rgbTicketCharColor;
+    }
+}
+
+int MainWindow::calculateAmount(int quantity, QString food)
+{
+   qDebug() << "calculateAmount(" << quantity + ", " << food.toStdString().c_str() << ") ";
+
+    for (int i = 0; i < foodMenu.size(); i++)
+    {
+        QPair<QString, int> itemAndPrice = foodMenu.at(i);
+
+        if ((QString::compare(itemAndPrice.first, food, Qt::CaseSensitive)) == 0)
+        {
+            return itemAndPrice.second * quantity;
+        }
+    }
+
+    // If the food is not found
+    return -1;
 }
 
 void MainWindow::on_pushButtonPreviousTicket_clicked()
