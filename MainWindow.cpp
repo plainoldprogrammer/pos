@@ -451,13 +451,13 @@ void MainWindow::on_pushButtonSalesReport_clicked()
     QSqlQuery query;
     QString report;
 
-    if (query.exec("SELECT SUM(amount) AS TOTAL FROM tickets;"))
+    if (query.exec("SELECT SUM(amount) AS TOTAL FROM 'tickets';"))
     {
         query.next();
         int total = query.value(0).toInt();
         report = "Total: " + QString::number(total);
     }
-    if (query.exec("SELECT COUNT(*) AS TICKETS_QTY FROM tickets;"))
+    if (query.exec("SELECT COUNT(*) AS TICKETS_QTY FROM 'tickets';"))
     {
         query.next();
         int quantity = query.value(0).toInt();
@@ -469,19 +469,19 @@ void MainWindow::on_pushButtonSalesReport_clicked()
         int max = query.value(0).toInt();
         report.append("\nMax sale: " + QString::number(max));
     }
-    if (query.exec("SELECT MIN(amount) FROM tickets;"))
+    if (query.exec("SELECT MIN(amount) FROM 'tickets';"))
     {
         query.next();
         int min = query.value(0).toInt();
         report.append("\nMin sale: " + QString::number(min));
     }
-    if (query.exec("SELECT MIN(dateandtime) FROM tickets;"))
+    if (query.exec("SELECT MIN(dateandtime) FROM 'tickets';"))
     {
         query.next();
         QString date = query.value(0).toString();
         report.append("\nFirst sale: " + date);
     }
-    if (query.exec("SELECT MAX(dateandtime) FROM tickets;"))
+    if (query.exec("SELECT MAX(dateandtime) FROM 'tickets';"))
     {
         query.next();
         QString date = query.value(0).toString();
@@ -831,7 +831,7 @@ void MainWindow::on_pushButtonDeleteCurrentTicket_clicked()
         ui->totalAmountDisplay->setText("TOTAL $ " + QString::number(ticket->getTicketTotalAmount()));
     }
 
-    QSqlQuery sqlQuery("DELETE FROM tickets WHERE id=" + QString::number(ticketIdInDb) + ";");
+    QSqlQuery sqlQuery("DELETE FROM 'tickets' WHERE id=" + QString::number(ticketIdInDb) + ";");
 }
 
 void MainWindow::on_pushButtonCreateNewTicket_clicked()
@@ -1127,7 +1127,7 @@ void MainWindow::initializeMenu()
     // Retrieve menu from the database if exist
     if (rowsCount > 0)
     {
-        if (query.exec("SELECT * FROM menu;"))
+        if (query.exec("SELECT * FROM 'menu';"))
         {
             for (int i = 0; i < rowsCount; i++)
             {
