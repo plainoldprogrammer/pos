@@ -352,6 +352,7 @@ void MainWindow::on_pushButtonFoodMenu_clicked()
     {
         foodMenuWindow->updateItemsAndPrices();
 
+        // Update the main gui if there is a change in the food menu window
         for (int i = 0; i < foodMenuButtons.size(); i++)
         {
             QPair<QString, int> food = foodMenu.at(i);

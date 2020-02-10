@@ -82,6 +82,11 @@ void FoodMenuWindow::showFoodMenu()
 
 void FoodMenuWindow::updateItemsAndPrices()
 {
+    /*
+     * NOTE:	The lenght of the foodMenu (QList rerefence) must check with the
+     *			foodMenuItemNameLineEdits and the foodMenuItemPriceLineEdits length.
+     */
+
     QList<QPair<QString, int>>::iterator i;
     int j = 0;
 
