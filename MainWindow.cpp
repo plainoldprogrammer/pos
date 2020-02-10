@@ -1045,7 +1045,6 @@ void MainWindow::initializeMenu()
     {
         query.next();
         rowsCount = query.value(0).toInt();
-        qDebug() << "Table menu has " << rowsCount << " rows";
     }
 
     // Retrieve menu from the database if exist
@@ -1067,11 +1066,22 @@ void MainWindow::initializeMenu()
         }
         else
         {
-            qWarning() << "Can't read the menu from the database";
+            qWarning() << "Can't read the menu from the menu table in the database";
         }
     }
     else
     {
-        // ToDo: Auto fill on the fly
+        QSqlQuery query;
+        query.exec("CREATE TABLE IF NOT EXISTS menu(id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT, price INT);");
+
+        for (int i = 0; i < foodMenuButtons.size(); i++)
+        {
+            QPair<QString, int> itemAndPrice;
+            itemAndPrice.first = "";
+            itemAndPrice.second = 0;
+            foodMenu.push_back(itemAndPrice);
+
+            query.exec("INSERT INTO 'menu'(item, price) VALUES ('', 0);");
+        }
     }
 }
