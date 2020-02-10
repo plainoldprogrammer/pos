@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
+#include <QSQLQuery>
 
 namespace Ui {
 class SalesReportWindow;
@@ -15,7 +16,7 @@ class SalesReportWindow : public QDialog
 public:
     explicit SalesReportWindow(QWidget *parent = nullptr);
     ~SalesReportWindow();
-    QPlainTextEdit * getPlainTextEdit();
+    void showReport();
 
 private:
     Ui::SalesReportWindow *ui;
