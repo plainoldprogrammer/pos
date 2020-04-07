@@ -1,5 +1,10 @@
-# pos
+# POS
+
 The *POS* (Point Of Sales) is a C++/Qt application designed to be used fast and precisely by a cashier without effort and complications.
+
+<img src="https://raw.githubusercontent.com/plainoldprogrammer/pos/master/screenshots/screenshot-main-window.jpg" width="742" height="445">
+
+---
 
 **Capabilities**
 
@@ -13,7 +18,3 @@ The *POS* (Point Of Sales) is a C++/Qt application designed to be used fast and 
 * Customize the ticket header and footer.
 * Customize the ticket font color.
 * Browse between all tickets in a fast way.
-
-**Screenshot**
-
-<img src="https://raw.githubusercontent.com/plainoldprogrammer/pos/master/screenshots/screenshot-main-window.jpg" width="742" height="445">
