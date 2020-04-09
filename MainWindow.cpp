@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     entry = NULL;
 
     ui->setupUi(this);
-    this->setWindowTitle("Point Of Sales (POS)");
+    this->setWindowTitle("Point Of Sales (POS) v0.9 (Beta)");
 
     /*
      * Setup hand cursor for the ui buttons
