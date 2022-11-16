@@ -892,13 +892,7 @@ bool MainWindow::createDBConnection()
     {
         if (db.open())
         {
-            qDebug() << "The db has been opened";
-
             return true;
-        }
-        else
-        {
-            qWarning() << "Can't open db";
         }
     }
 
