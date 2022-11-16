@@ -56,7 +56,8 @@ private:
     void keyPressEvent(QKeyEvent *);
     void writeOnTicket(Ticket *);
     QString getTicketSectionLineSeparator(QChar c);
-    void createDBConnection();
+    bool createDBConnection();
+    bool createTicketsTable();
     void loadTicketsFromDb();
     bool isTicketsTableFromDbEmpty();
     FoodMenuWindow *foodMenuWindow;

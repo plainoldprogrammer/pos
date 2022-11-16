@@ -240,41 +240,45 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      * Initialize the connection with the database
      */
-    createDBConnection();
-
-    if (isTicketsTableFromDbEmpty())
+    if(createDBConnection())
     {
-        /*
-         * Create a new ticket when the program starts
-         */
-        currentTicketIndex = tickets.size();
-        ticket = new Ticket();
-        tickets.push_back(ticket);
-        ui->pushButtonPreviousTicket->setEnabled(false);
-        ui->pushButtonNextTicket->setEnabled(false);
-        ui->pushButtonDeleteCurrentTicket->setEnabled(false);
-        ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
-        ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+        if (createTicketsTable())
+        {
+            if (isTicketsTableFromDbEmpty())
+            {
+                /*
+                 * Create a new ticket when the program starts
+                 */
+                currentTicketIndex = tickets.size();
+                ticket = new Ticket();
+                tickets.push_back(ticket);
+                ui->pushButtonPreviousTicket->setEnabled(false);
+                ui->pushButtonNextTicket->setEnabled(false);
+                ui->pushButtonDeleteCurrentTicket->setEnabled(false);
+                ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
+                ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+            }
+            else
+            {
+                /*
+                 * Load tickets from the database
+                 */
+
+                // Create a dummy ticket that is necesary to dont get an empty QVector.
+                // This will be removed inmediately in the next 'loadTicketsFromDb()' call.
+                // Without this dummy element at the container, the compiler generate an assertion
+                // and didn't start the program.
+                tickets.push_back(new Ticket());
+
+                loadTicketsFromDb();
+            }
+
+            /*
+             * Initialize the menu content from the database information
+             */
+            initializeMenu();
+        }
     }
-    else
-    {
-        /*
-         * Load tickets from the database
-         */
-
-        // Create a dummy ticket that is necesary to dont get an empty QVector.
-        // This will be removed inmediately in the next 'loadTicketsFromDb()' call.
-        // Without this dummy element at the container, the compiler generate an assertion
-        // and didn't start the program.
-        tickets.push_back(new Ticket());
-
-        loadTicketsFromDb();
-    }
-
-    /*
-     * Initialize the menu content from the database information
-     */
-    initializeMenu();
 }
 
 MainWindow::~MainWindow()
@@ -860,7 +864,7 @@ QString MainWindow::getTicketSectionLineSeparator(QChar c)
     return line;
 }
 
-void MainWindow::createDBConnection()
+bool MainWindow::createDBConnection()
 {
     /*
      * Initialize sqlite to get working with Qt
@@ -890,20 +894,29 @@ void MainWindow::createDBConnection()
         {
             qDebug() << "The db has been opened";
 
-            QSqlQuery sqlQuery;
-            if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
-            {
-                qDebug() << "Table tickets has been created";
-            }
-            else
-            {
-                qWarning() <<"Can't create table tickets" ;
-            }
+            return true;
         }
         else
         {
             qWarning() << "Can't open db";
         }
+    }
+
+    return false;
+}
+
+bool MainWindow::createTicketsTable()
+{
+    QSqlQuery sqlQuery;
+    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
+    {
+        qDebug() << "Table tickets has been created";
+        return true;
+    }
+    else
+    {
+        qWarning() <<"Can't create table tickets" ;
+        return false;
     }
 }
 
