@@ -253,6 +253,17 @@ MainWindow::MainWindow(QWidget *parent) :
                 ui->pushButtonDeleteCurrentTicket->setEnabled(false);
                 ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex));
                 ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
+
+                ui->pushButtonNum0->setEnabled(false);
+                ui->pushButtonNum1->setEnabled(false);
+                ui->pushButtonNum2->setEnabled(false);
+                ui->pushButtonNum3->setEnabled(false);
+                ui->pushButtonNum4->setEnabled(false);
+                ui->pushButtonNum5->setEnabled(false);
+                ui->pushButtonNum6->setEnabled(false);
+                ui->pushButtonNum7->setEnabled(false);
+                ui->pushButtonNum8->setEnabled(false);
+                ui->pushButtonNum9->setEnabled(false);
             }
             else
             {
