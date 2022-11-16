@@ -29,7 +29,7 @@ void TicketsTableWindow::showTickets()
 
     if(query.exec("SELECT item AS ITEM, amount AS AMOUNT, datetime(dateandtime, 'localtime') AS 'DATE' FROM 'tickets';"))
     {
-        model->setQuery(query);
+        model->setQuery(std::move(query));
         ui->tableView->setModel(model);
     }
 
