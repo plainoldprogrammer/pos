@@ -680,6 +680,16 @@ void MainWindow::on_pushButtonCreateNewTicket_clicked()
     ui->lineEditCurrentTicket->setText(QString::number(tickets.size()));
     ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
 
+    ui->pushButtonNum0->setEnabled(true);
+    ui->pushButtonNum1->setEnabled(true);
+    ui->pushButtonNum2->setEnabled(true);
+    ui->pushButtonNum3->setEnabled(true);
+    ui->pushButtonNum4->setEnabled(true);
+    ui->pushButtonNum5->setEnabled(true);
+    ui->pushButtonNum6->setEnabled(true);
+    ui->pushButtonNum7->setEnabled(true);
+    ui->pushButtonNum8->setEnabled(true);
+    ui->pushButtonNum9->setEnabled(true);
 
     // Clearing the entries to start a new fresh ticket
     while (!entries.isEmpty())
