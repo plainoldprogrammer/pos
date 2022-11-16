@@ -246,16 +246,12 @@ MainWindow::MainWindow(QWidget *parent) :
         {
             if (isTicketsTableFromDbEmpty())
             {
-                /*
-                 * Create a new ticket when the program starts
-                 */
                 currentTicketIndex = tickets.size();
-                ticket = new Ticket();
-                tickets.push_back(ticket);
+
                 ui->pushButtonPreviousTicket->setEnabled(false);
                 ui->pushButtonNextTicket->setEnabled(false);
                 ui->pushButtonDeleteCurrentTicket->setEnabled(false);
-                ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex + 1));
+                ui->lineEditCurrentTicket->setText(QString::number(currentTicketIndex));
                 ui->lineEditTotalTickets->setText(QString::number(tickets.size()));
             }
             else
@@ -268,7 +264,8 @@ MainWindow::MainWindow(QWidget *parent) :
                 // This will be removed inmediately in the next 'loadTicketsFromDb()' call.
                 // Without this dummy element at the container, the compiler generate an assertion
                 // and didn't start the program.
-                tickets.push_back(new Ticket());
+
+                // tickets.push_back(new Ticket());
 
                 loadTicketsFromDb();
             }
@@ -916,11 +913,6 @@ void MainWindow::loadTicketsFromDb()
 
     if (query.exec("SELECT * FROM 'tickets';"))
     {
-        qDebug() << "Tickets data has been retrieved from the database";
-        qDebug() << "At the init tickets has " << tickets.size() << " elements" << tickets.last()->getBody();
-
-        tickets.remove(0);
-
         while (query.next())
         {
             // qDebug() << query.value(1).toString();
