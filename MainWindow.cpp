@@ -904,12 +904,10 @@ bool MainWindow::createTicketsTable()
     QSqlQuery sqlQuery;
     if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
     {
-        qDebug() << "Table tickets has been created";
         return true;
     }
     else
     {
-        qWarning() <<"Can't create table tickets" ;
         return false;
     }
 }
