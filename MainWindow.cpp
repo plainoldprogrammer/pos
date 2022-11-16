@@ -906,10 +906,8 @@ bool MainWindow::createTicketsTable()
     {
         return true;
     }
-    else
-    {
-        return false;
-    }
+
+    return false;
 }
 
 void MainWindow::loadTicketsFromDb()
