@@ -882,30 +882,28 @@ void MainWindow::createDBConnection()
 
     if (!dbDirectory.exists())
     {
-        dbDirectory.mkdir(".");
-
         QMessageBox::warning(this, "Error", "DB Directory doesn't exists");
-        QMessageBox::StandardButton notification;
-        notification = QMessageBox::information(this, "New Database Created", "A new directory and a new database\nhas been created");
-    }
-
-    if (db.open())
-    {
-        qDebug() << "The db has been opened";
     }
     else
     {
-        qWarning() << "Can't open db";
-    }
+        if (db.open())
+        {
+            qDebug() << "The db has been opened";
 
-    QSqlQuery sqlQuery;
-    if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
-    {
-        qDebug() << "Table tickets has been created";
-    }
-    else
-    {
-        qWarning() <<"Can't create table tickets" ;
+            QSqlQuery sqlQuery;
+            if (sqlQuery.exec("CREATE TABLE IF NOT EXISTS 'tickets' ( 'id'	INTEGER PRIMARY KEY AUTOINCREMENT, 'item'	TEXT, 'amount'	INTEGER, 'dateandtime' DATETIME DEFAULT CURRENT_TIMESTAMP);"))
+            {
+                qDebug() << "Table tickets has been created";
+            }
+            else
+            {
+                qWarning() <<"Can't create table tickets" ;
+            }
+        }
+        else
+        {
+            qWarning() << "Can't open db";
+        }
     }
 }
 
