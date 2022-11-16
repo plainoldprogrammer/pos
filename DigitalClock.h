@@ -1,5 +1,5 @@
 #ifndef DIGITALCLOCK_H
-#define DIGITALCLICK_H
+#define DIGITALCLOCK_H
 
 #include <QLCDNumber>
 
