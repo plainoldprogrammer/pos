@@ -927,16 +927,6 @@ void MainWindow::loadTicketsFromDb()
             ticket->setId(query.value(0).toInt());
         }
 
-        qDebug() << tickets.size() << " tickets loaded from database to memory";
-
-        // Create and empty ticket
-        ticket = new Ticket();
-        ticket->setHeader(ui->ticketHeader->text());
-        ticket->setBody("");
-        ticket->setTicketTotalAmount(0);
-        ticket->setFooter(ui->ticketFooter->text());
-        tickets.push_back(ticket);
-
         // Put the new ticket over all the loeaded tickets
         ui->orderDisplay->setText((tickets[tickets.size() - 1])->getBody());
         ui->totalAmountDisplay->setText("TOTAL $ " + QString::number((tickets[tickets.size() - 1])->getTicketTotalAmount()));
@@ -945,10 +935,6 @@ void MainWindow::loadTicketsFromDb()
         ui->pushButtonNextTicket->setEnabled(false);
         ui->pushButtonPreviousTicket->setEnabled(true);
         currentTicketIndex = tickets.size() - 1;
-    }
-    else
-    {
-        qWarning() << "Can't load tickets data from the database";
     }
 }
 
