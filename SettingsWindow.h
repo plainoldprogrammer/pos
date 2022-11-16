@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QColor>
 #include <QDebug>
-#include <QColordialog>
+#include <QColorDialog>
 #include <QPalette>
 #include <QRgb>
 
