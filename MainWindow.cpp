@@ -969,7 +969,6 @@ bool MainWindow::isTicketsTableFromDbEmpty()
     {
         query.next();
         rowsCount = query.value(0).toInt();
-        qDebug() << "Table tickets has " << rowsCount << " rows";
     }
 
     if (rowsCount == 0)
